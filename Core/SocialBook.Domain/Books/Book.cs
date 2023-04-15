@@ -1,8 +1,9 @@
-﻿using SocialBook.Domain.Identity;
+﻿using SocialBook.Domain.Common;
+using SocialBook.Domain.Identity;
 
 namespace SocialBook.Domain.Books
 {
-    public class Book
+    public class Book : BaseEntity
     {
         /// <summary>
         /// Gets or sets the name
