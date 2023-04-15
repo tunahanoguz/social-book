@@ -3,9 +3,58 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{74ADD36A-67E1-4640-85A0-E23E3AADC9D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialBook.Application", "Core\SocialBook.Application\SocialBook.Application.csproj", "{91EDEBBE-E407-4215-8414-761AD8BB34C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialBook.Domain", "Core\SocialBook.Domain\SocialBook.Domain.csproj", "{4B791015-7C8B-4783-8DE6-87276C09A6EA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{2EA0A49A-5995-45DB-A31B-55694B231490}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialBook.Infrastructure", "Infrastructure\SocialBook.Infrastructure\SocialBook.Infrastructure.csproj", "{65AD3714-E4C2-4396-922A-8FE3E4E9DF90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialBook.Persistence", "Infrastructure\SocialBook.Persistence\SocialBook.Persistence.csproj", "{0953D1A0-451B-4972-A09B-58FF036EAD4F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{93E3730D-F6A6-4222-80A1-6D5326D70FA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialBook.API", "Presentation\SocialBook.API\SocialBook.API.csproj", "{6E48967B-CA5D-48C3-A1F0-A89284079257}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91EDEBBE-E407-4215-8414-761AD8BB34C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91EDEBBE-E407-4215-8414-761AD8BB34C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91EDEBBE-E407-4215-8414-761AD8BB34C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91EDEBBE-E407-4215-8414-761AD8BB34C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B791015-7C8B-4783-8DE6-87276C09A6EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B791015-7C8B-4783-8DE6-87276C09A6EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B791015-7C8B-4783-8DE6-87276C09A6EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B791015-7C8B-4783-8DE6-87276C09A6EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65AD3714-E4C2-4396-922A-8FE3E4E9DF90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65AD3714-E4C2-4396-922A-8FE3E4E9DF90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65AD3714-E4C2-4396-922A-8FE3E4E9DF90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65AD3714-E4C2-4396-922A-8FE3E4E9DF90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0953D1A0-451B-4972-A09B-58FF036EAD4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0953D1A0-451B-4972-A09B-58FF036EAD4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0953D1A0-451B-4972-A09B-58FF036EAD4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0953D1A0-451B-4972-A09B-58FF036EAD4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E48967B-CA5D-48C3-A1F0-A89284079257}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E48967B-CA5D-48C3-A1F0-A89284079257}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E48967B-CA5D-48C3-A1F0-A89284079257}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E48967B-CA5D-48C3-A1F0-A89284079257}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{91EDEBBE-E407-4215-8414-761AD8BB34C8} = {74ADD36A-67E1-4640-85A0-E23E3AADC9D3}
+		{4B791015-7C8B-4783-8DE6-87276C09A6EA} = {74ADD36A-67E1-4640-85A0-E23E3AADC9D3}
+		{65AD3714-E4C2-4396-922A-8FE3E4E9DF90} = {2EA0A49A-5995-45DB-A31B-55694B231490}
+		{0953D1A0-451B-4972-A09B-58FF036EAD4F} = {2EA0A49A-5995-45DB-A31B-55694B231490}
+		{6E48967B-CA5D-48C3-A1F0-A89284079257} = {93E3730D-F6A6-4222-80A1-6D5326D70FA7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1818A07F-A365-44CD-80B5-CF71D00DEF80}
