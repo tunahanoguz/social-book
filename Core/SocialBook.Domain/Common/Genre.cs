@@ -2,7 +2,7 @@
 
 namespace SocialBook.Domain.Common
 {
-    public class Genre
+    public class Genre : BaseEntity
     {
         /// <summary>
         /// Gets or sets the name
