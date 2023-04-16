@@ -24,5 +24,10 @@ namespace SocialBook.Domain.Authors
         /// Gets or sets the author reviwer user
         /// </summary>
         public AppUser User { get; set; }
+
+        /// <summary>
+        /// Gets or sets all author review images
+        /// </summary>
+        public ICollection<AuthorReviewImage> Images { get; set; }
     }
 }
