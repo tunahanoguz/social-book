@@ -24,5 +24,10 @@ namespace SocialBook.Domain.Books
         /// Gets or sets the book reviwer user
         /// </summary>
         public AppUser User { get; set; }
+
+        /// <summary>
+        /// Gets or sets book review images
+        /// </summary>
+        public ICollection<BookReviewImage> Images { get; set; }
     }
 }

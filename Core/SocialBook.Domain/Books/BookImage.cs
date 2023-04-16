@@ -23,10 +23,5 @@ namespace SocialBook.Domain.Books
         /// Gets or sets the associated book
         /// </summary>
         public Book Book { get; set; }
-
-        /// <summary>
-        /// Gets or sets book review images
-        /// </summary>
-        public ICollection<BookReviewImage> Images { get; set; }
     }
 }
