@@ -2,7 +2,7 @@
 
 namespace SocialBook.Domain.Books
 {
-    public class BookImage : BaseEntity
+    public class BookReviewImage : BaseEntity
     {
         /// <summary>
         /// Gets or sets the image file name
@@ -20,13 +20,8 @@ namespace SocialBook.Domain.Books
         public double FileSize { get; set; }
 
         /// <summary>
-        /// Gets or sets the associated book
+        /// Gets or sets the associated book review
         /// </summary>
-        public Book Book { get; set; }
-
-        /// <summary>
-        /// Gets or sets book review images
-        /// </summary>
-        public ICollection<BookReviewImage> Images { get; set; }
+        public BookReview BookReview { get; set; }
     }
 }
