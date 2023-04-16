@@ -24,5 +24,10 @@ namespace SocialBook.Domain.Communities
         /// Gets or sets the post owner user
         /// </summary>
         public AppUser User { get; set; }
+
+        /// <summary>
+        /// Gets or sets all community post images
+        /// </summary>
+        public ICollection<CommunityPostImage> Images { get; set; }
     }
 }
