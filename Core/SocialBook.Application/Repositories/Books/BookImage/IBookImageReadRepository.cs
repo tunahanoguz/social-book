@@ -3,7 +3,7 @@ using SocialBook.Domain.Entities.Books;
 
 namespace SocialBook.Application.Repositories.Books
 {
-    internal interface IBookImageReadRepository : IReadRepository<BookImage>
+    public interface IBookImageReadRepository : IReadRepository<BookImage>
     {
     }
 }
