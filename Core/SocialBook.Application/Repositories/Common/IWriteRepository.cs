@@ -1,4 +1,4 @@
-﻿using SocialBook.Domain.Common;
+﻿using SocialBook.Domain.Entities.Common;
 
 namespace SocialBook.Application.Repositories.Common
 {

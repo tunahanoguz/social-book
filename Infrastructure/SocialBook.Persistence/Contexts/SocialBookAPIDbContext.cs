@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using SocialBook.Domain.Authors;
-using SocialBook.Domain.Books;
-using SocialBook.Domain.Common;
-using SocialBook.Domain.Communities;
-using SocialBook.Domain.Identity;
-using SocialBook.Domain.Users;
+using SocialBook.Domain.Entities.Authors;
+using SocialBook.Domain.Entities.Books;
+using SocialBook.Domain.Entities.Common;
+using SocialBook.Domain.Entities.Communities;
+using SocialBook.Domain.Entities.Identity;
+using SocialBook.Domain.Entities.Users;
 
 namespace SocialBook.Persistence.Contexts
 {

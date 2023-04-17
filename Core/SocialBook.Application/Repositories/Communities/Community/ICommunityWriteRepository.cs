@@ -1,5 +1,5 @@
 ﻿using SocialBook.Application.Repositories.Common;
-using SocialBook.Domain.Communities;
+using SocialBook.Domain.Entities.Communities;
 
 namespace SocialBook.Application.Repositories.Communities
 {

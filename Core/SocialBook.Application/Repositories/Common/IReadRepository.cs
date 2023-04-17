@@ -1,4 +1,4 @@
-﻿using SocialBook.Domain.Common;
+﻿using SocialBook.Domain.Entities.Common;
 using System.Linq.Expressions;
 
 namespace SocialBook.Application.Repositories.Common

@@ -1,5 +1,5 @@
 ﻿using SocialBook.Application.Repositories.Common;
-using SocialBook.Domain.Authors;
+using SocialBook.Domain.Entities.Authors;
 
 namespace SocialBook.Application.Repositories.Authors
 {

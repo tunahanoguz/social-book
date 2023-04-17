@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SocialBook.Application.Repositories.Common;
-using SocialBook.Domain.Common;
+using SocialBook.Domain.Entities.Common;
 using SocialBook.Persistence.Contexts;
 using System.Linq.Expressions;
 
