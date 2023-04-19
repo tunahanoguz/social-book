@@ -6,6 +6,7 @@ using SocialBook.Domain.Entities.Common;
 using SocialBook.Domain.Entities.Communities;
 using SocialBook.Domain.Entities.Identity;
 using SocialBook.Domain.Entities.Users;
+using SocialBook.Persistence.DataSeeders;
 
 namespace SocialBook.Persistence.Contexts
 {
@@ -65,5 +66,32 @@ namespace SocialBook.Persistence.Contexts
             return base.SaveChangesAsync(cancellationToken);
         }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            builder.Entity<Genre>().HasIndex(e => e.Slug).IsUnique();
+            builder.Entity<Author>().HasIndex(e => e.Slug).IsUnique();
+            builder.Entity<Book>().HasIndex(e => e.Slug).IsUnique();
+            builder.Entity<Community>().HasIndex(e => e.Name).IsUnique();
+
+            builder.SeedUserRoles();
+            builder.SeedUsers();
+            builder.SeedUsersRoles();
+            builder.SeedGenres();
+            builder.SeedSiteSettings();
+            builder.SeedAuthors();
+            builder.SeedAuthorGenres();
+            builder.SeedAuthorImages();
+            builder.SeedAuthorRecommendations();
+            builder.SeedAuthorReviews();
+            builder.SeedAuthorReviewImages();
+            builder.SeedAuthorReviewLikes();
+            builder.SeedAuthorReviewDislikes();
+            builder.SeedAuthorSubscriptions();
+            builder.SeedBooks();
+            builder.SeedBookGenres();
+            builder.SeedBookImages();
+        }
     }
 }

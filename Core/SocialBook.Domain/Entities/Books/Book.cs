@@ -58,17 +58,17 @@ namespace SocialBook.Domain.Entities.Books
         /// <summary>
         /// Gets or sets a value indicating whether users are allowed to publish review about the book
         /// </summary>
-        public bool IsAllowedReview { get; set; }
+        public bool IsAllowedReview { get; set; } = true;
 
         /// <summary>
         /// Gets or sets a value indicating whether users are allowed to recommend the book to another users
         /// </summary>
-        public bool IsAllowedRecommendation { get; set; }
+        public bool IsAllowedRecommendation { get; set; } = true;
 
         /// <summary>
         /// Gets or sets a value indicating whether users are allowed to subscribe the book to be informed about new updates
         /// </summary>
-        public bool IsAllowedSubscription { get; set; }
+        public bool IsAllowedSubscription { get; set; } = true;
 
         /// <summary>
         /// Gets or sets the creator user
