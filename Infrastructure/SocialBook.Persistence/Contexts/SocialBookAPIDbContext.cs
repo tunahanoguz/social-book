@@ -114,6 +114,32 @@ namespace SocialBook.Persistence.Contexts
 
             builder.Entity<AppUserRole>().HasData(usersRoles);
 
+            var genres = new Genre[]
+            {
+                new Genre
+                {
+                    Id = new Guid(),
+                    Name = "Art",
+                    MetaTitle = "Art",
+                    MetaDescription = "Description for Art genre",
+                    MetaKeywords = "art books, art genre books",
+                    Slug = "art",
+                    User = users[0]
+                },
+                new Genre
+                {
+                    Id = new Guid(),
+                    Name = "Biography",
+                    MetaTitle = "Biography",
+                    MetaDescription = "Description for Biography genre",
+                    MetaKeywords = "biography books, biography genre books",
+                    Slug = "biography",
+                    User = users[1]
+                }
+            };
+
+            builder.Entity<Genre>().HasData(genres);
+
             var authors = new Author[]
             {
                 new Author
