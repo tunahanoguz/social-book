@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using SocialBook.Domain.Entities.Authors;
 using SocialBook.Domain.Entities.Books;
@@ -65,5 +66,53 @@ namespace SocialBook.Persistence.Contexts
             return base.SaveChangesAsync(cancellationToken);
         }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            var userRoles = new AppRole[]
+            {
+                new AppRole { Id = new Guid().ToString(), Name = "Admin", NormalizedName = "ADMIN" },
+                new AppRole { Id = new Guid().ToString(), Name = "Editor", NormalizedName = "EDITOR" }
+            };
+
+            builder.Entity<AppRole>().HasData(userRoles);
+
+            var passwordHasher = new PasswordHasher<AppUser>();
+
+            var users = new AppUser[]
+            {
+                new AppUser
+                {
+                    Id = new Guid().ToString(),
+                    FirstName = "Tunahan",
+                    LastName = "Oğuz",
+                    Description = "Detail description about Tunahan Oğuz",
+                    UserName = "tunahanoguz",
+                    Email = "tunahanog@gmail.com",
+                    PasswordHash = passwordHasher.HashPassword(null, "Tunahan123--")
+                },
+                new AppUser
+                {
+                    Id = new Guid().ToString(),
+                    FirstName = "John",
+                    LastName = "Doe",
+                    Description = "Detail description about John Doe",
+                    UserName = "johndoe",
+                    Email = "johndoe@examplemail.com",
+                    PasswordHash = passwordHasher.HashPassword(null, "John123--")
+                }
+            };
+
+            builder.Entity<AppUser>().HasData(users);
+
+            var usersRoles = new AppUserRole[]
+            {
+                new AppUserRole { UserId = users[0].Id, RoleId = userRoles[0].Id },
+                new AppUserRole { UserId = users[1].Id, RoleId = userRoles[1].Id }
+            };
+
+            builder.Entity<AppUserRole>().HasData(usersRoles);
+        }
     }
 }
