@@ -84,6 +84,7 @@ namespace SocialBook.Persistence.Contexts
             builder.SeedAuthorReviewLikes();
             builder.SeedAuthorReviewDislikes();
             builder.SeedAuthorSubscriptions();
+            builder.SeedBooks();
         }
     }
 }
