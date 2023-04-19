@@ -29,6 +29,16 @@ namespace SocialBook.Persistence.DataSeeders
                 UserName = "johndoe",
                 Email = "johndoe@examplemail.com",
                 PasswordHash = _passwordHasher.HashPassword(null, "John123--")
+            },
+            new AppUser
+            {
+                Id = new Guid().ToString(),
+                FirstName = "Jane",
+                LastName = "Doe",
+                Description = "Detail description about Jane Doe",
+                UserName = "janedoe",
+                Email = "janedoe@examplemail.com",
+                PasswordHash = _passwordHasher.HashPassword(null, "Jane123--")
             }
         };
 
