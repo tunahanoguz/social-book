@@ -8,7 +8,8 @@ namespace SocialBook.Persistence.DataSeeders
         private static AppRole[] Roles => new AppRole[]
         {
             new AppRole { Id = new Guid().ToString(), Name = "Admin", NormalizedName = "ADMIN" },
-            new AppRole { Id = new Guid().ToString(), Name = "Editor", NormalizedName = "EDITOR" }
+            new AppRole { Id = new Guid().ToString(), Name = "Editor", NormalizedName = "EDITOR" },
+            new AppRole { Id = new Guid().ToString(), Name = "Reader", NormalizedName = "READER" }
         };
 
         public static void SeedUserRoles(this ModelBuilder builder)
