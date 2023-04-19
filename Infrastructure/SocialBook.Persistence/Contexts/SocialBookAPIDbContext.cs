@@ -74,6 +74,7 @@ namespace SocialBook.Persistence.Contexts
             builder.SeedUsers();
             builder.SeedUsersRoles();
             builder.SeedGenres();
+            builder.SeedSiteSettings();
             builder.SeedAuthors();
             builder.SeedAuthorGenres();
             builder.SeedAuthorImages();
