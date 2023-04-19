@@ -7,10 +7,8 @@ namespace SocialBook.Persistence.DataSeeders
     {
         private static AuthorSubscription[] AuthorSubscriptions => new AuthorSubscription[]
         {
-            new AuthorSubscription { Id = new Guid(), Author = Authors[0], User = Users[0] },
-            new AuthorSubscription { Id = new Guid(), Author = Authors[0], User = Users[1] },
-            new AuthorSubscription { Id = new Guid(), Author = Authors[1], User = Users[0] },
-            new AuthorSubscription { Id = new Guid(), Author = Authors[1], User = Users[1] },
+            new AuthorSubscription { Id = new Guid(), Author = Authors[0], User = Users[2] },
+            new AuthorSubscription { Id = new Guid(), Author = Authors[1], User = Users[2] }
         };
 
         public static void SeedAuthorSubscriptions(this ModelBuilder builder)
