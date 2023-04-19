@@ -79,6 +79,7 @@ namespace SocialBook.Persistence.Contexts
             builder.SeedAuthorImages();
             builder.SeedAuthorRecommendations();
             builder.SeedAuthorReviews();
+            builder.SeedAuthorReviewImages();
             builder.SeedAuthorReviewLikes();
             builder.SeedAuthorReviewDislikes();
         }
