@@ -8,25 +8,15 @@ namespace SocialBook.Persistence.DataSeeders
         private static Genre[] Genres => new Genre[]
         {
             new Genre
-                {
-                    Id = new Guid(),
-                    Name = "Art",
-                    MetaTitle = "Art",
-                    MetaDescription = "Description for Art genre",
-                    MetaKeywords = "art books, art genre books",
-                    Slug = "art",
-                    User = Users[0]
-                },
-                new Genre
-                {
-                    Id = new Guid(),
-                    Name = "Biography",
-                    MetaTitle = "Biography",
-                    MetaDescription = "Description for Biography genre",
-                    MetaKeywords = "biography books, biography genre books",
-                    Slug = "biography",
-                    User = Users[1]
-                }
+            {
+                Id = new Guid(),
+                Name = "Novel",
+                MetaTitle = "Novel",
+                MetaDescription = "Description for Novel genre",
+                MetaKeywords = "novel books, novel genre books",
+                Slug = "novel",
+                User = Users[0]
+            }
         };
 
         public static void SeedGenres(this ModelBuilder builder)
