@@ -8,7 +8,8 @@ namespace SocialBook.Persistence.DataSeeders
         private static AppUserRole[] UsersRoles => new AppUserRole[]
         {
             new AppUserRole { UserId = Users[0].Id, RoleId = Roles[0].Id },
-            new AppUserRole { UserId = Users[1].Id, RoleId = Roles[1].Id }
+            new AppUserRole { UserId = Users[1].Id, RoleId = Roles[1].Id },
+            new AppUserRole { UserId = Users[2].Id, RoleId = Roles[2].Id }
         };
 
         public static void SeedUsersRoles(this ModelBuilder builder)
