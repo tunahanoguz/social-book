@@ -17,7 +17,9 @@ namespace SocialBook.Persistence.DataSeeders
                 LastName = "Oğuz",
                 Description = "Detail description about Tunahan Oğuz",
                 UserName = "tunahanoguz",
+                NormalizedUserName = "TUNAHANOGUZ",
                 Email = "tunahanog@gmail.com",
+                NormalizedEmail = "TUNAHANOG@GMAIL.COM",
                 PasswordHash = _passwordHasher.HashPassword(null, "Tunahan123--")
             },
             new AppUser
@@ -27,7 +29,9 @@ namespace SocialBook.Persistence.DataSeeders
                 LastName = "Doe",
                 Description = "Detail description about John Doe",
                 UserName = "johndoe",
+                NormalizedUserName = "JOHNDOE",
                 Email = "johndoe@examplemail.com",
+                NormalizedEmail = "JOHNDOE@EXAMPLEMAIL.COM",
                 PasswordHash = _passwordHasher.HashPassword(null, "John123--")
             },
             new AppUser
@@ -37,7 +41,9 @@ namespace SocialBook.Persistence.DataSeeders
                 LastName = "Doe",
                 Description = "Detail description about Jane Doe",
                 UserName = "janedoe",
+                NormalizedUserName = "JANEDOE",
                 Email = "janedoe@examplemail.com",
+                NormalizedEmail = "JANEDOE@EXAMPLEMAIL.COM",
                 PasswordHash = _passwordHasher.HashPassword(null, "Jane123--")
             }
         };

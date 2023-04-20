@@ -18,27 +18,27 @@ namespace SocialBook.Domain.Entities.Communities
         /// <summary>
         /// Gets or sets a value indicating whether users are allowed to see community post without being a member
         /// </summary>
-        public bool IsPrivate { get; set; }
+        public bool IsPrivate { get; set; } = false;
 
         /// <summary>
         /// Gets or sets a value indicating whether users are allowed to be a member of the community
         /// </summary>
-        public bool IsAllowedMembership { get; set; }
+        public bool IsAllowedMembership { get; set; } = true;
 
         /// <summary>
         /// Gets or sets a value indicating whether owner user is allowed to assing a new moderator to the community
         /// </summary>
-        public bool IsAllowedNewModerator { get; set; }
+        public bool IsAllowedNewModerator { get; set; } = true;
 
         /// <summary>
         /// Gets or sets a value indicating whether users are allowed to create a new post for the community
         /// </summary>
-        public bool IsAllowedNewPost { get; set; }
+        public bool IsAllowedNewPost { get; set; } = true;
 
         /// <summary>
         /// Gets or sets a value indicating whether users are allowed to make a new comment to a community post
         /// </summary>
-        public bool IsAllowedNewPostComment { get; set; }
+        public bool IsAllowedNewPostComment { get; set; } = true;
 
         /// <summary>
         /// Gets or sets the profile image id

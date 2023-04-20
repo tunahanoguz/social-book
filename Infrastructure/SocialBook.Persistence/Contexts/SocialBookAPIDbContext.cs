@@ -70,11 +70,6 @@ namespace SocialBook.Persistence.Contexts
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<Genre>().HasIndex(e => e.Slug).IsUnique();
-            builder.Entity<Author>().HasIndex(e => e.Slug).IsUnique();
-            builder.Entity<Book>().HasIndex(e => e.Slug).IsUnique();
-            builder.Entity<Community>().HasIndex(e => e.Name).IsUnique();
-
             builder.SeedUserRoles();
             builder.SeedUsers();
             builder.SeedUsersRoles();
@@ -92,6 +87,25 @@ namespace SocialBook.Persistence.Contexts
             builder.SeedBooks();
             builder.SeedBookGenres();
             builder.SeedBookImages();
+            builder.SeedBookReviews();
+            builder.SeedBookReviewImages();
+            builder.SeedBookReviewLikes();
+            builder.SeedBookReviewDislikes();
+            builder.SeedBookRecommendations();
+            builder.SeedBookSubscription();
+            builder.SeedCommunityImages();
+            builder.SeedCommunities();
+            builder.SeedCommunityGenres();
+            builder.SeedCommunityMembers();
+            builder.SeedCommunityModerators();
+            builder.SeedCommunityPosts();
+            builder.SeedCommunityPostComments();
+            builder.SeedCommunityPostImages();
+            builder.SeedUserImages();
+            builder.SeedUserFavoriteBooks();
+            builder.SeedUserSocialMediaPlatforms();
+            builder.SeedUserSocialMedia();
+            builder.SeedUserWantToReadBooks();
         }
     }
 }
