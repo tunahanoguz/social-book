@@ -101,6 +101,7 @@ namespace SocialBook.Persistence.Contexts
             builder.SeedCommunityImages();
             builder.SeedCommunities();
             builder.SeedCommunityGenres();
+            builder.SeedCommunityMembers();
         }
     }
 }
