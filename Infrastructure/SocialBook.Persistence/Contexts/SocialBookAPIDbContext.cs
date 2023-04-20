@@ -110,6 +110,7 @@ namespace SocialBook.Persistence.Contexts
             builder.SeedUserFavoriteBooks();
             builder.SeedUserSocialMediaPlatforms();
             builder.SeedUserSocialMedia();
+            builder.SeedUserWantToReadBooks();
         }
     }
 }
