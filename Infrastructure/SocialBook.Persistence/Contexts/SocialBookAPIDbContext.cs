@@ -99,6 +99,7 @@ namespace SocialBook.Persistence.Contexts
             builder.SeedBookRecommendations();
             builder.SeedBookSubscription();
             builder.SeedCommunities();
+            builder.SeedCommunityGenres();
         }
     }
 }
