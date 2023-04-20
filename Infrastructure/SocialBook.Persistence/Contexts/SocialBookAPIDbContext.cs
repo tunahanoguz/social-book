@@ -70,11 +70,6 @@ namespace SocialBook.Persistence.Contexts
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<Genre>().HasIndex(e => e.Slug).IsUnique();
-            builder.Entity<Author>().HasIndex(e => e.Slug).IsUnique();
-            builder.Entity<Book>().HasIndex(e => e.Slug).IsUnique();
-            builder.Entity<Community>().HasIndex(e => e.Name).IsUnique();
-
             builder.SeedUserRoles();
             builder.SeedUsers();
             builder.SeedUsersRoles();
