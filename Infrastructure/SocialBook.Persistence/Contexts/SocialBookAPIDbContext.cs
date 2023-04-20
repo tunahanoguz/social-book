@@ -92,6 +92,7 @@ namespace SocialBook.Persistence.Contexts
             builder.SeedBooks();
             builder.SeedBookGenres();
             builder.SeedBookImages();
+            builder.SeedBookReviews();
             builder.SeedBookRecommendations();
         }
     }
