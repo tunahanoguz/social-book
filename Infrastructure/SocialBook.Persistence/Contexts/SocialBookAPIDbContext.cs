@@ -103,6 +103,7 @@ namespace SocialBook.Persistence.Contexts
             builder.SeedCommunityGenres();
             builder.SeedCommunityMembers();
             builder.SeedCommunityModerators();
+            builder.SeedCommunityPosts();
         }
     }
 }
