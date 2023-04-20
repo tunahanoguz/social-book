@@ -106,6 +106,7 @@ namespace SocialBook.Persistence.Contexts
             builder.SeedCommunityPosts();
             builder.SeedCommunityPostComments();
             builder.SeedCommunityPostImages();
+            builder.SeedUserImages();
             builder.SeedUserFavoriteBooks();
             builder.SeedUserSocialMediaPlatforms();
             builder.SeedUserSocialMedia();
