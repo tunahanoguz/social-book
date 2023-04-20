@@ -23,4 +23,8 @@
     <ProjectReference Include="..\..\Core\SocialBook.Application\SocialBook.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DataSeeders\Users\" />
+  </ItemGroup>
+
 </Project>
