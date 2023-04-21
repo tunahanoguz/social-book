@@ -66,6 +66,11 @@ namespace SocialBook.Domain.Entities.Authors
         public bool IsAllowedSubscription { get; set; }
 
         /// <summary>
+        /// Gets or sets the creator user identifier
+        /// </summary>
+        public Guid CreatorUserId { get; set; }
+
+        /// <summary>
         /// Gets or sets the creator user
         /// </summary>
         public AppUser CreatorUser { get; set; }
