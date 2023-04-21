@@ -75,6 +75,7 @@ namespace SocialBook.Persistence.Contexts
 
             builder.ApplyConfiguration(_entityConfiguration.AppUserConfiguration);
             builder.ApplyConfiguration(_entityConfiguration.AppRoleConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.AppUserRoleConfiguration);
         }
     }
 }
