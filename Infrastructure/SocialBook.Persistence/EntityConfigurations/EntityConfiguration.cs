@@ -7,5 +7,6 @@ namespace SocialBook.Persistence.EntityConfigurations
     public class EntityConfiguration : IEntityConfiguration
     {
         public IEntityTypeConfiguration<AppUser> AppUserConfiguration { get; set; } = new AppUserConfiguration();
+        public IEntityTypeConfiguration<AppRole> AppRoleConfiguration { get; set; } = new AppRoleConfiguration();
     }
 }
