@@ -16,9 +16,19 @@ namespace SocialBook.Domain.Entities.Authors
         public string Comment { get; set; }
 
         /// <summary>
+        /// Gets or sets the author identifier
+        /// </summary>
+        public Guid AuthorId { get; set; }
+
+        /// <summary>
         /// Gets or sets the reviewed author
         /// </summary>
         public Author Author { get; set; }
+
+        /// <summary>
+        /// Gets or sets the user identifier
+        /// </summary>
+        public string UserId { get; set; }
 
         /// <summary>
         /// Gets or sets the author reviwer user
