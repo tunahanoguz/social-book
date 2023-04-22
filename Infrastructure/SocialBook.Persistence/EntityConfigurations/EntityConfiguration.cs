@@ -51,5 +51,6 @@ namespace SocialBook.Persistence.EntityConfigurations
         public IEntityTypeConfiguration<CommunityModerator> CommunityModeratorConfiguration { get; set; } = new CommunityModeratorConfiguration();
         public IEntityTypeConfiguration<CommunityPost> CommunityPostConfiguration { get; set; } = new CommunityPostConfiguration();
         public IEntityTypeConfiguration<CommunityPostImage> CommunityPostImageConfiguration { get; set; } = new CommunityPostImageConfiguration();
+        public IEntityTypeConfiguration<CommunityPostComment> CommunityPostCommentConfiguration { get; set; } = new CommunityPostCommentConfiguration();
     }
 }
