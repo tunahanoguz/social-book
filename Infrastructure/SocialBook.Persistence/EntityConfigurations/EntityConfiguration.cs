@@ -39,5 +39,6 @@ namespace SocialBook.Persistence.EntityConfigurations
         public IEntityTypeConfiguration<BookSubscription> BookSubscriptionConfiguration { get; set; } = new BookSubscriptionConfiguration();
         public IEntityTypeConfiguration<UserFavoriteBook> UserFavoriteBookConfiguration { get; set; } = new UserFavoriteBookConfiguration();
         public IEntityTypeConfiguration<UserImage> UserImageConfiguration { get; set; } = new UserImageConfiguration();
+        public IEntityTypeConfiguration<UserWantToReadBook> UserWantToReadBookConfiguration { get; set; } = new UserWantToReadBookConfiguration();
     }
 }
