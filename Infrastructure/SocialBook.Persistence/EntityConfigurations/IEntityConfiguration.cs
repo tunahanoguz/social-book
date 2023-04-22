@@ -30,5 +30,6 @@ namespace SocialBook.Persistence.EntityConfigurations
         IEntityTypeConfiguration<BookReviewDislike> BookReviewDislikeConfiguration { get; set; }
         IEntityTypeConfiguration<BookReviewImage> BookReviewImageConfiguration { get; set; }
         IEntityTypeConfiguration<BookRecommendation> BookRecommendationConfiguration { get; set; }
+        IEntityTypeConfiguration<BookSubscription> BookSubscriptionConfiguration { get; set; }
     }
 }
