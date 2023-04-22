@@ -41,14 +41,29 @@ namespace SocialBook.Domain.Entities.Communities
         public bool IsAllowedNewPostComment { get; set; } = true;
 
         /// <summary>
-        /// Gets or sets the profile image id
+        /// Gets or sets the profile image identifier
         /// </summary>
-        public CommunityImage ProfileImageId { get; set; }
+        public Guid ProfileImageId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the profile image
+        /// </summary>
+        public CommunityImage ProfileImage { get; set; }
+
+        /// <summary>
+        /// Gets or sets the cover image identifier
+        /// </summary>
+        public Guid CoverImageId { get; set; }
 
         /// <summary>
         /// Gets or sets the cover image id
         /// </summary>
-        public CommunityImage CoverImageId { get; set; }
+        public CommunityImage CoverImage { get; set; }
+
+        /// <summary>
+        /// Gets or sets the identifier of the owner user of the community
+        /// </summary>
+        public string OwnerUserId { get; set; }
 
         /// <summary>
         /// Gets or sets the owner user of the community

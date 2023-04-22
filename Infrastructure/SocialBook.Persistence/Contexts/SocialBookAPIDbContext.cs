@@ -100,6 +100,7 @@ namespace SocialBook.Persistence.Contexts
             builder.ApplyConfiguration(_entityConfiguration.UserWantToReadBookConfiguration);
             builder.ApplyConfiguration(_entityConfiguration.UserSocialMediaPlatformConfiguration);
             builder.ApplyConfiguration(_entityConfiguration.UserSocialMediaConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.CommunityConfiguration);
             builder.ApplyConfiguration(_entityConfiguration.CommunityImageConfiguration);
         }
     }

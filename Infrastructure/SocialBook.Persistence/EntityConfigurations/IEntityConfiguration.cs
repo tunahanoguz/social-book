@@ -38,6 +38,7 @@ namespace SocialBook.Persistence.EntityConfigurations
         IEntityTypeConfiguration<UserWantToReadBook> UserWantToReadBookConfiguration { get; set; }
         IEntityTypeConfiguration<UserSocialMediaPlatform> UserSocialMediaPlatformConfiguration { get; set; }
         IEntityTypeConfiguration<UserSocialMedia> UserSocialMediaConfiguration { get; set; }
+        IEntityTypeConfiguration<Community> CommunityConfiguration { get; set; }
         IEntityTypeConfiguration<CommunityImage> CommunityImageConfiguration { get; set; }
     }
 }
