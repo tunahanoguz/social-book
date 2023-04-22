@@ -25,5 +25,6 @@ namespace SocialBook.Persistence.EntityConfigurations
         IEntityTypeConfiguration<Book> BookConfiguration { get; set; }
         IEntityTypeConfiguration<BookGenre> BookGenreConfiguration { get; set; }
         IEntityTypeConfiguration<BookImage> BookImageConfiguration { get; set; }
+        IEntityTypeConfiguration<BookReview> BookReviewConfiguration { get; set; }
     }
 }
