@@ -2,6 +2,7 @@
 using SocialBook.Domain.Entities.Authors;
 using SocialBook.Domain.Entities.Books;
 using SocialBook.Domain.Entities.Common;
+using SocialBook.Domain.Entities.Communities;
 using SocialBook.Domain.Entities.Identity;
 using SocialBook.Domain.Entities.Users;
 
@@ -37,5 +38,6 @@ namespace SocialBook.Persistence.EntityConfigurations
         IEntityTypeConfiguration<UserWantToReadBook> UserWantToReadBookConfiguration { get; set; }
         IEntityTypeConfiguration<UserSocialMediaPlatform> UserSocialMediaPlatformConfiguration { get; set; }
         IEntityTypeConfiguration<UserSocialMedia> UserSocialMediaConfiguration { get; set; }
+        IEntityTypeConfiguration<CommunityImage> CommunityImageConfiguration { get; set; }
     }
 }

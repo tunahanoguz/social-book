@@ -2,11 +2,13 @@
 using SocialBook.Domain.Entities.Authors;
 using SocialBook.Domain.Entities.Books;
 using SocialBook.Domain.Entities.Common;
+using SocialBook.Domain.Entities.Communities;
 using SocialBook.Domain.Entities.Identity;
 using SocialBook.Domain.Entities.Users;
 using SocialBook.Persistence.EntityConfigurations.Authors;
 using SocialBook.Persistence.EntityConfigurations.Books;
 using SocialBook.Persistence.EntityConfigurations.Common;
+using SocialBook.Persistence.EntityConfigurations.Communities;
 using SocialBook.Persistence.EntityConfigurations.Identity;
 using SocialBook.Persistence.EntityConfigurations.Users;
 
@@ -42,5 +44,6 @@ namespace SocialBook.Persistence.EntityConfigurations
         public IEntityTypeConfiguration<UserWantToReadBook> UserWantToReadBookConfiguration { get; set; } = new UserWantToReadBookConfiguration();
         public IEntityTypeConfiguration<UserSocialMediaPlatform> UserSocialMediaPlatformConfiguration { get; set; } = new UserSocialMediaPlatformConfiguration();
         public IEntityTypeConfiguration<UserSocialMedia> UserSocialMediaConfiguration { get; set; } = new UserSocialMediaConfiguration();
+        public IEntityTypeConfiguration<CommunityImage> CommunityImageConfiguration { get; set; } = new CommunityImageConfiguration();
     }
 }
