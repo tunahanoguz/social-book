@@ -16,5 +16,6 @@ namespace SocialBook.Persistence.EntityConfigurations
         public IEntityTypeConfiguration<SiteSetting> SiteSettingConfiguration { get; set; } = new SiteSettingConfiguration();
         public IEntityTypeConfiguration<Genre> GenreConfiguration { get; set; } = new GenreConfiguration();
         public IEntityTypeConfiguration<Author> AuthorConfiguration { get; set; } = new AuthorConfiguration();
+        public IEntityTypeConfiguration<AuthorGenre> AuthorGenreConfiguration { get; set; } = new AuthorGenreConfiguration();
     }
 }
