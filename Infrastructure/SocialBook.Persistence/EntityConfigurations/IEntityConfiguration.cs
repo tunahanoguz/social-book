@@ -23,5 +23,7 @@ namespace SocialBook.Persistence.EntityConfigurations
         IEntityTypeConfiguration<AuthorRecommendation> AuthorRecommendationConfiguration { get; set; }
         IEntityTypeConfiguration<AuthorSubscription> AuthorSubscriptionConfiguration { get; set; }
         IEntityTypeConfiguration<Book> BookConfiguration { get; set; }
+        IEntityTypeConfiguration<BookGenre> BookGenreConfiguration { get; set; }
+        IEntityTypeConfiguration<BookImage> BookImageConfiguration { get; set; }
     }
 }

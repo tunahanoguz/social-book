@@ -88,6 +88,8 @@ namespace SocialBook.Persistence.Contexts
             builder.ApplyConfiguration(_entityConfiguration.AuthorRecommendationConfiguration);
             builder.ApplyConfiguration(_entityConfiguration.AuthorSubscriptionConfiguration);
             builder.ApplyConfiguration(_entityConfiguration.BookConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.BookGenreConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.BookImageConfiguration);
         }
     }
 }
