@@ -106,6 +106,7 @@ namespace SocialBook.Persistence.Contexts
             builder.ApplyConfiguration(_entityConfiguration.CommunityMemberConfiguration);
             builder.ApplyConfiguration(_entityConfiguration.CommunityModeratorConfiguration);
             builder.ApplyConfiguration(_entityConfiguration.CommunityPostConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.CommunityPostImageConfiguration);
         }
     }
 }
