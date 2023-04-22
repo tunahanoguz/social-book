@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SocialBook.Domain.Entities.Authors;
+using SocialBook.Domain.Entities.Common;
 using SocialBook.Domain.Entities.Identity;
 using SocialBook.Persistence.EntityConfigurations.Authors;
+using SocialBook.Persistence.EntityConfigurations.Common;
 using SocialBook.Persistence.EntityConfigurations.Identity;
 
 namespace SocialBook.Persistence.EntityConfigurations
@@ -11,6 +13,8 @@ namespace SocialBook.Persistence.EntityConfigurations
         public IEntityTypeConfiguration<AppUser> AppUserConfiguration { get; set; } = new AppUserConfiguration();
         public IEntityTypeConfiguration<AppRole> AppRoleConfiguration { get; set; } = new AppRoleConfiguration();
         public IEntityTypeConfiguration<AppUserRole> AppUserRoleConfiguration { get; set; } = new AppUserRoleConfiguration();
+        public IEntityTypeConfiguration<SiteSetting> SiteSettingConfiguration { get; set; } = new SiteSettingConfiguration();
+        public IEntityTypeConfiguration<Genre> GenreConfiguration { get; set; } = new GenreConfiguration();
         public IEntityTypeConfiguration<Author> AuthorConfiguration { get; set; } = new AuthorConfiguration();
     }
 }
