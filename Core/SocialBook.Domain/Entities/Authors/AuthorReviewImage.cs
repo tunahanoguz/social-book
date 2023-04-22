@@ -20,6 +20,11 @@ namespace SocialBook.Domain.Entities.Authors
         public double FileSize { get; set; }
 
         /// <summary>
+        /// Gets or sets the associated author review identifier
+        /// </summary>
+        public Guid AuthorReviewId { get; set; }
+
+        /// <summary>
         /// Gets or sets the associated author review
         /// </summary>
         public AuthorReview AuthorReview { get; set; }
