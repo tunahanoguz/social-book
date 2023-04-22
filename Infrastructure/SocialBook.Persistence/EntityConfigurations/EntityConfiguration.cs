@@ -48,5 +48,6 @@ namespace SocialBook.Persistence.EntityConfigurations
         public IEntityTypeConfiguration<CommunityImage> CommunityImageConfiguration { get; set; } = new CommunityImageConfiguration();
         public IEntityTypeConfiguration<CommunityGenre> CommunityGenreConfiguration { get; set; } = new CommunityGenreConfiguration();
         public IEntityTypeConfiguration<CommunityMember> CommunityMemberConfiguration { get; set; } = new CommunityMemberConfiguration();
+        public IEntityTypeConfiguration<CommunityModerator> CommunityModeratorConfiguration { get; set; } = new CommunityModeratorConfiguration();
     }
 }
