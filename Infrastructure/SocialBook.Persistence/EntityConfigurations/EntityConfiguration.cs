@@ -19,5 +19,6 @@ namespace SocialBook.Persistence.EntityConfigurations
         public IEntityTypeConfiguration<AuthorGenre> AuthorGenreConfiguration { get; set; } = new AuthorGenreConfiguration();
         public IEntityTypeConfiguration<AuthorImage> AuthorImageConfiguration { get; set; } = new AuthorImageConfiguration();
         public IEntityTypeConfiguration<AuthorReview> AuthorReviewConfiguration { get; set; } = new AuthorReviewConfiguration();
+        public IEntityTypeConfiguration<AuthorReviewLike> AuthorReviewLikeConfiguration { get; set; } = new AuthorReviewLikeConfiguration();
     }
 }
