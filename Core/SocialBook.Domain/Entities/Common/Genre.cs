@@ -30,6 +30,11 @@ namespace SocialBook.Domain.Entities.Common
         public string Slug { get; set; }
 
         /// <summary>
+        /// Gets or sets the creator user identifier
+        /// </summary>
+        public Guid UserId { get; set; }
+
+        /// <summary>
         /// Gets or sets the creator user
         /// </summary>
         public AppUser User { get; set; }
