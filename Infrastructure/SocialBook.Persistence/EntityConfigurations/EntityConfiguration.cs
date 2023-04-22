@@ -3,10 +3,12 @@ using SocialBook.Domain.Entities.Authors;
 using SocialBook.Domain.Entities.Books;
 using SocialBook.Domain.Entities.Common;
 using SocialBook.Domain.Entities.Identity;
+using SocialBook.Domain.Entities.Users;
 using SocialBook.Persistence.EntityConfigurations.Authors;
 using SocialBook.Persistence.EntityConfigurations.Books;
 using SocialBook.Persistence.EntityConfigurations.Common;
 using SocialBook.Persistence.EntityConfigurations.Identity;
+using SocialBook.Persistence.EntityConfigurations.Users;
 
 namespace SocialBook.Persistence.EntityConfigurations
 {
@@ -35,5 +37,6 @@ namespace SocialBook.Persistence.EntityConfigurations
         public IEntityTypeConfiguration<BookReviewImage> BookReviewImageConfiguration { get; set; } = new BookReviewImageConfiguration();
         public IEntityTypeConfiguration<BookRecommendation> BookRecommendationConfiguration { get; set; } = new BookRecommendationConfiguration();
         public IEntityTypeConfiguration<BookSubscription> BookSubscriptionConfiguration { get; set; } = new BookSubscriptionConfiguration();
+        public IEntityTypeConfiguration<UserFavoriteBook> UserFavoriteBookConfiguration { get; set; } = new UserFavoriteBookConfiguration();
     }
 }

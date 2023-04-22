@@ -95,6 +95,7 @@ namespace SocialBook.Persistence.Contexts
             builder.ApplyConfiguration(_entityConfiguration.BookReviewImageConfiguration);
             builder.ApplyConfiguration(_entityConfiguration.BookRecommendationConfiguration);
             builder.ApplyConfiguration(_entityConfiguration.BookSubscriptionConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.UserFavoriteBookConfiguration);
         }
     }
 }
