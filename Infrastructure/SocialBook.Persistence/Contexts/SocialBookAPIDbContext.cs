@@ -80,6 +80,7 @@ namespace SocialBook.Persistence.Contexts
             builder.ApplyConfiguration(_entityConfiguration.GenreConfiguration);
             builder.ApplyConfiguration(_entityConfiguration.AuthorConfiguration);
             builder.ApplyConfiguration(_entityConfiguration.AuthorGenreConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.AuthorImageConfiguration);
         }
     }
 }
