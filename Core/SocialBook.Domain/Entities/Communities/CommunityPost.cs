@@ -16,9 +16,19 @@ namespace SocialBook.Domain.Entities.Communities
         public string Body { get; set; }
 
         /// <summary>
+        /// Gets or sets the identifier of the community that the post was published
+        /// </summary>
+        public Guid CommunityId { get; set; }
+
+        /// <summary>
         /// Gets or sets the community that the post was published
         /// </summary>
         public Community Community { get; set; }
+
+        /// <summary>
+        /// Gets or sets the post owner user identifier
+        /// </summary>
+        public string UserId { get; set; }
 
         /// <summary>
         /// Gets or sets the post owner user
