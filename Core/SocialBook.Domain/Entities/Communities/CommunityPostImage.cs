@@ -20,6 +20,11 @@ namespace SocialBook.Domain.Entities.Communities
         public double FileSize { get; set; }
 
         /// <summary>
+        /// Gets or sets the associated community post identifier
+        /// </summary>
+        public Guid CommunityPostId { get; set; }
+
+        /// <summary>
         /// Gets or sets the associated community post
         /// </summary>
         public CommunityPost CommunityPost { get; set; }
