@@ -87,6 +87,7 @@ namespace SocialBook.Persistence.Contexts
             builder.ApplyConfiguration(_entityConfiguration.AuthorReviewImageConfiguration);
             builder.ApplyConfiguration(_entityConfiguration.AuthorRecommendationConfiguration);
             builder.ApplyConfiguration(_entityConfiguration.AuthorSubscriptionConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.BookConfiguration);
         }
     }
 }

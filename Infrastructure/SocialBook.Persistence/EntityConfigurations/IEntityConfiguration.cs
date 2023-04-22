@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SocialBook.Domain.Entities.Authors;
+using SocialBook.Domain.Entities.Books;
 using SocialBook.Domain.Entities.Common;
 using SocialBook.Domain.Entities.Identity;
 
@@ -21,5 +22,6 @@ namespace SocialBook.Persistence.EntityConfigurations
         IEntityTypeConfiguration<AuthorReviewImage> AuthorReviewImageConfiguration { get; set; }
         IEntityTypeConfiguration<AuthorRecommendation> AuthorRecommendationConfiguration { get; set; }
         IEntityTypeConfiguration<AuthorSubscription> AuthorSubscriptionConfiguration { get; set; }
+        IEntityTypeConfiguration<Book> BookConfiguration { get; set; }
     }
 }
