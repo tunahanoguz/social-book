@@ -6,14 +6,17 @@ using SocialBook.Domain.Entities.Common;
 using SocialBook.Domain.Entities.Communities;
 using SocialBook.Domain.Entities.Identity;
 using SocialBook.Domain.Entities.Users;
-using SocialBook.Persistence.DataSeeders;
+using SocialBook.Persistence.EntityConfigurations;
 
 namespace SocialBook.Persistence.Contexts
 {
     public class SocialBookAPIDbContext : IdentityDbContext<AppUser, AppRole, string>
     {
-        public SocialBookAPIDbContext(DbContextOptions options) : base(options)
+        private readonly IEntityConfiguration _entityConfiguration;
+
+        public SocialBookAPIDbContext(DbContextOptions options, IEntityConfiguration entityConfiguration) : base(options)
         {
+            _entityConfiguration = entityConfiguration;
         }
 
         public DbSet<SiteSetting> SiteSettings { get; set; }
@@ -70,42 +73,33 @@ namespace SocialBook.Persistence.Contexts
         {
             base.OnModelCreating(builder);
 
-            builder.SeedUserRoles();
-            builder.SeedUsers();
-            builder.SeedUsersRoles();
-            builder.SeedGenres();
-            builder.SeedSiteSettings();
-            builder.SeedAuthors();
-            builder.SeedAuthorGenres();
-            builder.SeedAuthorImages();
-            builder.SeedAuthorRecommendations();
-            builder.SeedAuthorReviews();
-            builder.SeedAuthorReviewImages();
-            builder.SeedAuthorReviewLikes();
-            builder.SeedAuthorReviewDislikes();
-            builder.SeedAuthorSubscriptions();
-            builder.SeedBooks();
-            builder.SeedBookGenres();
-            builder.SeedBookImages();
-            builder.SeedBookReviews();
-            builder.SeedBookReviewImages();
-            builder.SeedBookReviewLikes();
-            builder.SeedBookReviewDislikes();
-            builder.SeedBookRecommendations();
-            builder.SeedBookSubscription();
-            builder.SeedCommunityImages();
-            builder.SeedCommunities();
-            builder.SeedCommunityGenres();
-            builder.SeedCommunityMembers();
-            builder.SeedCommunityModerators();
-            builder.SeedCommunityPosts();
-            builder.SeedCommunityPostComments();
-            builder.SeedCommunityPostImages();
-            builder.SeedUserImages();
-            builder.SeedUserFavoriteBooks();
-            builder.SeedUserSocialMediaPlatforms();
-            builder.SeedUserSocialMedia();
-            builder.SeedUserWantToReadBooks();
+            builder.ApplyConfiguration(_entityConfiguration.AppUserConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.AppRoleConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.AppUserRoleConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.SiteSettingConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.GenreConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.AuthorConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.AuthorGenreConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.AuthorImageConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.AuthorReviewConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.AuthorReviewLikeConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.AuthorReviewDislikeConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.AuthorReviewImageConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.AuthorRecommendationConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.AuthorSubscriptionConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.BookConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.BookGenreConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.BookImageConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.BookReviewConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.BookReviewLikeConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.BookReviewImageConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.BookRecommendationConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.BookSubscriptionConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.UserFavoriteBookConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.UserImageConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.UserWantToReadBookConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.UserSocialMediaPlatformConfiguration);
+            builder.ApplyConfiguration(_entityConfiguration.UserSocialMediaConfiguration);
         }
     }
 }

@@ -7,6 +7,7 @@ using SocialBook.Application.Repositories.Communities;
 using SocialBook.Application.Repositories.Users;
 using SocialBook.Domain.Entities.Identity;
 using SocialBook.Persistence.Contexts;
+using SocialBook.Persistence.EntityConfigurations;
 using SocialBook.Persistence.Repositories.Authors;
 using SocialBook.Persistence.Repositories.Books;
 using SocialBook.Persistence.Repositories.Common;
@@ -21,6 +22,7 @@ namespace SocialBook.Persistence
         {
             services.AddDbContext<SocialBookAPIDbContext>(options => options.UseNpgsql(Configuration.PostgreSQLConnectionString));
             services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<SocialBookAPIDbContext>();
+            services.AddScoped<IEntityConfiguration, EntityConfiguration>();
             services.AddScoped<ISiteSettingReadRepository, SiteSettingReadRepository>();
             services.AddScoped<ISiteSettingWriteRepository, SiteSettingWriteRepository>();
             services.AddScoped<IGenreReadRepository, GenreReadRepository>();

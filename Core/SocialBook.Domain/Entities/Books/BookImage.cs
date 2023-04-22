@@ -20,6 +20,11 @@ namespace SocialBook.Domain.Entities.Books
         public double FileSize { get; set; }
 
         /// <summary>
+        /// Gets or sets the associated book identifier
+        /// </summary>
+        public Guid BookId { get; set; }
+
+        /// <summary>
         /// Gets or sets the associated book
         /// </summary>
         public Book Book { get; set; }

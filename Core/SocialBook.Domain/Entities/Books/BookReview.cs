@@ -16,9 +16,19 @@ namespace SocialBook.Domain.Entities.Books
         public string Comment { get; set; }
 
         /// <summary>
+        /// Gets or sets the reviewed book identifier
+        /// </summary>
+        public Guid BookId { get; set; }
+
+        /// <summary>
         /// Gets or sets the reviewed book
         /// </summary>
         public Book Book { get; set; }
+
+        /// <summary>
+        /// Gets or sets the book reviwer user identifier
+        /// </summary>
+        public string UserId { get; set; }
 
         /// <summary>
         /// Gets or sets the book reviwer user
