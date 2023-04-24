@@ -23,7 +23,7 @@ namespace SocialBook.Domain.Entities.Communities
         /// <summary>
         /// Gets or sets the identifier of the parent comment if the comment has been made for another comment
         /// </summary>
-        public Guid ParentCommentId { get; set; }
+        public Guid? ParentCommentId { get; set; }
 
         /// <summary>
         /// Gets or sets the parent comment if the comment has been made for another comment

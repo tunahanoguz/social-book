@@ -32,7 +32,7 @@ namespace SocialBook.Domain.Entities.Common
         /// <summary>
         /// Gets or sets the creator user identifier
         /// </summary>
-        public Guid UserId { get; set; }
+        public string UserId { get; set; }
 
         /// <summary>
         /// Gets or sets the creator user

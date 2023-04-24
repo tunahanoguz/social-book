@@ -68,7 +68,7 @@ namespace SocialBook.Domain.Entities.Authors
         /// <summary>
         /// Gets or sets the creator user identifier
         /// </summary>
-        public Guid CreatorUserId { get; set; }
+        public string CreatorUserId { get; set; }
 
         /// <summary>
         /// Gets or sets the creator user
