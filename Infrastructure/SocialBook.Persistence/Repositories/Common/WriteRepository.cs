@@ -47,7 +47,7 @@ namespace SocialBook.Persistence.Repositories.Common
             return true;
         }
 
-        public bool UpdateAsync(T model)
+        public bool Update(T model)
         {
             Table.Update(model);
             return true;

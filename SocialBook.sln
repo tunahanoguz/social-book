@@ -5,19 +5,19 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{74ADD36A-67E1-4640-85A0-E23E3AADC9D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialBook.Application", "Core\SocialBook.Application\SocialBook.Application.csproj", "{91EDEBBE-E407-4215-8414-761AD8BB34C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialBook.Application", "Core\SocialBook.Application\SocialBook.Application.csproj", "{91EDEBBE-E407-4215-8414-761AD8BB34C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialBook.Domain", "Core\SocialBook.Domain\SocialBook.Domain.csproj", "{4B791015-7C8B-4783-8DE6-87276C09A6EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialBook.Domain", "Core\SocialBook.Domain\SocialBook.Domain.csproj", "{4B791015-7C8B-4783-8DE6-87276C09A6EA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{2EA0A49A-5995-45DB-A31B-55694B231490}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialBook.Infrastructure", "Infrastructure\SocialBook.Infrastructure\SocialBook.Infrastructure.csproj", "{65AD3714-E4C2-4396-922A-8FE3E4E9DF90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialBook.Infrastructure", "Infrastructure\SocialBook.Infrastructure\SocialBook.Infrastructure.csproj", "{65AD3714-E4C2-4396-922A-8FE3E4E9DF90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialBook.Persistence", "Infrastructure\SocialBook.Persistence\SocialBook.Persistence.csproj", "{0953D1A0-451B-4972-A09B-58FF036EAD4F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialBook.Persistence", "Infrastructure\SocialBook.Persistence\SocialBook.Persistence.csproj", "{0953D1A0-451B-4972-A09B-58FF036EAD4F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{93E3730D-F6A6-4222-80A1-6D5326D70FA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialBook.API", "Presentation\SocialBook.API\SocialBook.API.csproj", "{6E48967B-CA5D-48C3-A1F0-A89284079257}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialBook.API", "Presentation\SocialBook.API\SocialBook.API.csproj", "{6E48967B-CA5D-48C3-A1F0-A89284079257}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
