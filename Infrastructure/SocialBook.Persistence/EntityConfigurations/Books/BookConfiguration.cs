@@ -67,7 +67,9 @@ namespace SocialBook.Persistence.EntityConfigurations.Books
                     MetaDescription = "An awesome book",
                     MetaKeywords = "eugene onegin, charles dickens eugene onegin",
                     Slug = "eugene-onegin",
-                    CreatorUserId = "651e4582-f6e2-46b9-a4e4-8e8064e31ba3"
+                    CreatorUserId = "651e4582-f6e2-46b9-a4e4-8e8064e31ba3",
+                    CreatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Now
                 }
             );
         }
