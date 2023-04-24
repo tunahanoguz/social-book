@@ -18,8 +18,8 @@ namespace SocialBook.Persistence.EntityConfigurations.Common
                     MetaKeywords = "novel books, novel genre books",
                     Slug = "novel",
                     UserId = "6b695933-0170-4908-a56c-25d5e5c2d005",
-                    CreatedDate = DateTime.Now,
-                    UpdatedDate = DateTime.Now
+                    CreatedDate = DateTime.UtcNow,
+                    UpdatedDate = DateTime.UtcNow
                 }
             );
         }

@@ -21,8 +21,8 @@ namespace SocialBook.Persistence.EntityConfigurations.Authors
                     MetaKeywords = "charles dickens, charles dickens author, charles dickens books",
                     Slug = "charles-dickens",
                     CreatorUserId = "92088e43-474e-4bd6-9dbe-cfc5293e885f",
-                    CreatedDate = DateTime.Now,
-                    UpdatedDate = DateTime.Now
+                    CreatedDate = DateTime.UtcNow,
+                    UpdatedDate = DateTime.UtcNow
                 },
                 new Author
                 {
@@ -36,8 +36,8 @@ namespace SocialBook.Persistence.EntityConfigurations.Authors
                     MetaKeywords = "alexander pushkin, alexander pushkin author, alexander pushkin books",
                     Slug = "alexander-pushkin",
                     CreatorUserId = "5088a487-2384-4eb6-ac10-eac5d24ee1d1",
-                    CreatedDate = DateTime.Now,
-                    UpdatedDate = DateTime.Now
+                    CreatedDate = DateTime.UtcNow,
+                    UpdatedDate = DateTime.UtcNow
                 }
             );
         }

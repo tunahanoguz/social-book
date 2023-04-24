@@ -16,8 +16,8 @@ namespace SocialBook.Persistence.EntityConfigurations.Common
                     MetaDescription = "Meta description for social book",
                     MetaKeywords = "Meta keywords for social book",
                     PageTitleSeperator = "-",
-                    CreatedDate = DateTime.Now,
-                    UpdatedDate = DateTime.Now
+                    CreatedDate = DateTime.UtcNow,
+                    UpdatedDate = DateTime.UtcNow
                 }
             );
         }
