@@ -94,6 +94,14 @@ namespace SocialBook.Persistence
             services.AddScoped<IUserWantToReadBookWriteRepository, UserWantToReadBookWriteRepository>();
 
             services.AddScoped<IAuthorService, AuthorService>();
+            services.AddScoped<IAuthorGenreService, AuthorGenreService>();
+            services.AddScoped<IAuthorImageService, AuthorImageService>();
+            services.AddScoped<IAuthorReviewService, AuthorReviewService>();
+            services.AddScoped<IAuthorReviewImageService, AuthorReviewImageService>();
+            services.AddScoped<IAuthorReviewLikeService, AuthorReviewLikeService>();
+            services.AddScoped<IAuthorReviewDislikeService, AuthorReviewDislikeService>();
+            services.AddScoped<IAuthorRecommendationService, AuthorRecommendationService>();
+            services.AddScoped<IAuthorSubscriptionService, AuthorSubscriptionService>();
         }
     }
 }
