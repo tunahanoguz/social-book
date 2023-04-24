@@ -5,6 +5,7 @@ using SocialBook.Application.Repositories.Books;
 using SocialBook.Application.Repositories.Common;
 using SocialBook.Application.Repositories.Communities;
 using SocialBook.Application.Repositories.Users;
+using SocialBook.Application.Services.Authors;
 using SocialBook.Domain.Entities.Identity;
 using SocialBook.Persistence.Contexts;
 using SocialBook.Persistence.EntityConfigurations;
@@ -13,6 +14,7 @@ using SocialBook.Persistence.Repositories.Books;
 using SocialBook.Persistence.Repositories.Common;
 using SocialBook.Persistence.Repositories.Communities;
 using SocialBook.Persistence.Repositories.Users;
+using SocialBook.Persistence.Services.Authors;
 
 namespace SocialBook.Persistence
 {
@@ -90,6 +92,16 @@ namespace SocialBook.Persistence
             services.AddScoped<IUserSocialMediaPlatformWriteRepository, UserSocialMediaPlatformWriteRepository>();
             services.AddScoped<IUserWantToReadBookReadRepository, UserWantToReadBookReadRepository>();
             services.AddScoped<IUserWantToReadBookWriteRepository, UserWantToReadBookWriteRepository>();
+
+            services.AddScoped<IAuthorService, AuthorService>();
+            services.AddScoped<IAuthorGenreService, AuthorGenreService>();
+            services.AddScoped<IAuthorImageService, AuthorImageService>();
+            services.AddScoped<IAuthorReviewService, AuthorReviewService>();
+            services.AddScoped<IAuthorReviewImageService, AuthorReviewImageService>();
+            services.AddScoped<IAuthorReviewLikeService, AuthorReviewLikeService>();
+            services.AddScoped<IAuthorReviewDislikeService, AuthorReviewDislikeService>();
+            services.AddScoped<IAuthorRecommendationService, AuthorRecommendationService>();
+            services.AddScoped<IAuthorSubscriptionService, AuthorSubscriptionService>();
         }
     }
 }

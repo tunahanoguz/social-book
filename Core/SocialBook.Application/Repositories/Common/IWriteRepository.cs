@@ -44,7 +44,7 @@ namespace SocialBook.Application.Repositories.Common
         /// </summary>
         /// <param name="entity">Entity entry</param>
         /// <returns>Whether the entity entry has been updated or not</returns>
-        bool UpdateAsync(T entity);
+        bool Update(T entity);
 
         /// <summary>
         /// Save the write operation
