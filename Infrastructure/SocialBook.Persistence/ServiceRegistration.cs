@@ -21,6 +21,7 @@ namespace SocialBook.Persistence
         public static void AddPersistanceServices(this IServiceCollection services)
         {
             services.AddDbContext<SocialBookAPIDbContext>(options => options.UseNpgsql(Configuration.PostgreSQLConnectionString));
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
             services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<SocialBookAPIDbContext>();
             services.AddScoped<IEntityConfiguration, EntityConfiguration>();
             services.AddScoped<ISiteSettingReadRepository, SiteSettingReadRepository>();
