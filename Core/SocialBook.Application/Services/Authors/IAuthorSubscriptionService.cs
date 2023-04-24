@@ -6,8 +6,8 @@ namespace SocialBook.Application.Services.Authors
     {
         Task<List<AuthorSubscription>> GetAuthorSubscriptionsByAuthorAsync(Guid authorId);
         Task<List<AuthorSubscription>> GetAuthorSubscriptionsByUserAsync(string userId);
-        Task<bool> CreateAuthorSubscriptionAsync(AuthorSubscription author);
-        bool UpdateAuthorSubscription(AuthorSubscription author);
-        bool DeleteAuthorSubscription(AuthorSubscription author);
+        Task<bool> CreateAuthorSubscriptionAsync(AuthorSubscription authorSubscription);
+        bool UpdateAuthorSubscription(AuthorSubscription authorSubscription);
+        bool DeleteAuthorSubscription(AuthorSubscription authorSubscription);
     }
 }

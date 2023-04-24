@@ -37,25 +37,25 @@ namespace SocialBook.Persistence.Services.Authors
             return _authorRecommendationReadRepository.GetAuthorRecommendationsByRecipientUserAsync(recipientUserId);
         }
 
-        public async Task<bool> CreateAuthorRecommendationAsync(AuthorRecommendation author)
+        public async Task<bool> CreateAuthorRecommendationAsync(AuthorRecommendation authorRecommendation)
         {
-            if (author == null) { throw new ArgumentNullException(nameof(author)); }
+            if (authorRecommendation == null) { throw new ArgumentNullException(nameof(authorRecommendation)); }
 
-            return await _authorRecommendationWriteRepository.AddAsync(author);
+            return await _authorRecommendationWriteRepository.AddAsync(authorRecommendation);
         }
 
-        public bool UpdateRecommendationAuthor(AuthorRecommendation author)
+        public bool UpdateRecommendationAuthor(AuthorRecommendation authorRecommendation)
         {
-            if (author == null) { throw new ArgumentNullException(nameof(author)); }
+            if (authorRecommendation == null) { throw new ArgumentNullException(nameof(authorRecommendation)); }
 
-            return _authorRecommendationWriteRepository.Update(author);
+            return _authorRecommendationWriteRepository.Update(authorRecommendation);
         }
 
-        public bool DeleteRecommendationAuthor(AuthorRecommendation author)
+        public bool DeleteRecommendationAuthor(AuthorRecommendation authorRecommendation)
         {
-            if (author == null) { throw new ArgumentNullException(nameof(author)); }
+            if (authorRecommendation == null) { throw new ArgumentNullException(nameof(authorRecommendation)); }
 
-            return _authorRecommendationWriteRepository.Remove(author);
+            return _authorRecommendationWriteRepository.Remove(authorRecommendation);
         }
     }
 }

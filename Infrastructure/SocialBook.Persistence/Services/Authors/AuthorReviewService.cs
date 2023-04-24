@@ -36,25 +36,25 @@ namespace SocialBook.Persistence.Services.Authors
             return await _authorReviewReadRepository.GetAuthorReviewsByUserAsync(userId);
         }
 
-        public async Task<bool> CreateAuthorReviewAsync(AuthorReview author)
+        public async Task<bool> CreateAuthorReviewAsync(AuthorReview authorReview)
         {
-            if (author == null) { throw new ArgumentNullException(nameof(author)); }
+            if (authorReview == null) { throw new ArgumentNullException(nameof(authorReview)); }
 
-            return await _authorReviewWriteRepository.AddAsync(author);
+            return await _authorReviewWriteRepository.AddAsync(authorReview);
         }
 
-        public bool UpdateAuthorReview(AuthorReview author)
+        public bool UpdateAuthorReview(AuthorReview authorReview)
         {
-            if (author == null) { throw new ArgumentNullException(nameof(author)); }
+            if (authorReview == null) { throw new ArgumentNullException(nameof(authorReview)); }
 
-            return _authorReviewWriteRepository.Update(author);
+            return _authorReviewWriteRepository.Update(authorReview);
         }
 
-        public bool DeleteAuthorReview(AuthorReview author)
+        public bool DeleteAuthorReview(AuthorReview authorReview)
         {
-            if (author == null) { throw new ArgumentNullException(nameof(author)); }
+            if (authorReview == null) { throw new ArgumentNullException(nameof(authorReview)); }
 
-            return _authorReviewWriteRepository.Remove(author);
+            return _authorReviewWriteRepository.Remove(authorReview);
         }
     }
 }

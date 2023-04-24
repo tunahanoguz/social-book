@@ -30,25 +30,25 @@ namespace SocialBook.Persistence.Services.Authors
             return await _authorSubscriptionReadRepository.GetAuthorSubscriptionsByUserAsync(userId);
         }
 
-        public async Task<bool> CreateAuthorSubscriptionAsync(AuthorSubscription author)
+        public async Task<bool> CreateAuthorSubscriptionAsync(AuthorSubscription authorSubscription)
         {
-            if (author == null) { throw new ArgumentNullException(nameof (author)); }
+            if (authorSubscription == null) { throw new ArgumentNullException(nameof (authorSubscription)); }
 
-            return await _authorSubscriptionWriteRepository.AddAsync(author);
+            return await _authorSubscriptionWriteRepository.AddAsync(authorSubscription);
         }
 
-        public bool UpdateAuthorSubscription(AuthorSubscription author)
+        public bool UpdateAuthorSubscription(AuthorSubscription authorSubscription)
         {
-            if (author == null) { throw new ArgumentNullException(nameof(author)); }
+            if (authorSubscription == null) { throw new ArgumentNullException(nameof(authorSubscription)); }
 
-            return _authorSubscriptionWriteRepository.Update(author);
+            return _authorSubscriptionWriteRepository.Update(authorSubscription);
         }
 
-        public bool DeleteAuthorSubscription(AuthorSubscription author)
+        public bool DeleteAuthorSubscription(AuthorSubscription authorSubscription)
         {
-            if (author == null) { throw new ArgumentNullException(nameof(author)); }
+            if (authorSubscription == null) { throw new ArgumentNullException(nameof(authorSubscription)); }
 
-            return _authorSubscriptionWriteRepository.Remove(author);
+            return _authorSubscriptionWriteRepository.Remove(authorSubscription);
         }
     }
 }

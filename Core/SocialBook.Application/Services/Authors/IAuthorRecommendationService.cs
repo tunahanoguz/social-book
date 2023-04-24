@@ -7,8 +7,8 @@ namespace SocialBook.Application.Services.Authors
         Task<List<AuthorRecommendation>> GetAuthorRecommendationsByAuthorAsync(Guid authorId);
         Task<List<AuthorRecommendation>> GetAuthorRecommendationsByRecommenderUserAsync(string recommenderUserId);
         Task<List<AuthorRecommendation>> GetAuthorRecommendationsByRecipientUserAsync(string recipientUserId);
-        Task<bool> CreateAuthorRecommendationAsync(AuthorRecommendation author);
-        bool UpdateRecommendationAuthor(AuthorRecommendation author);
-        bool DeleteRecommendationAuthor(AuthorRecommendation author);
+        Task<bool> CreateAuthorRecommendationAsync(AuthorRecommendation authorRecommendation);
+        bool UpdateRecommendationAuthor(AuthorRecommendation authorRecommendation);
+        bool DeleteRecommendationAuthor(AuthorRecommendation authorRecommendation);
     }
 }
