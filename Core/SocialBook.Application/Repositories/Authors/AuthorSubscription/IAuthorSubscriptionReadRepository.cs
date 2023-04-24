@@ -5,5 +5,7 @@ namespace SocialBook.Application.Repositories.Authors
 {
     public interface IAuthorSubscriptionReadRepository : IReadRepository<AuthorSubscription>
     {
+        Task<List<AuthorSubscription>> GetAuthorSubscriptionsByAuthorAsync(Guid authorId);
+        Task<List<AuthorSubscription>> GetAuthorSubscriptionsByUserAsync(string userId);
     }
 }
