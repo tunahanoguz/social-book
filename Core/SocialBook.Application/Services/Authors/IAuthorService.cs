@@ -4,6 +4,7 @@ namespace SocialBook.Application.Services.Authors
 {
     public interface IAuthorService
     {
+        Task<Author> GetAuthorById(string authorId);
         Task<List<Author>> GetAuthorsByFirstNameAsync(string firstName);
         Task<List<Author>> GetAuthorsByLastNameAsync(string lastName);
         Task<List<Author>> GetAuthorsByCountryOfBirthAsync(string country);

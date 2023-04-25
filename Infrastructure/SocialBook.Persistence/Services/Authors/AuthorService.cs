@@ -15,6 +15,13 @@ namespace SocialBook.Persistence.Services.Authors
             _authorWriteRepository = authorWriteRepository;
         }
 
+        public async Task<Author> GetAuthorById(string authorId)
+        {
+            if (authorId == null) { throw new ArgumentNullException(nameof(authorId)); };
+
+            return await _authorReadRepository.GetByIdAsync(authorId, false);
+        }
+
         public async Task<List<Author>> GetAuthorsByFirstNameAsync(string firstName)
         {
             if (firstName == null) { throw new ArgumentNullException(nameof(firstName)); }

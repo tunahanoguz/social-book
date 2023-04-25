@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using SocialBook.Application.Features;
 using SocialBook.Application.Features.Authors;
 
 namespace SocialBook.API.Controllers
@@ -16,6 +17,13 @@ namespace SocialBook.API.Controllers
         }
 
         [HttpGet]
+        public async Task<IActionResult> GetAuthorById([FromQuery] GetAuthorByIdQueryRequest request)
+        {
+            var response = await _mediator.Send(request);
+            return Ok(response);
+        }
+
+        [HttpGet("FirstName")]
         public async Task<IActionResult> GetAuthorsByFirstName([FromQuery] GetAuthorsByFirstNameQueryRequest request)
         {
             var response = await _mediator.Send(request);
