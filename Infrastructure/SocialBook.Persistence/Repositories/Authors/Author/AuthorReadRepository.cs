@@ -12,57 +12,57 @@ namespace SocialBook.Persistence.Repositories.Authors
         {
         }
 
-        public async Task<List<Author>> GetAllAuthorsByFirstNameAsync(string firstName)
+        public async Task<List<Author>> GetAuthorsByFirstNameAsync(string firstName)
         {
             return await GetWhere(author => author.FirstName == firstName, false).ToListAsync();
         }
 
-        public async Task<List<Author>> GetAllAuthorsByLastNameAsync(string lastName)
+        public async Task<List<Author>> GetAuthorsByLastNameAsync(string lastName)
         {
             return await GetWhere(author => author.LastName == lastName, false).ToListAsync();
         }
 
-        public async Task<List<Author>> GetAllAuthorsByCountryOfBirthAsync(string country)
+        public async Task<List<Author>> GetAuthorsByCountryOfBirthAsync(string country)
         {
             return await GetWhere(author => author.CountryOfBirth == country, false).ToListAsync();
         }
 
-        public async Task<List<Author>> GetAllAuthorsByYearOfBirthAsync(int year)
+        public async Task<List<Author>> GetAuthorsByYearOfBirthAsync(int year)
         {
             return await GetWhere(author => author.DateOfBirth.Year == year, false).ToListAsync();
         }
 
-        public async Task<List<Author>> GetAllAuthorsAllowedReviewAsync()
+        public async Task<List<Author>> GetAuthorsAllowedReviewAsync()
         {
             return await GetWhere(author => author.IsAllowedReview == true, false).ToListAsync();
         }
 
-        public async Task<List<Author>> GetAllAuthorsNotAllowedReviewAsync()
+        public async Task<List<Author>> GetAuthorsNotAllowedReviewAsync()
         {
             return await GetWhere(author => author.IsAllowedReview == false, false).ToListAsync();
         }
 
-        public async Task<List<Author>> GetAllAuthorsAllowedRecommendationAsync()
+        public async Task<List<Author>> GetAuthorsAllowedRecommendationAsync()
         {
             return await GetWhere(author => author.IsAllowedRecommendation == true, false).ToListAsync();
         }
 
-        public async Task<List<Author>> GetAllAuthorsNotAllowedRecommendationAsync()
+        public async Task<List<Author>> GetAuthorsNotAllowedRecommendationAsync()
         {
             return await GetWhere(author => author.IsAllowedRecommendation == false, false).ToListAsync();
         }
 
-        public async Task<List<Author>> GetAllAuthorsAllowedSubscriptionAsync()
+        public async Task<List<Author>> GetAuthorsAllowedSubscriptionAsync()
         {
             return await GetWhere(author => author.IsAllowedSubscription == true, false).ToListAsync();
         }
 
-        public async Task<List<Author>> GetAllAuthorsNotAllowedSubscriptionAsync()
+        public async Task<List<Author>> GetAuthorsNotAllowedSubscriptionAsync()
         {
             return await GetWhere(author => author.IsAllowedSubscription == false, false).ToListAsync();
         }
 
-        public async Task<List<Author>> GetAllAuthorsByCreatorUserAsync(string userId)
+        public async Task<List<Author>> GetAuthorsByCreatorUserAsync(string userId)
         {
             return await GetWhere(author => author.CreatorUserId == userId, false).ToListAsync();
         }

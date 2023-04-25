@@ -19,65 +19,65 @@ namespace SocialBook.Persistence.Services.Authors
         {
             if (firstName == null) { throw new ArgumentNullException(nameof(firstName)); }
 
-            return await _authorReadRepository.GetAllAuthorsByFirstNameAsync(firstName);
+            return await _authorReadRepository.GetAuthorsByFirstNameAsync(firstName);
         }
 
         public async Task<List<Author>> GetAuthorsByLastNameAsync(string lastName)
         {
             if (lastName == null) { throw new ArgumentNullException(nameof(lastName)); }
 
-            return await _authorReadRepository.GetAllAuthorsByLastNameAsync(lastName);
+            return await _authorReadRepository.GetAuthorsByLastNameAsync(lastName);
         }
 
         public async Task<List<Author>> GetAuthorsByCountryOfBirthAsync(string country)
         {
             if (country == null) { throw new ArgumentNullException(nameof(country)); }
 
-            return await _authorReadRepository.GetAllAuthorsByCountryOfBirthAsync(country);
+            return await _authorReadRepository.GetAuthorsByCountryOfBirthAsync(country);
         }
 
         public async Task<List<Author>> GetAuthorsByYearOfBirthAsync(int year)
         {
             if (year < 0) { throw new ArgumentOutOfRangeException(nameof(year)); }
 
-            return await _authorReadRepository.GetAllAuthorsByYearOfBirthAsync(year);
+            return await _authorReadRepository.GetAuthorsByYearOfBirthAsync(year);
         }
 
         public async Task<List<Author>> GetAuthorsAllowedReviewAsync()
         {
-            return await _authorReadRepository.GetAllAuthorsAllowedReviewAsync();
+            return await _authorReadRepository.GetAuthorsAllowedReviewAsync();
         }
 
         public async Task<List<Author>> GetAuthorsNotAllowedReviewAsync()
         {
-            return await _authorReadRepository.GetAllAuthorsNotAllowedReviewAsync();
+            return await _authorReadRepository.GetAuthorsNotAllowedReviewAsync();
         }
 
         public async Task<List<Author>> GetAuthorsAllowedRecommendationAsync()
         {
-            return await _authorReadRepository.GetAllAuthorsAllowedRecommendationAsync();
+            return await _authorReadRepository.GetAuthorsAllowedRecommendationAsync();
         }
 
         public async Task<List<Author>> GetAuthorsNotAllowedRecommendationAsync()
         {
-            return await _authorReadRepository.GetAllAuthorsNotAllowedRecommendationAsync();
+            return await _authorReadRepository.GetAuthorsNotAllowedRecommendationAsync();
         }
 
         public async Task<List<Author>> GetAuthorsAllowedSubscriptionAsync()
         {
-            return await _authorReadRepository.GetAllAuthorsAllowedSubscriptionAsync();
+            return await _authorReadRepository.GetAuthorsAllowedSubscriptionAsync();
         }
 
         public async Task<List<Author>> GetAuthorsNotAllowedSubscriptionAsync()
         {
-            return await _authorReadRepository.GetAllAuthorsNotAllowedSubscriptionAsync();
+            return await _authorReadRepository.GetAuthorsNotAllowedSubscriptionAsync();
         }
 
         public async Task<List<Author>> GetAuthorsByCreatorUserAsync(string userId)
         {
             if (userId == null) { throw new ArgumentNullException(nameof(userId)); }
 
-            return await _authorReadRepository.GetAllAuthorsByCreatorUserAsync(userId);
+            return await _authorReadRepository.GetAuthorsByCreatorUserAsync(userId);
         }
 
         public async Task<bool> CreateAuthorAsync(Author author)
