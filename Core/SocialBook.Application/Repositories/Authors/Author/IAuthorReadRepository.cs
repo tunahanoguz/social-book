@@ -49,7 +49,7 @@ namespace SocialBook.Application.Repositories.Authors
         /// Get all authors allowed to have reviews published about them
         /// </summary>
         /// <returns>
-        /// /// A task that represents the asynchronous operation
+        /// A task that represents the asynchronous operation
         /// The task result contains the authors allowed to have reviews published about them
         /// </returns>
         Task<List<Author>> GetAuthorsAllowedReviewAsync();
@@ -58,7 +58,7 @@ namespace SocialBook.Application.Repositories.Authors
         /// Get all authors not allowed to have reviews published about them
         /// </summary>
         /// <returns>
-        /// /// A task that represents the asynchronous operation
+        /// A task that represents the asynchronous operation
         /// The task result contains the authors not allowed to have reviews published about them
         /// </returns>
         Task<List<Author>> GetAuthorsNotAllowedReviewAsync();
@@ -67,7 +67,7 @@ namespace SocialBook.Application.Repositories.Authors
         /// Get all authors allowed to be recommended by users to other users
         /// </summary>
         /// <returns>
-        /// /// A task that represents the asynchronous operation
+        /// A task that represents the asynchronous operation
         /// The task result contains the authors allowed to be recommended by users to other users
         /// </returns>
         Task<List<Author>> GetAuthorsAllowedRecommendationAsync();
@@ -76,7 +76,7 @@ namespace SocialBook.Application.Repositories.Authors
         /// Get all authors not allowed to be recommended by users to other users
         /// </summary>
         /// <returns>
-        /// /// A task that represents the asynchronous operation
+        /// A task that represents the asynchronous operation
         /// The task result contains the authors not allowed to be recommended by users to other users
         /// </returns>
         Task<List<Author>> GetAuthorsNotAllowedRecommendationAsync();
@@ -85,7 +85,7 @@ namespace SocialBook.Application.Repositories.Authors
         /// Get all authors who are allowed to be subscribed to by users
         /// </summary>
         /// <returns>
-        /// /// A task that represents the asynchronous operation
+        /// A task that represents the asynchronous operation
         /// The task result contains the authors who are allowed to be subscribed to by users
         /// </returns>
         Task<List<Author>> GetAuthorsAllowedSubscriptionAsync();
@@ -94,7 +94,7 @@ namespace SocialBook.Application.Repositories.Authors
         /// Get all authors who are not allowed to be subscribed to by users
         /// </summary>
         /// <returns>
-        /// /// A task that represents the asynchronous operation
+        /// A task that represents the asynchronous operation
         /// The task result contains the authors who are not allowed to be subscribed to by users
         /// </returns>
         Task<List<Author>> GetAuthorsNotAllowedSubscriptionAsync();
@@ -104,7 +104,7 @@ namespace SocialBook.Application.Repositories.Authors
         /// </summary>
         /// <param name="userId">The creator user identifier</param>
         /// <returns>
-        /// /// A task that represents the asynchronous operation
+        /// A task that represents the asynchronous operation
         /// The task result contains the authors belonging to the user whose ID is provided as a parameter
         /// </returns>
         Task<List<Author>> GetAuthorsByCreatorUserAsync(string userId);
