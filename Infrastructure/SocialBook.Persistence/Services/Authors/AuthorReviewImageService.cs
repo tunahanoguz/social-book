@@ -24,11 +24,11 @@ namespace SocialBook.Persistence.Services.Authors
         /// A task that represents the asynchronous operation
         /// The task result contains the author review images with the file extension provided as a parameter
         /// </returns>
-        public async Task<List<AuthorReviewImage>> GetAuthorReviewImagesByFileExtensionAsync(string extenfileExtensionsion)
+        public async Task<List<AuthorReviewImage>> GetAuthorReviewImagesByFileExtensionAsync(string fileExtension)
         {
-            if (extension == null) { throw new ArgumentNullException(nameof(extension)); }
+            if (fileExtension == null) { throw new ArgumentNullException(nameof(fileExtension)); }
 
-            return await _authorReviewImageReadRepository.GetAuthorReviewImagesByFileExtensionAsync(extension);
+            return await _authorReviewImageReadRepository.GetAuthorReviewImagesByFileExtensionAsync(fileExtension);
         }
 
         /// <summary>
