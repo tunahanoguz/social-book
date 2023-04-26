@@ -113,5 +113,12 @@ namespace SocialBook.API.Controllers
             var response = await _mediator.Send(request);
             return Ok(response);
         }
+
+        [HttpDelete("{Id}")]
+        public async Task<IActionResult> DeleteAuthor([FromRoute] DeleteAuthorQueryRequest request)
+        {
+            var response = await _mediator.Send(request);
+            return Ok(response);
+        }
     }
 }

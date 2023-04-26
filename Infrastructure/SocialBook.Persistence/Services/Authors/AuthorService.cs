@@ -215,11 +215,14 @@ namespace SocialBook.Persistence.Services.Authors
         /// </summary>
         /// <param name="author">The author entity</param>
         /// <returns>A boolean value indicating whether the author was deleted successfully or not</returns>
-        public bool DeleteAuthor(Author author)
+        public async Task<bool> DeleteAuthorByIdAsync(string authorId)
         {
-            if (author == null) { throw new ArgumentNullException(nameof(author)); }
+            if (authorId == null) { throw new ArgumentException(nameof(authorId)); }
 
-            return _authorWriteRepository.Remove(author);
+            await _authorWriteRepository.RemoveAsync(authorId);
+            int affectedCount = await _authorWriteRepository.SaveAsync();
+
+            return affectedCount > 0;
         }
     }
 }

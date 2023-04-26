@@ -140,6 +140,6 @@ namespace SocialBook.Application.Services.Authors
         /// </summary>
         /// <param name="author">The author entity</param>
         /// <returns>A boolean value indicating whether the author was deleted successfully or not</returns>
-        bool DeleteAuthor(Author author);
+        Task<bool> DeleteAuthorByIdAsync(string authorId);
     }
 }
