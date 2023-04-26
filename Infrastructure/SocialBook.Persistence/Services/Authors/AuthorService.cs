@@ -189,7 +189,10 @@ namespace SocialBook.Persistence.Services.Authors
         {
             if (author == null) { throw new ArgumentNullException(nameof(author)); }
 
-            return await _authorWriteRepository.AddAsync(author);
+            await _authorWriteRepository.AddAsync(author);
+            await _authorWriteRepository.SaveAsync();
+
+            return true;
         }
 
         /// <summary>
