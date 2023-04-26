@@ -190,9 +190,9 @@ namespace SocialBook.Persistence.Services.Authors
             if (author == null) { throw new ArgumentNullException(nameof(author)); }
 
             await _authorWriteRepository.AddAsync(author);
-            await _authorWriteRepository.SaveAsync();
+            int affectedCount = await _authorWriteRepository.SaveAsync();
 
-            return true;
+            return affectedCount > 0;
         }
 
         /// <summary>
@@ -205,9 +205,9 @@ namespace SocialBook.Persistence.Services.Authors
             if (author == null) { throw new ArgumentNullException(nameof(author)); }
 
             _authorWriteRepository.Update(author);
-            int affectedEntities = await _authorWriteRepository.SaveAsync();
+            int affectedCount = await _authorWriteRepository.SaveAsync();
 
-            return affectedEntities > 0;
+            return affectedCount > 0;
         }
 
         /// <summary>
