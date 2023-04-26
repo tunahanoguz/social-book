@@ -17,7 +17,7 @@ namespace SocialBook.Application.Features.Queries
 
         public async Task<GetAuthorByIdQueryResponse> Handle(GetAuthorByIdQueryRequest request, CancellationToken cancellationToken)
         {
-            var author = await _authorService.GetAuthorById(request.AuthorId);
+            var author = await _authorService.GetAuthorById(request.Id);
             return _mapper.Map<GetAuthorByIdQueryResponse>(author);
         }
     }

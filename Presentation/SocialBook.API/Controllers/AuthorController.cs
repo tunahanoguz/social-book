@@ -16,7 +16,7 @@ namespace SocialBook.API.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet("{AuthorId}")]
+        [HttpGet("{Id}")]
         public async Task<IActionResult> GetAuthorById([FromRoute] GetAuthorByIdQueryRequest request)
         {
             var response = await _mediator.Send(request);

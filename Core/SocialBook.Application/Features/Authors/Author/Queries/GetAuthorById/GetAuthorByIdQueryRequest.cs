@@ -7,6 +7,6 @@ namespace SocialBook.Application.Features.Queries
         /// <summary>
         /// Gets or sets the author identifier
         /// </summary>
-        public string AuthorId { get; set; }
+        public string Id { get; set; }
     }
 }
