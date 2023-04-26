@@ -16,15 +16,15 @@ namespace SocialBook.API.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetAuthorById([FromQuery] GetAuthorByIdQueryRequest request)
+        [HttpGet("{AuthorId}")]
+        public async Task<IActionResult> GetAuthorById([FromRoute] GetAuthorByIdQueryRequest request)
         {
             var response = await _mediator.Send(request);
             return Ok(response);
         }
 
-        [HttpGet("FirstName")]
-        public async Task<IActionResult> GetAuthorsByFirstName([FromQuery] GetAuthorsByFirstNameQueryRequest request)
+        [HttpGet("FirstName/{FirstName}")]
+        public async Task<IActionResult> GetAuthorsByFirstName([FromRoute] GetAuthorsByFirstNameQueryRequest request)
         {
             var response = await _mediator.Send(request);
             return Ok(response);
