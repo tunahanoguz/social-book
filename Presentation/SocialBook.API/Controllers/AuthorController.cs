@@ -16,6 +16,9 @@ namespace SocialBook.API.Controllers
             _mediator = mediator;
         }
 
+        /// <summary>
+        /// Get the author with the identifier provided as a parameter
+        /// </summary>
         [HttpGet("{Id}")]
         public async Task<IActionResult> GetAuthorById([FromRoute] GetAuthorByIdQueryRequest request)
         {
@@ -23,6 +26,9 @@ namespace SocialBook.API.Controllers
             return Ok(response);
         }
 
+        /// <summary>
+        /// Get all authors with the first name provided as a parameter
+        /// </summary>
         [HttpGet("FirstName/{FirstName}")]
         public async Task<IActionResult> GetAuthorsByFirstName([FromRoute] GetAuthorsByFirstNameQueryRequest request)
         {
@@ -30,6 +36,9 @@ namespace SocialBook.API.Controllers
             return Ok(response);
         }
 
+        /// <summary>
+        /// Get all authors with the last name provided as a parameter
+        /// </summary>
         [HttpGet("LastName/{LastName}")]
         public async Task<IActionResult> GetAuthorsByLastName([FromRoute] GetAuthorsByLastNameQueryRequest request)
         {
@@ -37,6 +46,9 @@ namespace SocialBook.API.Controllers
             return Ok(response);
         }
 
+        /// <summary>
+        /// Get all authors born in the country provided as a parameter
+        /// </summary>
         [HttpGet("CountryOfBirth/{CountryOfBirth}")]
         public async Task<IActionResult> GetAuthorsByCountryOfBirth([FromRoute] GetAuthorsByCountryOfBirthQueryRequest request)
         {
@@ -44,6 +56,9 @@ namespace SocialBook.API.Controllers
             return Ok(response);
         }
 
+        /// <summary>
+        /// Get all authors born in the year provided as a parameter
+        /// </summary>
         [HttpGet("YearOfBirth/{YearOfBirth}")]
         public async Task<IActionResult> GetAuthorsByYearOfBirth([FromRoute] GetAuthorsByYearOfBirthQueryRequest request)
         {
@@ -51,6 +66,9 @@ namespace SocialBook.API.Controllers
             return Ok(response);
         }
 
+        /// <summary>
+        /// Get all authors allowed to have reviews published about them
+        /// </summary>
         [HttpGet("AllowedReview")]
         public async Task<IActionResult> GetAuthorsAllowedReview()
         {
@@ -58,6 +76,9 @@ namespace SocialBook.API.Controllers
             return Ok(response);
         }
 
+        /// <summary>
+        /// Get all authors not allowed to have reviews published about them
+        /// </summary>
         [HttpGet("NotAllowedReview")]
         public async Task<IActionResult> GetAuthorsNotAllowedReview()
         {
@@ -65,6 +86,9 @@ namespace SocialBook.API.Controllers
             return Ok(response);
         }
 
+        /// <summary>
+        /// Get all authors allowed to be recommended by users to other users
+        /// </summary>
         [HttpGet("AllowedRecommendation")]
         public async Task<IActionResult> GetAuthorsAllowedRecommendation()
         {
@@ -72,6 +96,9 @@ namespace SocialBook.API.Controllers
             return Ok(response);
         }
 
+        /// <summary>
+        /// Get all authors not allowed to be recommended by users to other users
+        /// </summary>
         [HttpGet("NotAllowedRecommendation")]
         public async Task<IActionResult> GetAuthorsNotAllowedRecommendation()
         {
@@ -79,6 +106,9 @@ namespace SocialBook.API.Controllers
             return Ok(response);
         }
 
+        /// <summary>
+        /// Get all authors who are allowed to be subscribed to by users
+        /// </summary>
         [HttpGet("AllowedSubscription")]
         public async Task<IActionResult> GetAuthorsAllowedSubscription()
         {
@@ -86,6 +116,9 @@ namespace SocialBook.API.Controllers
             return Ok(response);
         }
 
+        /// <summary>
+        /// Get all authors who are not allowed to be subscribed to by users
+        /// </summary>
         [HttpGet("AllowedNotSubscription")]
         public async Task<IActionResult> GetAuthorsNotAllowedSubscription()
         {
@@ -93,6 +126,9 @@ namespace SocialBook.API.Controllers
             return Ok(response);
         }
 
+        /// <summary>
+        /// Get all authors belonging to the user whose ID is provided as a parameter
+        /// </summary>
         [HttpGet("CreatorUser/{CreatorUserId}")]
         public async Task<IActionResult> GetAuthorsByCreatorUser([FromRoute] GetAuthorsByCreatorUserQueryRequest request)
         {
@@ -100,6 +136,9 @@ namespace SocialBook.API.Controllers
             return Ok(response);
         }
 
+        /// <summary>
+        /// Create a new author
+        /// </summary>
         [HttpPost]
         public async Task<IActionResult> CreateAuthor([FromBody] CreateAuthorQueryRequest request)
         {
@@ -107,6 +146,9 @@ namespace SocialBook.API.Controllers
             return Ok(response);
         }
 
+        /// <summary>
+        /// Update the author provided as a parameter
+        /// </summary>
         [HttpPut]
         public async Task<IActionResult> UpdateAuthor([FromBody] UpdateAuthorQueryRequest request)
         {
@@ -114,6 +156,9 @@ namespace SocialBook.API.Controllers
             return Ok(response);
         }
 
+        /// <summary>
+        /// Delete the author provided as a parameter
+        /// </summary>
         [HttpDelete("{Id}")]
         public async Task<IActionResult> DeleteAuthor([FromRoute] DeleteAuthorQueryRequest request)
         {
