@@ -43,5 +43,12 @@ namespace SocialBook.API.Controllers
             var response = await _mediator.Send(request);
             return Ok(response);
         }
+
+        [HttpGet("YearOfBirth/{YearOfBirth}")]
+        public async Task<IActionResult> GetAuthorsByYearOfBirth([FromRoute] GetAuthorsByYearOfBirthQueryRequest request)
+        {
+            var response = await _mediator.Send(request);
+            return Ok(response);
+        }
     }
 }
