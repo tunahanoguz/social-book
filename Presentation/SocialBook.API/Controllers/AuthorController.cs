@@ -92,5 +92,12 @@ namespace SocialBook.API.Controllers
             var response = await _mediator.Send(new GetAuthorsNotAllowedSubscriptionQueryRequest());
             return Ok(response);
         }
+
+        [HttpGet("CreatorUser/{CreatorUserId}")]
+        public async Task<IActionResult> GetAuthorsByCreatorUser([FromRoute] GetAuthorsByCreatorUserQueryRequest request)
+        {
+            var response = await _mediator.Send(request);
+            return Ok(response);
+        }
     }
 }
