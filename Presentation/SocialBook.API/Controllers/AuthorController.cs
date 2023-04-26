@@ -106,5 +106,12 @@ namespace SocialBook.API.Controllers
             var response = await _mediator.Send(request);
             return Ok(response);
         }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateAuthor([FromBody] UpdateAuthorQueryRequest request)
+        {
+            var response = await _mediator.Send(request);
+            return Ok(response);
+        }
     }
 }

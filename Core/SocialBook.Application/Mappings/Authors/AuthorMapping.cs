@@ -22,6 +22,7 @@ namespace SocialBook.Application.Mappings.Authors
             CreateMap<Author, GetAuthorsNotAllowedSubscriptionQueryResponse>().ReverseMap();
             CreateMap<Author, GetAuthorsByCreatorUserQueryResponse>().ReverseMap();
             CreateMap<Author, CreateAuthorQueryRequest>().ReverseMap();
+            CreateMap<Author, UpdateAuthorQueryRequest>().ReverseMap();
         }
     }
 }

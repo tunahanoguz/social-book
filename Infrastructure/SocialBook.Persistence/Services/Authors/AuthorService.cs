@@ -200,11 +200,14 @@ namespace SocialBook.Persistence.Services.Authors
         /// </summary>
         /// <param name="author">The author entity</param>
         /// <returns>A boolean value indicating whether the author was updated successfully or not</returns>
-        public bool UpdateAuthor(Author author)
+        public async Task<bool> UpdateAuthorAsync(Author author)
         {
             if (author == null) { throw new ArgumentNullException(nameof(author)); }
 
-            return _authorWriteRepository.Update(author);
+            _authorWriteRepository.Update(author);
+            int affectedEntities = await _authorWriteRepository.SaveAsync();
+
+            return affectedEntities > 0;
         }
 
         /// <summary>
