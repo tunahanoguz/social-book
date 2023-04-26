@@ -3,7 +3,7 @@ using MediatR;
 using SocialBook.Application.Services.Authors;
 using SocialBook.Domain.Entities.Authors;
 
-namespace SocialBook.Application.Features.Authors
+namespace SocialBook.Application.Features.Commands
 {
     public class UpdateAuthorQueryHandler : IRequestHandler<UpdateAuthorQueryRequest, UpdateAuthorQueryResponse>
     {

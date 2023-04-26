@@ -1,4 +1,4 @@
-﻿namespace SocialBook.Application.Features
+﻿namespace SocialBook.Application.Features.Queries
 {
     public class GetAuthorByIdQueryResponse
     {

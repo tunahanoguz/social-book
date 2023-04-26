@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SocialBook.Application.Features;
-using SocialBook.Application.Features.Authors;
+using SocialBook.Application.Features.Queries;
+using SocialBook.Application.Features.Commands;
 
 namespace SocialBook.API.Controllers
 {

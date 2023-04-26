@@ -2,7 +2,7 @@
 using MediatR;
 using SocialBook.Application.Services.Authors;
 
-namespace SocialBook.Application.Features.Authors
+namespace SocialBook.Application.Features.Queries
 {
     public class GetAuthorsByYearOfBirthQueryHandler : IRequestHandler<GetAuthorsByYearOfBirthQueryRequest, List<GetAuthorsByYearOfBirthQueryResponse>>
     {

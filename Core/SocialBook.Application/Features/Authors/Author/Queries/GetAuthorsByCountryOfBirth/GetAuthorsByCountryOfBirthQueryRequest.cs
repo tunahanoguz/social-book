@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace SocialBook.Application.Features.Authors
+namespace SocialBook.Application.Features.Queries
 {
     public class GetAuthorsByCountryOfBirthQueryRequest : IRequest<List<GetAuthorsByCountryOfBirthQueryResponse>>
     {

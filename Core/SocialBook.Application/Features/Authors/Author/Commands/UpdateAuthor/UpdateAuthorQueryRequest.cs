@@ -1,9 +1,14 @@
 ﻿using MediatR;
 
-namespace SocialBook.Application.Features.Authors
+namespace SocialBook.Application.Features.Commands
 {
-    public class CreateAuthorQueryRequest : IRequest<List<CreateAuthorQueryResponse>>
+    public class UpdateAuthorQueryRequest : IRequest<UpdateAuthorQueryResponse>
     {
+        /// <summary>
+        /// Gets or sets the identifier
+        /// </summary>
+        public string Id { get; set; }
+
         /// <summary>
         /// Gets or sets the first name
         /// </summary>

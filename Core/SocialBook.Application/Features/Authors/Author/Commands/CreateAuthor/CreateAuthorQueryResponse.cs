@@ -1,4 +1,4 @@
-﻿namespace SocialBook.Application.Features.Authors
+﻿namespace SocialBook.Application.Features.Commands
 {
     public class CreateAuthorQueryResponse
     {

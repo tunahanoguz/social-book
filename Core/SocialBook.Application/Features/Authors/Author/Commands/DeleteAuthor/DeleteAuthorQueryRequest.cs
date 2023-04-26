@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace SocialBook.Application.Features.Authors
+namespace SocialBook.Application.Features.Commands
 {
     public class DeleteAuthorQueryRequest : IRequest<DeleteAuthorQueryResponse>
     {

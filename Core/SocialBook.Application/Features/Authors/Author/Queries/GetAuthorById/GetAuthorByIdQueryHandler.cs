@@ -2,7 +2,7 @@
 using MediatR;
 using SocialBook.Application.Services.Authors;
 
-namespace SocialBook.Application.Features
+namespace SocialBook.Application.Features.Queries
 {
     public class GetAuthorByIdQueryHandler : IRequestHandler<GetAuthorByIdQueryRequest, GetAuthorByIdQueryResponse>
     {

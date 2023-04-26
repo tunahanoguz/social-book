@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace SocialBook.Application.Features
+namespace SocialBook.Application.Features.Queries
 {
     public class GetAuthorByIdQueryRequest : IRequest<GetAuthorByIdQueryResponse>
     {

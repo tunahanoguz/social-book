@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using SocialBook.Application.Features;
-using SocialBook.Application.Features.Authors;
+using SocialBook.Application.Features.Queries;
+using SocialBook.Application.Features.Commands;
 using SocialBook.Domain.Entities.Authors;
 
 namespace SocialBook.Application.Mappings.Authors
