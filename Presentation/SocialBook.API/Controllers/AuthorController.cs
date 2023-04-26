@@ -78,5 +78,19 @@ namespace SocialBook.API.Controllers
             var response = await _mediator.Send(new GetAuthorsNotAllowedRecommendationQueryRequest());
             return Ok(response);
         }
+
+        [HttpGet("AllowedSubscription")]
+        public async Task<IActionResult> GetAuthorsAllowedSubscription()
+        {
+            var response = await _mediator.Send(new GetAuthorsAllowedSubscriptionQueryRequest());
+            return Ok(response);
+        }
+
+        [HttpGet("AllowedNotSubscription")]
+        public async Task<IActionResult> GetAuthorsNotAllowedSubscription()
+        {
+            var response = await _mediator.Send(new GetAuthorsNotAllowedSubscriptionQueryRequest());
+            return Ok(response);
+        }
     }
 }
