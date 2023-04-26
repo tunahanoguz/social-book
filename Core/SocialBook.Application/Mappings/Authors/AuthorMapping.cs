@@ -16,6 +16,8 @@ namespace SocialBook.Application.Mappings.Authors
             CreateMap<Author, GetAuthorsByYearOfBirthQueryResponse>().ReverseMap();
             CreateMap<Author, GetAuthorsAllowedReviewQueryResponse>().ReverseMap();
             CreateMap<Author, GetAuthorsNotAllowedReviewQueryResponse>().ReverseMap();
+            CreateMap<Author, GetAuthorsAllowedRecommendationQueryResponse>().ReverseMap();
+            CreateMap<Author, GetAuthorsNotAllowedRecommendationQueryResponse>().ReverseMap();
         }
     }
 }
