@@ -29,5 +29,12 @@ namespace SocialBook.API.Controllers
             var response = await _mediator.Send(request);
             return Ok(response);
         }
+
+        [HttpGet("LastName/{LastName}")]
+        public async Task<IActionResult> GetAuthorsByLastName([FromRoute] GetAuthorsByLastNameQueryRequest request)
+        {
+            var response = await _mediator.Send(request);
+            return Ok(response);
+        }
     }
 }

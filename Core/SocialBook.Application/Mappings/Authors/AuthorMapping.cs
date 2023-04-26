@@ -11,6 +11,7 @@ namespace SocialBook.Application.Mappings.Authors
         {
             CreateMap<Author, GetAuthorByIdQueryResponse>().ReverseMap();
             CreateMap<Author, GetAuthorsByFirstNameQueryResponse>().ReverseMap();
+            CreateMap<Author, GetAuthorsByLastNameQueryResponse>().ReverseMap();
         }
     }
 }
