@@ -189,7 +189,10 @@ namespace SocialBook.Persistence.Services.Authors
         {
             if (author == null) { throw new ArgumentNullException(nameof(author)); }
 
-            return await _authorWriteRepository.AddAsync(author);
+            await _authorWriteRepository.AddAsync(author);
+            int affectedCount = await _authorWriteRepository.SaveAsync();
+
+            return affectedCount > 0;
         }
 
         /// <summary>
@@ -197,11 +200,14 @@ namespace SocialBook.Persistence.Services.Authors
         /// </summary>
         /// <param name="author">The author entity</param>
         /// <returns>A boolean value indicating whether the author was updated successfully or not</returns>
-        public bool UpdateAuthor(Author author)
+        public async Task<bool> UpdateAuthorAsync(Author author)
         {
             if (author == null) { throw new ArgumentNullException(nameof(author)); }
 
-            return _authorWriteRepository.Update(author);
+            _authorWriteRepository.Update(author);
+            int affectedCount = await _authorWriteRepository.SaveAsync();
+
+            return affectedCount > 0;
         }
 
         /// <summary>
@@ -209,11 +215,14 @@ namespace SocialBook.Persistence.Services.Authors
         /// </summary>
         /// <param name="author">The author entity</param>
         /// <returns>A boolean value indicating whether the author was deleted successfully or not</returns>
-        public bool DeleteAuthor(Author author)
+        public async Task<bool> DeleteAuthorByIdAsync(string authorId)
         {
-            if (author == null) { throw new ArgumentNullException(nameof(author)); }
+            if (authorId == null) { throw new ArgumentException(nameof(authorId)); }
 
-            return _authorWriteRepository.Remove(author);
+            await _authorWriteRepository.RemoveAsync(authorId);
+            int affectedCount = await _authorWriteRepository.SaveAsync();
+
+            return affectedCount > 0;
         }
     }
 }

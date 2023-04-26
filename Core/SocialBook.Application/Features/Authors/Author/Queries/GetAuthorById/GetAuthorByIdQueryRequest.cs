@@ -1,12 +1,12 @@
 ﻿using MediatR;
 
-namespace SocialBook.Application.Features
+namespace SocialBook.Application.Features.Queries
 {
     public class GetAuthorByIdQueryRequest : IRequest<GetAuthorByIdQueryResponse>
     {
         /// <summary>
         /// Gets or sets the author identifier
         /// </summary>
-        public string AuthorId { get; set; }
+        public string Id { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace SocialBook.Application.Features.Queries
 {
-    public class GetAuthorByIdQueryResponse
+    public class GetAuthorsByCreatorUserQueryResponse
     {
         /// <summary>
         /// Gets or sets the first name

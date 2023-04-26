@@ -1,6 +1,8 @@
-﻿namespace SocialBook.Application.Features.Queries
+﻿using MediatR;
+
+namespace SocialBook.Application.Features.Commands
 {
-    public class GetAuthorByIdQueryResponse
+    public class CreateAuthorQueryRequest : IRequest<List<CreateAuthorQueryResponse>>
     {
         /// <summary>
         /// Gets or sets the first name
