@@ -2,11 +2,12 @@
 
 namespace SocialBook.Application.Features.Queries
 {
-    public class GetAuthorByIdQueryRequest : IRequest<GetAuthorByIdQueryResponse>
+    public class GetAuthorByIdQueryRequest : IRequest<GetAuthorByFirstNameQueryResponse>
     {
         /// <summary>
-        /// Gets or sets the author identifier
+        /// The author identifier
         /// </summary>
+        /// <example>2823add5-60f3-4272-9ec1-087d69cca72c</example>
         public string Id { get; set; }
     }
 }

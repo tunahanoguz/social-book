@@ -5,8 +5,9 @@ namespace SocialBook.Application.Features.Queries
     public class GetAuthorsByYearOfBirthQueryRequest : IRequest<List<GetAuthorsByYearOfBirthQueryResponse>>
     {
         /// <summary>
-        /// Gets or sets the year of birth of the author
+        /// The year of birth of the author
         /// </summary>
+        /// <example>1812</example>
         public int YearOfBirth { get; set; }
     }
 }
