@@ -12,27 +12,13 @@ namespace SocialBook.Persistence.Repositories.Authors
         {
         }
 
-        /// <summary>
-        /// Get author subscriptions belonging to the author whose ID is provided as a parameter
-        /// </summary>
-        /// <param name="authorId">The author identifier</param>
-        /// <returns>
-        /// A task that represents the asynchronous operation
-        /// The task result contains the author subscriptions belonging to the author whose ID is provided as a parameter
-        /// </returns>
+        /// <inheritdoc />
         public async Task<List<AuthorSubscription>> GetAuthorSubscriptionsByAuthorAsync(Guid authorId)
         {
             return await GetWhere(a => a.AuthorId == authorId).ToListAsync();
         }
 
-        /// <summary>
-        /// Get author subscriptions belonging to the creator user whose ID is provided as a parameter
-        /// </summary>
-        /// <param name="userId">The creator user identifier</param>
-        /// <returns>
-        /// A task that represents the asynchronous operation
-        /// The task result contains the author subscriptions belonging to the creator user whose ID is provided as a parameter
-        /// </returns>
+        /// <inheritdoc />
         public async Task<List<AuthorSubscription>> GetAuthorSubscriptionsByUserAsync(string userId)
         {
             return await GetWhere(a => a.UserId == userId).ToListAsync();
