@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\SocialBook.Application\SocialBook.Application.csproj" />
     <ProjectReference Include="..\..\Infrastructure\SocialBook.Persistence\SocialBook.Persistence.csproj" />
   </ItemGroup>
 
