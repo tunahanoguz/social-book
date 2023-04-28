@@ -17,7 +17,7 @@
         int PageNumber { get; set; }
 
         /// <summary>
-        /// The number of records to be returned
+        /// The maximum number of records that can be returned
         /// </summary>
         int PageSize { get; set; }
 

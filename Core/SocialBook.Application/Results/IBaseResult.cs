@@ -13,6 +13,6 @@
         /// <summary>
         /// The response message
         /// </summary>
-        string Message { get; }
+        string? Message { get; }
     }
 }

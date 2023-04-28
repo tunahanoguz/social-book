@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SocialBook.Application.Features.Queries;
 using SocialBook.Application.Features.Commands;
+using SocialBook.API.Results;
 
 namespace SocialBook.API.Controllers
 {
@@ -37,6 +38,10 @@ namespace SocialBook.API.Controllers
         [ProducesResponseType(typeof(GetAuthorByFirstNameQueryResponse), StatusCodes.Status200OK, "application/json")]
         public async Task<IActionResult> GetAuthorById([FromRoute] GetAuthorByIdQueryRequest request)
         {
+            var result = new BaseResult(System.Net.HttpStatusCode.NotFound, "asdasdas");
+
+
+
             var response = await _mediator.Send(request);
             return Ok(response);
         }

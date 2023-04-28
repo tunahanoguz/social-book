@@ -12,7 +12,7 @@
         T Data { get; }
 
         /// <summary>
-        /// The total records of generic data
+        /// The total records of the generic data
         /// </summary>
         int TotalRecords { get; }
     }
