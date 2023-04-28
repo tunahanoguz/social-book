@@ -15,14 +15,7 @@ namespace SocialBook.Persistence.Services.Authors
             _authorReviewWriteRepository = authorReviewWriteRepository;
         }
 
-        /// <summary>
-        /// Get all author reviews matching the rating value provided as a parameter
-        /// </summary>
-        /// <param name="rating">The author review rating</param>
-        /// <returns>
-        /// A task that represents the asynchronous operation
-        /// The task result contains the author reviews matching the rating value provided as a parameter
-        /// </returns>
+        /// <inheritdoc />
         public async Task<List<AuthorReview>> GetAuthorReviewsByRatingAsync(int rating)
         {
             if (rating < 0) { throw new ArgumentNullException(nameof(rating)); }
@@ -30,14 +23,7 @@ namespace SocialBook.Persistence.Services.Authors
             return await _authorReviewReadRepository.GetAuthorReviewsByRatingAsync(rating);
         }
 
-        /// <summary>
-        /// Get author reviews belonging to the author whose ID is provided as a parameter
-        /// </summary>
-        /// <param name="authorId">The author identifier</param>
-        /// <returns>
-        /// A task that represents the asynchronous operation
-        /// The task result contains the author reviews belonging to the author whose ID is provided as a parameter
-        /// </returns>
+        /// <inheritdoc />
         public async Task<List<AuthorReview>> GetAuthorReviewsByAuthorAsync(Guid authorId)
         {
             if (authorId == Guid.Empty) { throw new ArgumentNullException(nameof(authorId)); }
@@ -45,14 +31,7 @@ namespace SocialBook.Persistence.Services.Authors
             return await _authorReviewReadRepository.GetAuthorReviewsByAuthorAsync(authorId);
         }
 
-        /// <summary>
-        /// Get author reviews belonging to the user whose ID is provided as a parameter
-        /// </summary>
-        /// <param name="userId">The user identifier</param>
-        /// <returns>
-        /// A task that represents the asynchronous operation
-        /// The task result contains the author reviews belonging to the user whose ID is provided as a parameter
-        /// </returns>
+        /// <inheritdoc />
         public async Task<List<AuthorReview>> GetAuthorReviewsByUserAsync(string userId)
         {
             if (userId == null) { throw new ArgumentNullException(nameof(userId)); }
@@ -60,14 +39,7 @@ namespace SocialBook.Persistence.Services.Authors
             return await _authorReviewReadRepository.GetAuthorReviewsByUserAsync(userId);
         }
 
-        /// <summary>
-        /// Create a new author review
-        /// </summary>
-        /// <param name="authorReview">The author review entity</param>
-        /// <returns>
-        /// A task that represents the asynchronous operation
-        /// The task result contains a boolean value indicating whether the author review was created successfully or not
-        /// </returns>
+        /// <inheritdoc />
         public async Task<bool> CreateAuthorReviewAsync(AuthorReview authorReview)
         {
             if (authorReview == null) { throw new ArgumentNullException(nameof(authorReview)); }
@@ -75,11 +47,7 @@ namespace SocialBook.Persistence.Services.Authors
             return await _authorReviewWriteRepository.AddAsync(authorReview);
         }
 
-        /// <summary>
-        /// Update the author review provided as a parameter
-        /// </summary>
-        /// <param name="authorReview">The author review entity</param>
-        /// <returns>A boolean value indicating whether the author review was updated successfully or not</returns>
+        /// <inheritdoc />
         public bool UpdateAuthorReview(AuthorReview authorReview)
         {
             if (authorReview == null) { throw new ArgumentNullException(nameof(authorReview)); }
@@ -87,11 +55,7 @@ namespace SocialBook.Persistence.Services.Authors
             return _authorReviewWriteRepository.Update(authorReview);
         }
 
-        /// <summary>
-        /// Delete the author review provided as a parameter
-        /// </summary>
-        /// <param name="authorReview">The author review entity</param>
-        /// <returns>A boolean value indicating whether the author review was deleted successfully or not</returns>
+        /// <inheritdoc />
         public bool DeleteAuthorReview(AuthorReview authorReview)
         {
             if (authorReview == null) { throw new ArgumentNullException(nameof(authorReview)); }

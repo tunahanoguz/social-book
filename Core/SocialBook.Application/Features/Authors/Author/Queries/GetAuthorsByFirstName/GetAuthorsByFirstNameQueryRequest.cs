@@ -5,8 +5,9 @@ namespace SocialBook.Application.Features.Queries
     public class GetAuthorsByFirstNameQueryRequest : IRequest<List<GetAuthorsByFirstNameQueryResponse>>
     {
         /// <summary>
-        /// Gets or sets the first name
+        /// The first name
         /// </summary>
+        /// <example>Charles</example>
         public string FirstName { get; set; }
     }
 }

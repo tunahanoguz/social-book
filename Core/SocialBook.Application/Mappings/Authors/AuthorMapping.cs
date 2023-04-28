@@ -9,6 +9,7 @@ namespace SocialBook.Application.Mappings.Authors
     {
         public AuthorMapping()
         {
+            CreateMap<Author, GetAuthorByFirstNameQueryResponse>().ReverseMap();
             CreateMap<Author, GetAuthorsByFirstNameQueryResponse>().ReverseMap();
             CreateMap<Author, GetAuthorsByLastNameQueryResponse>().ReverseMap();
             CreateMap<Author, GetAuthorsByCountryOfBirthQueryResponse>().ReverseMap();
