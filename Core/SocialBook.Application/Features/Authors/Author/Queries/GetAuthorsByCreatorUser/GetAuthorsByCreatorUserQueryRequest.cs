@@ -1,8 +1,9 @@
 ﻿using MediatR;
+using SocialBook.Application.Filters;
 
 namespace SocialBook.Application.Features.Queries
 {
-    public class GetAuthorsByCreatorUserQueryRequest : IRequest<List<GetAuthorsByCreatorUserQueryResponse>>
+    public class GetAuthorsByCreatorUserQueryRequest : PaginationFilter, IRequest<List<GetAuthorsByCreatorUserQueryResponse>>
     {
         /// <summary>
         /// The creator user identifier

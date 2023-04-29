@@ -1,8 +1,9 @@
 ﻿using MediatR;
+using SocialBook.Application.Filters;
 
 namespace SocialBook.Application.Features.Queries
 {
-    public class GetAuthorsByLastNameQueryRequest : IRequest<List<GetAuthorsByLastNameQueryResponse>>
+    public class GetAuthorsByLastNameQueryRequest : PaginationFilter, IRequest<List<GetAuthorsByLastNameQueryResponse>>
     {
         /// <summary>
         /// The last name

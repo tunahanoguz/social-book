@@ -145,7 +145,7 @@ namespace SocialBook.API.Controllers
         /// <response code="200">Returns all authors allowed to have reviews published about them</response>
         [HttpGet("AllowedReview")]
         [ProducesResponseType(typeof(IEnumerable<GetAuthorsAllowedReviewQueryResponse>), StatusCodes.Status200OK, "application/json")]
-        public async Task<IActionResult> GetAuthorsAllowedReview()
+        public async Task<IActionResult> GetAuthorsAllowedReview([FromRoute] GetAuthorsAllowedReviewQueryRequest request)
         {
             var response = await _mediator.Send(new GetAuthorsAllowedReviewQueryRequest());
             return Ok(response);
@@ -166,7 +166,7 @@ namespace SocialBook.API.Controllers
         /// <response code="200">Returns all authors not allowed to have reviews published about them</response>
         [HttpGet("NotAllowedReview")]
         [ProducesResponseType(typeof(IEnumerable<GetAuthorsNotAllowedReviewQueryResponse>), StatusCodes.Status200OK, "application/json")]
-        public async Task<IActionResult> GetAuthorsNotAllowedReview()
+        public async Task<IActionResult> GetAuthorsNotAllowedReview([FromRoute] GetAuthorsNotAllowedReviewQueryRequest request)
         {
             var response = await _mediator.Send(new GetAuthorsNotAllowedReviewQueryRequest());
             return Ok(response);
@@ -187,7 +187,7 @@ namespace SocialBook.API.Controllers
         /// <response code="200">Returns all authors allowed to be recommended by users to other users</response>
         [HttpGet("AllowedRecommendation")]
         [ProducesResponseType(typeof(IEnumerable<GetAuthorsAllowedRecommendationQueryResponse>), StatusCodes.Status200OK, "application/json")]
-        public async Task<IActionResult> GetAuthorsAllowedRecommendation()
+        public async Task<IActionResult> GetAuthorsAllowedRecommendation([FromRoute] GetAuthorsAllowedRecommendationQueryRequest request)
         {
             var response = await _mediator.Send(new GetAuthorsAllowedRecommendationQueryRequest());
             return Ok(response);
@@ -208,7 +208,7 @@ namespace SocialBook.API.Controllers
         /// <response code="200">Returns all authors not allowed to be recommended by users to other users</response>
         [HttpGet("NotAllowedRecommendation")]
         [ProducesResponseType(typeof(IEnumerable<GetAuthorsNotAllowedRecommendationQueryResponse>), StatusCodes.Status200OK, "application/json")]
-        public async Task<IActionResult> GetAuthorsNotAllowedRecommendation()
+        public async Task<IActionResult> GetAuthorsNotAllowedRecommendation([FromRoute] GetAuthorsNotAllowedRecommendationQueryRequest request)
         {
             var response = await _mediator.Send(new GetAuthorsNotAllowedRecommendationQueryRequest());
             return Ok(response);
@@ -229,7 +229,7 @@ namespace SocialBook.API.Controllers
         /// <response code="200">Returns all authors who are allowed to be subscribed to by users</response>
         [HttpGet("AllowedSubscription")]
         [ProducesResponseType(typeof(IEnumerable<GetAuthorsAllowedSubscriptionQueryResponse>), StatusCodes.Status200OK, "application/json")]
-        public async Task<IActionResult> GetAuthorsAllowedSubscription()
+        public async Task<IActionResult> GetAuthorsAllowedSubscription([FromRoute] GetAuthorsAllowedSubscriptionQueryRequest request)
         {
             var response = await _mediator.Send(new GetAuthorsAllowedSubscriptionQueryRequest());
             return Ok(response);
@@ -250,7 +250,7 @@ namespace SocialBook.API.Controllers
         /// <response code="200">Returns all authors who are not allowed to be subscribed to by users</response>
         [HttpGet("NotAllowedSubscription")]
         [ProducesResponseType(typeof(IEnumerable<GetAuthorsNotAllowedSubscriptionQueryResponse>), StatusCodes.Status200OK, "application/json")]
-        public async Task<IActionResult> GetAuthorsNotAllowedSubscription()
+        public async Task<IActionResult> GetAuthorsNotAllowedSubscription([FromRoute] GetAuthorsNotAllowedSubscriptionQueryRequest request)
         {
             var response = await _mediator.Send(new GetAuthorsNotAllowedSubscriptionQueryRequest());
             return Ok(response);

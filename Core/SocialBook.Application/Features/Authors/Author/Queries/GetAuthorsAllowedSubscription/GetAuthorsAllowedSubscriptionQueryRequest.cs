@@ -1,8 +1,9 @@
 ﻿using MediatR;
+using SocialBook.Application.Filters;
 
 namespace SocialBook.Application.Features.Queries
 {
-    public class GetAuthorsAllowedSubscriptionQueryRequest : IRequest<List<GetAuthorsAllowedSubscriptionQueryResponse>>
+    public class GetAuthorsAllowedSubscriptionQueryRequest : PaginationFilter, IRequest<List<GetAuthorsAllowedSubscriptionQueryResponse>>
     {
     }
 }
