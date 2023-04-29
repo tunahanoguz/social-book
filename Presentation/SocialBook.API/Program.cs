@@ -1,10 +1,12 @@
 using SocialBook.Application;
 using SocialBook.Persistence;
+using SocialBook.Infrastructure;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
@@ -14,6 +16,7 @@ builder.Services.AddSwaggerGen(options =>
 
 builder.Services.AddPersistanceServices();
 builder.Services.AddApplicationServices();
+builder.Services.AddInfrastructureServices();
 
 builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
     policy.WithOrigins("http://localhost:4200", "https://localhost:4200").AllowAnyHeader().AllowAnyMethod().AllowCredentials()
