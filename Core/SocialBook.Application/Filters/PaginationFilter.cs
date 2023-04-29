@@ -8,6 +8,25 @@ namespace SocialBook.Application.Filters
     public class PaginationFilter
     {
         /// <summary>
+        /// Constructor
+        /// </summary>
+        public PaginationFilter()
+        {
+            
+        }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="pageNumber">The page number</param>
+        /// <param name="pageSize">The maximum number of records that can be returned</param>
+        public PaginationFilter(int pageNumber, int pageSize)
+        {
+            this.PageNumber = pageNumber;
+            this.PageSize = pageSize;
+        }
+
+        /// <summary>
         /// The page number
         /// </summary>
         /// <example>1</example>

@@ -1,7 +1,7 @@
 ﻿using SocialBook.Application.Results;
 using System.Net;
 
-namespace SocialBook.API.Results
+namespace SocialBook.Infrastructure.Results
 {
     /// <summary>
     /// Represents the result in controllers where not-paginated data is returned

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SocialBook.Application.Features.Queries;
 using SocialBook.Application.Features.Commands;
-using SocialBook.API.Results;
+using SocialBook.Infrastructure.Results;
 
 namespace SocialBook.API.Controllers
 {

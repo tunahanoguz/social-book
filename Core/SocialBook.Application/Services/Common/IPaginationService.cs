@@ -21,10 +21,11 @@ namespace SocialBook.Application.Services.Common
         /// </summary>
         /// <param name="statusCode">The HTTP status code</param>
         /// <param name="data">The generic data belonging to the current page that contains the specified number of records</param>
+        /// <param name="totalRecords">The total records of the generic data</param>
         /// <param name="pageNumber">The page number</param>
         /// <param name="pageSize">The maximum number of records that can be returned</param>
         /// <param name="message">The response message</param>
         /// <returns>The paginated result to be returned</returns>
-        IPaginatedDataResult<T> CreatePaginatedDataResult<T>(HttpStatusCode statusCode, IReadOnlyList<T> data, int pageNumber, int pageSize, string message);
+        IPaginatedDataResult<T> CreatePaginatedDataResult<T>(HttpStatusCode statusCode, IReadOnlyList<T> data, int totalRecords, int pageNumber, int pageSize, string message);
     }
 }

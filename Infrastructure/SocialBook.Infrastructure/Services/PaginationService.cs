@@ -4,6 +4,7 @@ using SocialBook.Application.Filters;
 using SocialBook.Application.Results;
 using SocialBook.Application.Services.Common;
 using SocialBook.Infrastructure.Extensions;
+using SocialBook.Infrastructure.Results;
 using System.Net;
 
 namespace SocialBook.Infrastructure.Services.Common
@@ -31,9 +32,17 @@ namespace SocialBook.Infrastructure.Services.Common
         }
 
         /// <inheritdoc />
-        public IPaginatedDataResult<T> CreatePaginatedDataResult<T>(HttpStatusCode statusCode, IReadOnlyList<T> data, int pageNumber, int pageSize, string message)
+        public IPaginatedDataResult<T> CreatePaginatedDataResult<T>(HttpStatusCode statusCode, IReadOnlyList<T> data, int totalRecords, int pageNumber, int pageSize, string message)
         {
-            throw new NotImplementedException();
+            var result = new PaginatedDataResult<T>(statusCode, data, pageNumber, pageSize);
+            result.TotalRecords = totalRecords;
+            result.TotalPages = Convert.ToInt32(Math.Ceiling((double)totalRecords / (double)pageSize));
+            result.FirstPage = this.CreatePageUri(new PaginationFilter(1, pageSize));
+            result.LastPage = this.CreatePageUri(new PaginationFilter(result.TotalPages, pageSize));
+            result.PreviousPage = this.CreatePageUri(new PaginationFilter(pageNumber - 1, pageSize));
+            result.NextPage = this.CreatePageUri(new PaginationFilter(pageNumber + 1, pageSize));
+
+            return result;
         }
     }
 }

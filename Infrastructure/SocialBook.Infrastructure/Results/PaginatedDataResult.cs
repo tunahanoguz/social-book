@@ -1,7 +1,7 @@
 ﻿using SocialBook.Application.Results;
 using System.Net;
 
-namespace SocialBook.API.Results
+namespace SocialBook.Infrastructure.Results
 {
     /// <summary>
     /// Represents the result in controllers where paginated data is returned
@@ -39,7 +39,7 @@ namespace SocialBook.API.Results
         }
 
         /// <inheritdoc />
-        public IReadOnlyList<T> Data { get; }
+        public IReadOnlyList<T> Data { get; set; }
 
         /// <inheritdoc />
         public int PageNumber { get; set; }
@@ -48,21 +48,21 @@ namespace SocialBook.API.Results
         public int PageSize { get; set; }
 
         /// <inheritdoc />
-        public Uri? FirstPage { get; }
+        public Uri? FirstPage { get; set; }
 
         /// <inheritdoc />
-        public Uri? LastPage { get; }
+        public Uri? LastPage { get; set; }
 
         /// <inheritdoc />
-        public int TotalPages { get; } = 0;
+        public int TotalPages { get; set; } = 0;
 
         /// <inheritdoc />
-        public int TotalRecords { get; } = 0;
+        public int TotalRecords { get; set; } = 0;
 
         /// <inheritdoc />
-        public Uri? NextPage { get; }
+        public Uri? NextPage { get; set; }
 
         /// <inheritdoc />
-        public Uri? PreviousPage { get; }
+        public Uri? PreviousPage { get; set; }
     }
 }
