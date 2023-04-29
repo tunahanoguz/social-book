@@ -1,7 +1,8 @@
-﻿using SocialBook.Application.Results;
+﻿using SocialBook.Application.Filters;
+using SocialBook.Application.Results;
 using System.Net;
 
-namespace SocialBook.Infrastructure.Results
+namespace SocialBook.Persistence.Results
 {
     /// <summary>
     /// Represents the result in controllers where paginated data is returned
@@ -16,11 +17,11 @@ namespace SocialBook.Infrastructure.Results
         /// <param name="data">The generic data</param>
         /// <param name="pageNumber">The page number</param>
         /// <param name="pageSize">The maximum number of records that can be returned</param>
-        public PaginatedDataResult(HttpStatusCode statusCode, IReadOnlyList<T> data, int pageNumber, int pageSize) : base(statusCode)
+        public PaginatedDataResult(HttpStatusCode statusCode, IReadOnlyList<T> data, PaginationFilter paginationFilter) : base(statusCode)
         {
             this.Data = data;
-            this.PageNumber = pageNumber;
-            this.PageSize = pageSize;
+            this.PageNumber = paginationFilter.PageNumber;
+            this.PageSize = paginationFilter.PageSize;
         }
 
         /// <summary>
@@ -31,11 +32,11 @@ namespace SocialBook.Infrastructure.Results
         /// <param name="pageNumber">The page number</param>
         /// <param name="pageSize">The maximum number of records that can be returned</param>
         /// <param name="message">The response message</param>
-        public PaginatedDataResult(HttpStatusCode statusCode, IReadOnlyList<T> data, int pageNumber, int pageSize, string message) : base(statusCode, message)
+        public PaginatedDataResult(HttpStatusCode statusCode, IReadOnlyList<T> data, PaginationFilter paginationFilter, string message) : base(statusCode, message)
         {
             this.Data = data;
-            this.PageNumber = pageNumber;
-            this.PageSize = pageSize;
+            this.PageNumber = paginationFilter.PageNumber;
+            this.PageSize = paginationFilter.PageSize;
         }
 
         /// <inheritdoc />

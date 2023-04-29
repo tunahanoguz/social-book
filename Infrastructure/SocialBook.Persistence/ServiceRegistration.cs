@@ -6,6 +6,7 @@ using SocialBook.Application.Repositories.Common;
 using SocialBook.Application.Repositories.Communities;
 using SocialBook.Application.Repositories.Users;
 using SocialBook.Application.Services.Authors;
+using SocialBook.Application.Services.Common;
 using SocialBook.Domain.Entities.Identity;
 using SocialBook.Persistence.Contexts;
 using SocialBook.Persistence.EntityConfigurations;
@@ -15,6 +16,7 @@ using SocialBook.Persistence.Repositories.Common;
 using SocialBook.Persistence.Repositories.Communities;
 using SocialBook.Persistence.Repositories.Users;
 using SocialBook.Persistence.Services.Authors;
+using SocialBook.Persistence.Services.Common;
 
 namespace SocialBook.Persistence
 {
@@ -102,6 +104,7 @@ namespace SocialBook.Persistence
             services.AddScoped<IAuthorReviewDislikeService, AuthorReviewDislikeService>();
             services.AddScoped<IAuthorRecommendationService, AuthorRecommendationService>();
             services.AddScoped<IAuthorSubscriptionService, AuthorSubscriptionService>();
+            services.AddScoped<IPaginationService, PaginationService>();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using SocialBook.Application.Repositories.Common;
+﻿using SocialBook.Application.Filters;
+using SocialBook.Application.Repositories.Common;
 using SocialBook.Domain.Entities.Authors;
 
 namespace SocialBook.Application.Repositories.Authors
@@ -9,11 +10,12 @@ namespace SocialBook.Application.Repositories.Authors
         /// Get all authors with the first name provided as a parameter
         /// </summary>
         /// <param name="firstName">The first name of the author</param>
+        /// <param name="paginationFilter">The pagination filter</param>
         /// <returns>
         /// A task that represents the asynchronous operation
         /// The task result contains the authors with the first name provided as a parameter
         /// </returns>
-        Task<List<Author>> GetAuthorsByFirstNameAsync(string firstName);
+        Task<List<Author>> GetAuthorsByFirstNameAsync(string firstName, PaginationFilter paginationFilter);
 
         /// <summary>
         /// Get all authors with the last name provided as a parameter

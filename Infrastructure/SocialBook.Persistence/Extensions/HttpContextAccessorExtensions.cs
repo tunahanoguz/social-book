@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace SocialBook.Infrastructure.Extensions
+namespace SocialBook.Persistence.Extensions
 {
     /// <summary>
     /// Represents all extensions for HttpContextAccessor

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SocialBook.Application.Filters;
 using SocialBook.Application.Repositories.Common;
 using SocialBook.Domain.Entities.Common;
 using SocialBook.Persistence.Contexts;

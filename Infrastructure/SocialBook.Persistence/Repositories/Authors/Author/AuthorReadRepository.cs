@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SocialBook.Application.Filters;
 using SocialBook.Application.Repositories.Authors;
 using SocialBook.Domain.Entities.Authors;
 using SocialBook.Persistence.Contexts;
@@ -13,9 +14,12 @@ namespace SocialBook.Persistence.Repositories.Authors
         }
 
         /// <inheritdoc />
-        public async Task<List<Author>> GetAuthorsByFirstNameAsync(string firstName)
+        public async Task<List<Author>> GetAuthorsByFirstNameAsync(string firstName, PaginationFilter paginationFilter)
         {
-            return await GetWhere(author => author.FirstName == firstName, false).ToListAsync();
+            return await GetWhere(author => author.FirstName == firstName, false)
+                .Skip((paginationFilter.PageNumber - 1) * paginationFilter.PageSize)
+                .Take(paginationFilter.PageSize)
+                .ToListAsync();
         }
 
         /// <inheritdoc />

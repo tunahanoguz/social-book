@@ -2,6 +2,7 @@
 using SocialBook.Application.Features.Queries;
 using SocialBook.Application.Features.Commands;
 using SocialBook.Domain.Entities.Authors;
+using SocialBook.Application.DTOs.Authors.Author;
 
 namespace SocialBook.Application.Mappings.Authors
 {
@@ -23,6 +24,8 @@ namespace SocialBook.Application.Mappings.Authors
             CreateMap<Author, GetAuthorsByCreatorUserQueryResponse>().ReverseMap();
             CreateMap<Author, CreateAuthorQueryRequest>().ReverseMap();
             CreateMap<Author, UpdateAuthorQueryRequest>().ReverseMap();
+
+            CreateMap<Author, AuthorDto>().ReverseMap();
         }
     }
 }

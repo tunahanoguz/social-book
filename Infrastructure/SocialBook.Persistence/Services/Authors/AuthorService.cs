@@ -1,18 +1,32 @@
-﻿using SocialBook.Application.Repositories.Authors;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
+using SocialBook.Application.DTOs.Authors.Author;
+using SocialBook.Application.Filters;
+using SocialBook.Application.Repositories.Authors;
+using SocialBook.Application.Results;
 using SocialBook.Application.Services.Authors;
+using SocialBook.Application.Services.Common;
 using SocialBook.Domain.Entities.Authors;
+using System.Net;
 
 namespace SocialBook.Persistence.Services.Authors
 {
     public class AuthorService : IAuthorService
     {
+        private readonly IMapper _mapper;
         private readonly IAuthorReadRepository _authorReadRepository;
         private readonly IAuthorWriteRepository _authorWriteRepository;
+        private readonly IPaginationService _paginationService;
 
-        public AuthorService(IAuthorReadRepository authorReadRepository, IAuthorWriteRepository authorWriteRepository)
+        public AuthorService(IMapper mapper,
+            IAuthorReadRepository authorReadRepository,
+            IAuthorWriteRepository authorWriteRepository,
+            IPaginationService paginationService)
         {
+            _mapper = mapper;
             _authorReadRepository = authorReadRepository;
             _authorWriteRepository = authorWriteRepository;
+            _paginationService = paginationService;
         }
 
         /// <inheritdoc />
@@ -24,11 +38,14 @@ namespace SocialBook.Persistence.Services.Authors
         }
 
         /// <inheritdoc />
-        public async Task<List<Author>> GetAuthorsByFirstNameAsync(string firstName)
+        public async Task<IPaginatedDataResult<AuthorDto>> GetAuthorsByFirstNameAsync(string firstName, PaginationFilter paginationFilter)
         {
             if (firstName == null) { throw new ArgumentNullException(nameof(firstName)); }
 
-            return await _authorReadRepository.GetAuthorsByFirstNameAsync(firstName);
+            var data = _mapper.Map<List<AuthorDto>>(await _authorReadRepository.GetAuthorsByFirstNameAsync(firstName, paginationFilter));
+            var totalRecordCount = await _authorReadRepository.GetWhere(a => a.FirstName == firstName).CountAsync();
+
+            return _paginationService.CreatePaginatedDataResult(HttpStatusCode.OK, data, totalRecordCount, paginationFilter, "");
         }
 
         /// <inheritdoc />

@@ -1,7 +1,7 @@
 ﻿using SocialBook.Application.Results;
 using System.Net;
 
-namespace SocialBook.Infrastructure.Results
+namespace SocialBook.Persistence.Results
 {
     /// <inheritdoc />
     public class BaseResult : IBaseResult
