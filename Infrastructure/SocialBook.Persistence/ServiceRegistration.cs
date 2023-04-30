@@ -104,7 +104,7 @@ namespace SocialBook.Persistence
             services.AddScoped<IAuthorReviewDislikeService, AuthorReviewDislikeService>();
             services.AddScoped<IAuthorRecommendationService, AuthorRecommendationService>();
             services.AddScoped<IAuthorSubscriptionService, AuthorSubscriptionService>();
-            services.AddScoped<IPaginationService, PaginationService>();
+            services.AddScoped<IPaginationUriService, PaginationUriService>();
         }
     }
 }

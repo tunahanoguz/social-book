@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using SocialBook.Application.DTOs.Common;
 using SocialBook.Application.Filters;
 using SocialBook.Application.Repositories.Authors;
 using SocialBook.Domain.Entities.Authors;
@@ -14,72 +14,69 @@ namespace SocialBook.Persistence.Repositories.Authors
         }
 
         /// <inheritdoc />
-        public async Task<List<Author>> GetAuthorsByFirstNameAsync(string firstName, PaginationFilter paginationFilter)
+        public async Task<PaginatedListDto<Author>> GetAuthorsByFirstNameAsync(string firstName, PaginationFilter paginationFilter)
         {
-            return await GetWhere(author => author.FirstName == firstName, false)
-                .Skip((paginationFilter.PageNumber - 1) * paginationFilter.PageSize)
-                .Take(paginationFilter.PageSize)
-                .ToListAsync();
+            return await GetWhere(author => author.FirstName == firstName, paginationFilter, false);
         }
 
         /// <inheritdoc />
-        public async Task<List<Author>> GetAuthorsByLastNameAsync(string lastName)
+        public async Task<PaginatedListDto<Author>> GetAuthorsByLastNameAsync(string lastName, PaginationFilter paginationFilter)
         {
-            return await GetWhere(author => author.LastName == lastName, false).ToListAsync();
+            return await GetWhere(author => author.LastName == lastName, paginationFilter, false);
         }
 
         /// <inheritdoc />
-        public async Task<List<Author>> GetAuthorsByCountryOfBirthAsync(string country)
+        public async Task<PaginatedListDto<Author>> GetAuthorsByCountryOfBirthAsync(string country, PaginationFilter paginationFilter)
         {
-            return await GetWhere(author => author.CountryOfBirth == country, false).ToListAsync();
+            return await GetWhere(author => author.CountryOfBirth == country, paginationFilter, false);
         }
 
         /// <inheritdoc />
-        public async Task<List<Author>> GetAuthorsByYearOfBirthAsync(int year)
+        public async Task<PaginatedListDto<Author>> GetAuthorsByYearOfBirthAsync(int year, PaginationFilter paginationFilter)
         {
-            return await GetWhere(author => author.DateOfBirth.Year == year, false).ToListAsync();
+            return await GetWhere(author => author.DateOfBirth.Year == year, paginationFilter, false);
         }
 
         /// <inheritdoc />
-        public async Task<List<Author>> GetAuthorsAllowedReviewAsync()
+        public async Task<PaginatedListDto<Author>> GetAuthorsAllowedReviewAsync(PaginationFilter paginationFilter)
         {
-            return await GetWhere(author => author.IsAllowedReview == true, false).ToListAsync();
+            return await GetWhere(author => author.IsAllowedReview == true, paginationFilter, false);
         }
 
         /// <inheritdoc />
-        public async Task<List<Author>> GetAuthorsNotAllowedReviewAsync()
+        public async Task<PaginatedListDto<Author>> GetAuthorsNotAllowedReviewAsync(PaginationFilter paginationFilter)
         {
-            return await GetWhere(author => author.IsAllowedReview == false, false).ToListAsync();
+            return await GetWhere(author => author.IsAllowedReview == false, paginationFilter, false);
         }
 
         /// <inheritdoc />
-        public async Task<List<Author>> GetAuthorsAllowedRecommendationAsync()
+        public async Task<PaginatedListDto<Author>> GetAuthorsAllowedRecommendationAsync(PaginationFilter paginationFilter)
         {
-            return await GetWhere(author => author.IsAllowedRecommendation == true, false).ToListAsync();
+            return await GetWhere(author => author.IsAllowedRecommendation == true, paginationFilter, false);
         }
 
         /// <inheritdoc />
-        public async Task<List<Author>> GetAuthorsNotAllowedRecommendationAsync()
+        public async Task<PaginatedListDto<Author>> GetAuthorsNotAllowedRecommendationAsync(PaginationFilter paginationFilter)
         {
-            return await GetWhere(author => author.IsAllowedRecommendation == false, false).ToListAsync();
+            return await GetWhere(author => author.IsAllowedRecommendation == false, paginationFilter, false);
         }
 
         /// <inheritdoc />
-        public async Task<List<Author>> GetAuthorsAllowedSubscriptionAsync()
+        public async Task<PaginatedListDto<Author>> GetAuthorsAllowedSubscriptionAsync(PaginationFilter paginationFilter)
         {
-            return await GetWhere(author => author.IsAllowedSubscription == true, false).ToListAsync();
+            return await GetWhere(author => author.IsAllowedSubscription == true, paginationFilter, false);
         }
 
         /// <inheritdoc />
-        public async Task<List<Author>> GetAuthorsNotAllowedSubscriptionAsync()
+        public async Task<PaginatedListDto<Author>> GetAuthorsNotAllowedSubscriptionAsync(PaginationFilter paginationFilter)
         {
-            return await GetWhere(author => author.IsAllowedSubscription == false, false).ToListAsync();
+            return await GetWhere(author => author.IsAllowedSubscription == false, paginationFilter, false);
         }
 
         /// <inheritdoc />
-        public async Task<List<Author>> GetAuthorsByCreatorUserAsync(string userId)
+        public async Task<PaginatedListDto<Author>> GetAuthorsByCreatorUserAsync(string userId, PaginationFilter paginationFilter)
         {
-            return await GetWhere(author => author.CreatorUserId == userId, false).ToListAsync();
+            return await GetWhere(author => author.CreatorUserId == userId, paginationFilter, false);
         }
     }
 }

@@ -1,32 +1,21 @@
-﻿using AutoMapper;
-using Microsoft.EntityFrameworkCore;
-using SocialBook.Application.DTOs.Authors.Author;
+﻿using SocialBook.Application.DTOs.Common;
 using SocialBook.Application.Filters;
 using SocialBook.Application.Repositories.Authors;
-using SocialBook.Application.Results;
 using SocialBook.Application.Services.Authors;
-using SocialBook.Application.Services.Common;
 using SocialBook.Domain.Entities.Authors;
-using System.Net;
 
 namespace SocialBook.Persistence.Services.Authors
 {
     public class AuthorService : IAuthorService
     {
-        private readonly IMapper _mapper;
         private readonly IAuthorReadRepository _authorReadRepository;
         private readonly IAuthorWriteRepository _authorWriteRepository;
-        private readonly IPaginationService _paginationService;
 
-        public AuthorService(IMapper mapper,
-            IAuthorReadRepository authorReadRepository,
-            IAuthorWriteRepository authorWriteRepository,
-            IPaginationService paginationService)
+        public AuthorService(IAuthorReadRepository authorReadRepository,
+            IAuthorWriteRepository authorWriteRepository)
         {
-            _mapper = mapper;
             _authorReadRepository = authorReadRepository;
             _authorWriteRepository = authorWriteRepository;
-            _paginationService = paginationService;
         }
 
         /// <inheritdoc />
@@ -38,82 +27,79 @@ namespace SocialBook.Persistence.Services.Authors
         }
 
         /// <inheritdoc />
-        public async Task<IPaginatedDataResult<AuthorDto>> GetAuthorsByFirstNameAsync(string firstName, PaginationFilter paginationFilter)
+        public async Task<PaginatedListDto<Author>> GetAuthorsByFirstNameAsync(string firstName, PaginationFilter paginationFilter)
         {
             if (firstName == null) { throw new ArgumentNullException(nameof(firstName)); }
 
-            var data = _mapper.Map<List<AuthorDto>>(await _authorReadRepository.GetAuthorsByFirstNameAsync(firstName, paginationFilter));
-            var totalRecordCount = await _authorReadRepository.GetWhere(a => a.FirstName == firstName).CountAsync();
-
-            return _paginationService.CreatePaginatedDataResult(HttpStatusCode.OK, data, totalRecordCount, paginationFilter, "");
+            return await _authorReadRepository.GetAuthorsByFirstNameAsync(firstName, paginationFilter);
         }
 
         /// <inheritdoc />
-        public async Task<List<Author>> GetAuthorsByLastNameAsync(string lastName)
+        public async Task<PaginatedListDto<Author>> GetAuthorsByLastNameAsync(string lastName, PaginationFilter paginationFilter)
         {
             if (lastName == null) { throw new ArgumentNullException(nameof(lastName)); }
 
-            return await _authorReadRepository.GetAuthorsByLastNameAsync(lastName);
+            return await _authorReadRepository.GetAuthorsByLastNameAsync(lastName, paginationFilter);
         }
 
         /// <inheritdoc />
-        public async Task<List<Author>> GetAuthorsByCountryOfBirthAsync(string country)
+        public async Task<PaginatedListDto<Author>> GetAuthorsByCountryOfBirthAsync(string country, PaginationFilter paginationFilter)
         {
             if (country == null) { throw new ArgumentNullException(nameof(country)); }
 
-            return await _authorReadRepository.GetAuthorsByCountryOfBirthAsync(country);
+            return await _authorReadRepository.GetAuthorsByCountryOfBirthAsync(country, paginationFilter);
         }
 
         /// <inheritdoc />
-        public async Task<List<Author>> GetAuthorsByYearOfBirthAsync(int year)
+        public async Task<PaginatedListDto<Author>> GetAuthorsByYearOfBirthAsync(int year, PaginationFilter paginationFilter)
         {
             if (year < 0) { throw new ArgumentOutOfRangeException(nameof(year)); }
 
-            return await _authorReadRepository.GetAuthorsByYearOfBirthAsync(year);
+            return await _authorReadRepository.GetAuthorsByYearOfBirthAsync(year, paginationFilter);
         }
 
         /// <inheritdoc />
-        public async Task<List<Author>> GetAuthorsAllowedReviewAsync()
+        public async Task<PaginatedListDto<Author>> GetAuthorsAllowedReviewAsync(PaginationFilter paginationFilter)
         {
-            return await _authorReadRepository.GetAuthorsAllowedReviewAsync();
+            return await _authorReadRepository.GetAuthorsAllowedReviewAsync(paginationFilter);
         }
 
         /// <inheritdoc />
-        public async Task<List<Author>> GetAuthorsNotAllowedReviewAsync()
+        public async Task<PaginatedListDto<Author>> GetAuthorsNotAllowedReviewAsync(PaginationFilter paginationFilter)
         {
-            return await _authorReadRepository.GetAuthorsNotAllowedReviewAsync();
+            return await _authorReadRepository.GetAuthorsNotAllowedReviewAsync(paginationFilter);
         }
 
         /// <inheritdoc />
-        public async Task<List<Author>> GetAuthorsAllowedRecommendationAsync()
+        public async Task<PaginatedListDto<Author>> GetAuthorsAllowedRecommendationAsync(PaginationFilter paginationFilter)
         {
-            return await _authorReadRepository.GetAuthorsAllowedRecommendationAsync();
+            return await _authorReadRepository.GetAuthorsAllowedRecommendationAsync(paginationFilter);
         }
 
         /// <inheritdoc />
-        public async Task<List<Author>> GetAuthorsNotAllowedRecommendationAsync()
+        public async Task<PaginatedListDto<Author>> GetAuthorsNotAllowedRecommendationAsync(PaginationFilter paginationFilter)
         {
-            return await _authorReadRepository.GetAuthorsNotAllowedRecommendationAsync();
+            return await _authorReadRepository.GetAuthorsNotAllowedRecommendationAsync(paginationFilter);
         }
 
         /// <inheritdoc />
-        public async Task<List<Author>> GetAuthorsAllowedSubscriptionAsync()
+        public async Task<PaginatedListDto<Author>> GetAuthorsAllowedSubscriptionAsync(PaginationFilter paginationFilter)
         {
-            return await _authorReadRepository.GetAuthorsAllowedSubscriptionAsync();
+            return await _authorReadRepository.GetAuthorsAllowedSubscriptionAsync(paginationFilter);
         }
 
         /// <inheritdoc />
-        public async Task<List<Author>> GetAuthorsNotAllowedSubscriptionAsync()
+        public async Task<PaginatedListDto<Author>> GetAuthorsNotAllowedSubscriptionAsync(PaginationFilter paginationFilter)
         {
-            return await _authorReadRepository.GetAuthorsNotAllowedSubscriptionAsync();
+            return await _authorReadRepository.GetAuthorsNotAllowedSubscriptionAsync(paginationFilter);
         }
 
         /// <inheritdoc />
-        public async Task<List<Author>> GetAuthorsByCreatorUserAsync(string userId)
+        public async Task<PaginatedListDto<Author>> GetAuthorsByCreatorUserAsync(string userId, PaginationFilter paginationFilter)
         {
             if (userId == null) { throw new ArgumentNullException(nameof(userId)); }
 
-            return await _authorReadRepository.GetAuthorsByCreatorUserAsync(userId);
+            return await _authorReadRepository.GetAuthorsByCreatorUserAsync(userId, paginationFilter);
         }
 
         /// <inheritdoc />

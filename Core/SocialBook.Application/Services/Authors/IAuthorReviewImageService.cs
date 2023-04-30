@@ -1,4 +1,6 @@
-﻿using SocialBook.Domain.Entities.Authors;
+﻿using SocialBook.Application.DTOs.Common;
+using SocialBook.Application.Filters;
+using SocialBook.Domain.Entities.Authors;
 
 namespace SocialBook.Application.Services.Authors
 {
@@ -8,21 +10,23 @@ namespace SocialBook.Application.Services.Authors
         /// Get all author review images with the file extension provided as a parameter
         /// </summary>
         /// <param name="fileExtension">The file extension</param>
+        /// <param name="paginationFilter">The pagination filter</param>
         /// <returns>
         /// A task that represents the asynchronous operation
         /// The task result contains the author review images with the file extension provided as a parameter
         /// </returns>
-        Task<List<AuthorReviewImage>> GetAuthorReviewImagesByFileExtensionAsync(string fileExtension);
+        Task<PaginatedListDto<AuthorReviewImage>> GetAuthorReviewImagesByFileExtensionAsync(string fileExtension, PaginationFilter paginationFilter);
 
         /// <summary>
         /// Get all author review images belonging to the author review whose ID is provided as a parameter
         /// </summary>
         /// <param name="authorReviewId">The author review identifier</param>
+        /// <param name="paginationFilter">The pagination filter</param>
         /// <returns>
         /// A task that represents the asynchronous operation
         /// The task result contains the author review images belonging to the author review whose ID is provided as a parameter
         /// </returns>
-        Task<List<AuthorReviewImage>> GetAuthorReviewImagesByAuthorReviewAsync(Guid authorReviewId);
+        Task<PaginatedListDto<AuthorReviewImage>> GetAuthorReviewImagesByAuthorReviewAsync(Guid authorReviewId, PaginationFilter paginationFilter);
 
         /// <summary>
         /// Create a new author review image

@@ -1,12 +1,12 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using SocialBook.Application.DTOs.Authors.Author;
+using SocialBook.Application.DTOs.Common;
 using SocialBook.Application.Filters;
-using SocialBook.Application.Results;
 
 namespace SocialBook.Application.Features.Queries
 {
-    public class GetAuthorsByFirstNameQueryRequest : IRequest<IPaginatedDataResult<AuthorDto>>
+    public class GetAuthorsByFirstNameQueryRequest : IRequest<PaginatedListDto<AuthorDto>>
     {
         /// <summary>
         /// The first name

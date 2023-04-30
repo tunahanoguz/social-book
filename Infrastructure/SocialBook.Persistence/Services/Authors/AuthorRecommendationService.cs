@@ -1,4 +1,6 @@
-﻿using SocialBook.Application.Repositories.Authors;
+﻿using SocialBook.Application.DTOs.Common;
+using SocialBook.Application.Filters;
+using SocialBook.Application.Repositories.Authors;
 using SocialBook.Application.Services.Authors;
 using SocialBook.Domain.Entities.Authors;
 
@@ -17,27 +19,27 @@ namespace SocialBook.Persistence.Services.Authors
         }
 
         /// <inheritdoc />
-        public async Task<List<AuthorRecommendation>> GetAuthorRecommendationsByAuthorAsync(Guid authorId)
+        public async Task<PaginatedListDto<AuthorRecommendation>> GetAuthorRecommendationsByAuthorAsync(Guid authorId, PaginationFilter paginationFilter)
         {
             if (authorId == Guid.Empty) { throw new ArgumentNullException(nameof(authorId)); }
 
-            return await _authorRecommendationReadRepository.GetAuthorRecommendationsByAuthorAsync(authorId);
+            return await _authorRecommendationReadRepository.GetAuthorRecommendationsByAuthorAsync(authorId, paginationFilter);
         }
 
         /// <inheritdoc />
-        public Task<List<AuthorRecommendation>> GetAuthorRecommendationsByRecommenderUserAsync(string recommenderUserId)
+        public Task<PaginatedListDto<AuthorRecommendation>> GetAuthorRecommendationsByRecommenderUserAsync(string recommenderUserId, PaginationFilter paginationFilter)
         {
             if (recommenderUserId == null) { throw new ArgumentNullException(nameof(recommenderUserId)); }
 
-            return _authorRecommendationReadRepository.GetAuthorRecommendationsByRecommenderUserAsync(recommenderUserId);
+            return _authorRecommendationReadRepository.GetAuthorRecommendationsByRecommenderUserAsync(recommenderUserId, paginationFilter);
         }
 
         /// <inheritdoc />
-        public Task<List<AuthorRecommendation>> GetAuthorRecommendationsByRecipientUserAsync(string recipientUserId)
+        public Task<PaginatedListDto<AuthorRecommendation>> GetAuthorRecommendationsByRecipientUserAsync(string recipientUserId, PaginationFilter paginationFilter)
         {
             if (recipientUserId == null) { throw new ArgumentNullException(nameof(recipientUserId)); }
 
-            return _authorRecommendationReadRepository.GetAuthorRecommendationsByRecipientUserAsync(recipientUserId);
+            return _authorRecommendationReadRepository.GetAuthorRecommendationsByRecipientUserAsync(recipientUserId, paginationFilter);
         }
 
         /// <inheritdoc />

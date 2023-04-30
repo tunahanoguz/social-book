@@ -1,8 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SocialBook.Application.DTOs.Common;
 using SocialBook.Application.Filters;
 using SocialBook.Application.Repositories.Common;
 using SocialBook.Domain.Entities.Common;
 using SocialBook.Persistence.Contexts;
+using SocialBook.Persistence.Extensions;
 using System.Linq.Expressions;
 
 namespace SocialBook.Persistence.Repositories.Common
@@ -18,14 +20,14 @@ namespace SocialBook.Persistence.Repositories.Common
 
         public DbSet<T> Table => _context.Set<T>();
 
-        public IQueryable<T> GetAll(bool isTrackingEnabled = true)
+        public async Task<PaginatedListDto<T>> GetAll(PaginationFilter paginationFilter, bool isTrackingEnabled = true)
         {
             var query = Table.AsQueryable();
 
             if (!isTrackingEnabled)
                 query.AsNoTracking();
 
-            return query;
+            return await query.ToPaginatedList(paginationFilter);
         }
 
         public async Task<T> GetByIdAsync(string id, bool isTrackingEnabled = true)
@@ -48,14 +50,14 @@ namespace SocialBook.Persistence.Repositories.Common
             return await query.FirstOrDefaultAsync(expression);
         }
 
-        public IQueryable<T> GetWhere(Expression<Func<T, bool>> expression, bool isTrackingEnabled = true)
+        public async Task<PaginatedListDto<T>> GetWhere(Expression<Func<T, bool>> expression, PaginationFilter paginationFilter, bool isTrackingEnabled = true)
         {
             var query = Table.AsQueryable();
 
             if (!isTrackingEnabled)
                 query.AsNoTracking();
 
-            return query.Where(expression);
+            return await query.Where(expression).ToPaginatedList(paginationFilter);
         }
     }
 }

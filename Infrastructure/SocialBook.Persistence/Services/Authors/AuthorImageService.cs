@@ -1,4 +1,6 @@
-﻿using SocialBook.Application.Repositories.Authors;
+﻿using SocialBook.Application.DTOs.Common;
+using SocialBook.Application.Filters;
+using SocialBook.Application.Repositories.Authors;
 using SocialBook.Application.Services.Authors;
 using SocialBook.Domain.Entities.Authors;
 
@@ -17,19 +19,19 @@ namespace SocialBook.Persistence.Services.Authors
         }
 
         /// <inheritdoc />
-        public async Task<List<AuthorImage>> GetAuthorImagesByFileExtensionAsync(string extension)
+        public async Task<PaginatedListDto<AuthorImage>> GetAuthorImagesByFileExtensionAsync(string extension, PaginationFilter paginationFilter)
         {
             if (extension == null) { throw new ArgumentNullException(nameof(extension)); }
 
-            return await _authorImageReadRepository.GetAuthorImagesByFileExtensionAsync(extension);
+            return await _authorImageReadRepository.GetAuthorImagesByFileExtensionAsync(extension, paginationFilter);
         }
 
         /// <inheritdoc />
-        public async Task<List<AuthorImage>> GetAuthorImagesByAuthorAsync(Guid authorId)
+        public async Task<PaginatedListDto<AuthorImage>> GetAuthorImagesByAuthorAsync(Guid authorId, PaginationFilter paginationFilter)
         {
             if (authorId == Guid.Empty) { throw new ArgumentNullException(nameof(authorId)); }
 
-            return await _authorImageReadRepository.GetAuthorImagesByAuthorAsync(authorId);
+            return await _authorImageReadRepository.GetAuthorImagesByAuthorAsync(authorId, paginationFilter);
         }
 
         /// <inheritdoc />

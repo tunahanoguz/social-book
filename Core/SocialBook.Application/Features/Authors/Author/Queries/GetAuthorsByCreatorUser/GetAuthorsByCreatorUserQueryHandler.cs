@@ -1,10 +1,13 @@
 ﻿using AutoMapper;
 using MediatR;
+using SocialBook.Application.DTOs.Authors.Author;
+using SocialBook.Application.DTOs.Common;
+using SocialBook.Application.Filters;
 using SocialBook.Application.Services.Authors;
 
 namespace SocialBook.Application.Features.Queries
 {
-    public class GetAuthorsByCreatorUserQueryHandler : IRequestHandler<GetAuthorsByCreatorUserQueryRequest, List<GetAuthorsByCreatorUserQueryResponse>>
+    public class GetAuthorsByCreatorUserQueryHandler : IRequestHandler<GetAuthorsByCreatorUserQueryRequest, PaginatedListDto<AuthorDto>>
     {
         private readonly IAuthorService _authorService;
         private readonly IMapper _mapper;
@@ -15,11 +18,12 @@ namespace SocialBook.Application.Features.Queries
             _mapper = mapper;
         }
 
-        public async Task<List<GetAuthorsByCreatorUserQueryResponse>> Handle(GetAuthorsByCreatorUserQueryRequest request, CancellationToken cancellationToken)
+        public async Task<PaginatedListDto<AuthorDto>> Handle(GetAuthorsByCreatorUserQueryRequest request, CancellationToken cancellationToken)
         {
-            var authors = await _authorService.GetAuthorsByCreatorUserAsync(request.CreatorUserId);
+            var paginationFilter = new PaginationFilter(request.PageNumber, request.PageSize);
+            var authors = await _authorService.GetAuthorsByCreatorUserAsync(request.CreatorUserId, paginationFilter);
 
-            return _mapper.Map<List<GetAuthorsByCreatorUserQueryResponse>>(authors);
+            return _mapper.Map<PaginatedListDto<AuthorDto>>(authors);
         }
     }
 }

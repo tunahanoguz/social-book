@@ -1,10 +1,13 @@
 ﻿using AutoMapper;
 using MediatR;
+using SocialBook.Application.DTOs.Authors.Author;
+using SocialBook.Application.DTOs.Common;
+using SocialBook.Application.Filters;
 using SocialBook.Application.Services.Authors;
 
 namespace SocialBook.Application.Features.Queries
 {
-    public class GetAuthorsByCountryOfBirthQueryHandler : IRequestHandler<GetAuthorsByCountryOfBirthQueryRequest, List<GetAuthorsByCountryOfBirthQueryResponse>>
+    public class GetAuthorsByCountryOfBirthQueryHandler : IRequestHandler<GetAuthorsByCountryOfBirthQueryRequest, PaginatedListDto<AuthorDto>>
     {
         private readonly IAuthorService _authorService;
         private readonly IMapper _mapper;
@@ -15,11 +18,12 @@ namespace SocialBook.Application.Features.Queries
             _mapper = mapper;
         }
 
-        public async Task<List<GetAuthorsByCountryOfBirthQueryResponse>> Handle(GetAuthorsByCountryOfBirthQueryRequest request, CancellationToken cancellationToken)
+        public async Task<PaginatedListDto<AuthorDto>> Handle(GetAuthorsByCountryOfBirthQueryRequest request, CancellationToken cancellationToken)
         {
-            var authors = await _authorService.GetAuthorsByCountryOfBirthAsync(request.CountryOfBirth);
+            var paginationFilter = new PaginationFilter(request.PageNumber, request.PageSize);
+            var authors = await _authorService.GetAuthorsByCountryOfBirthAsync(request.CountryOfBirth, paginationFilter);
 
-            return _mapper.Map<List<GetAuthorsByCountryOfBirthQueryResponse>>(authors);
+            return _mapper.Map<PaginatedListDto<AuthorDto>>(authors);
         }
     }
 }

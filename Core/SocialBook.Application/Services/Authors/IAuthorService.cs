@@ -1,6 +1,5 @@
-﻿using SocialBook.Application.DTOs.Authors.Author;
+﻿using SocialBook.Application.DTOs.Common;
 using SocialBook.Application.Filters;
-using SocialBook.Application.Results;
 using SocialBook.Domain.Entities.Authors;
 
 namespace SocialBook.Application.Services.Authors
@@ -26,101 +25,111 @@ namespace SocialBook.Application.Services.Authors
         /// A task that represents the asynchronous operation
         /// The task result contains the authors with the first name provided as a parameter
         /// </returns>
-        Task<IPaginatedDataResult<AuthorDto>> GetAuthorsByFirstNameAsync(string firstName, PaginationFilter paginationFilter);
+        Task<PaginatedListDto<Author>> GetAuthorsByFirstNameAsync(string firstName, PaginationFilter paginationFilter);
 
         /// <summary>
         /// Get all authors with the last name provided as a parameter
         /// </summary>
         /// <param name="lastName">The last name of the author</param>
+        /// <param name="paginationFilter">The pagination filter</param>
         /// <returns>
         /// A task that represents the asynchronous operation
         /// The task result contains the authors with the last name provided as a parameter
         /// </returns>
-        Task<List<Author>> GetAuthorsByLastNameAsync(string lastName);
+        Task<PaginatedListDto<Author>> GetAuthorsByLastNameAsync(string lastName, PaginationFilter paginationFilter);
 
         /// <summary>
         /// Get all authors born in the country provided as a parameter
         /// </summary>
         /// <param name="country">The country where the author was born</param>
+        /// <param name="paginationFilter">The pagination filter</param>
         /// <returns>
         /// A task that represents the asynchronous operation
         /// The task result contains the authors born in the country provided as a parameter
         /// </returns>
-        Task<List<Author>> GetAuthorsByCountryOfBirthAsync(string country);
+        Task<PaginatedListDto<Author>> GetAuthorsByCountryOfBirthAsync(string country, PaginationFilter paginationFilter);
 
         /// <summary>
         /// Get all authors born in the year provided as a parameter
         /// </summary>
         /// <param name="year">The year where the author was born</param>
+        /// <param name="paginationFilter">The pagination filter</param>
         /// <returns>
         /// A task that represents the asynchronous operation
         /// The task result contains the authors born in the year provided as a parameter
         /// </returns>
-        Task<List<Author>> GetAuthorsByYearOfBirthAsync(int year);
+        Task<PaginatedListDto<Author>> GetAuthorsByYearOfBirthAsync(int year, PaginationFilter paginationFilter);
 
         /// <summary>
         /// Get all authors allowed to have reviews published about them
         /// </summary>
+        /// <param name="paginationFilter">The pagination filter</param>
         /// <returns>
         /// A task that represents the asynchronous operation
         /// The task result contains the authors allowed to have reviews published about them
         /// </returns>
-        Task<List<Author>> GetAuthorsAllowedReviewAsync();
+        Task<PaginatedListDto<Author>> GetAuthorsAllowedReviewAsync(PaginationFilter paginationFilter);
 
         /// <summary>
         /// Get all authors not allowed to have reviews published about them
         /// </summary>
+        /// <param name="paginationFilter">The pagination filter</param>
         /// <returns>
         /// A task that represents the asynchronous operation
         /// The task result contains the authors not allowed to have reviews published about them
         /// </returns>
-        Task<List<Author>> GetAuthorsNotAllowedReviewAsync();
+        Task<PaginatedListDto<Author>> GetAuthorsNotAllowedReviewAsync(PaginationFilter paginationFilter);
 
         /// <summary>
         /// Get all authors allowed to be recommended by users to other users
         /// </summary>
+        /// <param name="paginationFilter">The pagination filter</param>
         /// <returns>
         /// A task that represents the asynchronous operation
         /// The task result contains the authors allowed to be recommended by users to other users
         /// </returns>
-        Task<List<Author>> GetAuthorsAllowedRecommendationAsync();
+        Task<PaginatedListDto<Author>> GetAuthorsAllowedRecommendationAsync(PaginationFilter paginationFilter);
 
         /// <summary>
         /// Get all authors not allowed to be recommended by users to other users
         /// </summary>
+        /// <param name="paginationFilter">The pagination filter</param>
         /// <returns>
         /// A task that represents the asynchronous operation
         /// The task result contains the authors not allowed to be recommended by users to other users
         /// </returns>
-        Task<List<Author>> GetAuthorsNotAllowedRecommendationAsync();
+        Task<PaginatedListDto<Author>> GetAuthorsNotAllowedRecommendationAsync(PaginationFilter paginationFilter);
 
         /// <summary>
         /// Get all authors who are allowed to be subscribed to by users
         /// </summary>
+        /// <param name="paginationFilter">The pagination filter</param>
         /// <returns>
         /// A task that represents the asynchronous operation
         /// The task result contains the authors who are allowed to be subscribed to by users
         /// </returns>
-        Task<List<Author>> GetAuthorsAllowedSubscriptionAsync();
+        Task<PaginatedListDto<Author>> GetAuthorsAllowedSubscriptionAsync(PaginationFilter paginationFilter);
 
         /// <summary>
         /// Get all authors who are not allowed to be subscribed to by users
         /// </summary>
+        /// <param name="paginationFilter">The pagination filter</param>
         /// <returns>
         /// A task that represents the asynchronous operation
         /// The task result contains the authors who are not allowed to be subscribed to by users
         /// </returns>
-        Task<List<Author>> GetAuthorsNotAllowedSubscriptionAsync();
+        Task<PaginatedListDto<Author>> GetAuthorsNotAllowedSubscriptionAsync(PaginationFilter paginationFilter);
 
         /// <summary>
         /// Get all authors belonging to the user whose ID is provided as a parameter
         /// </summary>
         /// <param name="userId">The creator user identifier</param>
+        /// <param name="paginationFilter">The pagination filter</param>
         /// <returns>
         /// A task that represents the asynchronous operation
         /// The task result contains the authors belonging to the user whose ID is provided as a parameter
         /// </returns>
-        Task<List<Author>> GetAuthorsByCreatorUserAsync(string userId);
+        Task<PaginatedListDto<Author>> GetAuthorsByCreatorUserAsync(string userId, PaginationFilter paginationFilter);
 
         /// <summary>
         /// Create a new author

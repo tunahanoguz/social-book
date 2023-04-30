@@ -1,4 +1,6 @@
-﻿using SocialBook.Application.Repositories.Authors;
+﻿using SocialBook.Application.DTOs.Common;
+using SocialBook.Application.Filters;
+using SocialBook.Application.Repositories.Authors;
 using SocialBook.Application.Services.Authors;
 using SocialBook.Domain.Entities.Authors;
 
@@ -17,19 +19,19 @@ namespace SocialBook.Persistence.Services.Authors
         }
 
         /// <inheritdoc />
-        public async Task<List<AuthorReviewDislike>> GetAuthorReviewDislikesByAuthorReviewAsync(Guid authorReviewId)
+        public async Task<PaginatedListDto<AuthorReviewDislike>> GetAuthorReviewDislikesByAuthorReviewAsync(Guid authorReviewId, PaginationFilter paginationFilter)
         {
             if (authorReviewId == Guid.Empty) { throw new ArgumentException(nameof(authorReviewId)); }
 
-            return await _authorReviewDislikeReadRepository.GetAuthorReviewDislikesByAuthorReviewAsync(authorReviewId);
+            return await _authorReviewDislikeReadRepository.GetAuthorReviewDislikesByAuthorReviewAsync(authorReviewId, paginationFilter);
         }
 
         /// <inheritdoc />
-        public async Task<List<AuthorReviewDislike>> GetAuthorReviewDislikesByUserAsync(string userId)
+        public async Task<PaginatedListDto<AuthorReviewDislike>> GetAuthorReviewDislikesByUserAsync(string userId, PaginationFilter paginationFilter)
         {
             if (userId == null) { throw new ArgumentNullException(nameof(userId)); }
 
-            return await _authorReviewDislikeReadRepository.GetAuthorReviewDislikesByUserAsync(userId);
+            return await _authorReviewDislikeReadRepository.GetAuthorReviewDislikesByUserAsync(userId, paginationFilter);
         }
 
         /// <inheritdoc />

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
-using SocialBook.Application.Results;
+using SocialBook.Application.DTOs.Authors.Author;
+using SocialBook.Application.DTOs.Common;
 using System.Net;
 
 namespace SocialBook.API.Extensions
@@ -16,9 +17,9 @@ namespace SocialBook.API.Extensions
         /// <param name="controllerBase">The ConrollerBase class</param>
         /// <param name="result">The base result of all controller actions</param>
         /// <returns></returns>
-        public static IActionResult GetResult(this ControllerBase controllerBase, IBaseResult result)
+        public static IActionResult GetResult(this ControllerBase controllerBase, PaginatedListDto<AuthorDto> result)
         {
-            switch (result.StatusCode)
+            switch (200)
             {
                 case (int)HttpStatusCode.OK:
                     {
