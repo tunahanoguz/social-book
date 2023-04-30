@@ -1,8 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SocialBook.Application.Features.Queries;
+using SocialBook.Application.DTOs.Authors.Author;
+using SocialBook.Application.DTOs.Common;
 using SocialBook.Application.Features.Commands;
-using SocialBook.API.Results;
+using SocialBook.Application.Features.Queries;
 
 namespace SocialBook.API.Controllers
 {
@@ -35,13 +36,9 @@ namespace SocialBook.API.Controllers
         /// <returns>The author with the identifier provided as a parameter</returns>
         /// <response code="200">Returns the author with the identifier provided as a parameter</response>
         [HttpGet("{Id}")]
-        [ProducesResponseType(typeof(GetAuthorByFirstNameQueryResponse), StatusCodes.Status200OK, "application/json")]
+        [ProducesResponseType(typeof(AuthorDto), StatusCodes.Status200OK, "application/json")]
         public async Task<IActionResult> GetAuthorById([FromRoute] GetAuthorByIdQueryRequest request)
         {
-            var result = new BaseResult(System.Net.HttpStatusCode.NotFound, "asdasdas");
-
-
-
             var response = await _mediator.Send(request);
             return Ok(response);
         }
@@ -60,7 +57,7 @@ namespace SocialBook.API.Controllers
         /// <returns>All authors with the first name provided as a parameter</returns>
         /// <response code="200">Returns all authors with the first name provided as a parameter</response>
         [HttpGet("FirstName/{FirstName}")]
-        [ProducesResponseType(typeof(IEnumerable<GetAuthorsByFirstNameQueryResponse>), StatusCodes.Status200OK, "application/json")]
+        [ProducesResponseType(typeof(PaginatedListDto<AuthorDto>), StatusCodes.Status200OK, "application/json")]
         public async Task<IActionResult> GetAuthorsByFirstName([FromRoute] GetAuthorsByFirstNameQueryRequest request)
         {
             var response = await _mediator.Send(request);
@@ -81,7 +78,7 @@ namespace SocialBook.API.Controllers
         /// <returns>All authors with the last name provided as a parameter</returns>
         /// <response code="200">Returns all authors with the last name provided as a parameter</response>
         [HttpGet("LastName/{LastName}")]
-        [ProducesResponseType(typeof(IEnumerable<GetAuthorsByLastNameQueryResponse>), StatusCodes.Status200OK, "application/json")]
+        [ProducesResponseType(typeof(PaginatedListDto<AuthorDto>), StatusCodes.Status200OK, "application/json")]
         public async Task<IActionResult> GetAuthorsByLastName([FromRoute] GetAuthorsByLastNameQueryRequest request)
         {
             var response = await _mediator.Send(request);
@@ -102,7 +99,7 @@ namespace SocialBook.API.Controllers
         /// <returns>All authors born in the country provided as a parameter</returns>
         /// <response code="200">Returns all authors born in the country provided as a parameter</response>
         [HttpGet("CountryOfBirth/{CountryOfBirth}")]
-        [ProducesResponseType(typeof(IEnumerable<GetAuthorsByCountryOfBirthQueryResponse>), StatusCodes.Status200OK, "application/json")]
+        [ProducesResponseType(typeof(PaginatedListDto<AuthorDto>), StatusCodes.Status200OK, "application/json")]
         public async Task<IActionResult> GetAuthorsByCountryOfBirth([FromRoute] GetAuthorsByCountryOfBirthQueryRequest request)
         {
             var response = await _mediator.Send(request);
@@ -123,7 +120,7 @@ namespace SocialBook.API.Controllers
         /// <returns>All authors born in the year provided as a parameter</returns>
         /// <response code="200">Returns all authors born in the year provided as a parameter</response>
         [HttpGet("YearOfBirth/{YearOfBirth}")]
-        [ProducesResponseType(typeof(IEnumerable<GetAuthorsByYearOfBirthQueryResponse>), StatusCodes.Status200OK, "application/json")]
+        [ProducesResponseType(typeof(PaginatedListDto<AuthorDto>), StatusCodes.Status200OK, "application/json")]
         public async Task<IActionResult> GetAuthorsByYearOfBirth([FromRoute] GetAuthorsByYearOfBirthQueryRequest request)
         {
             var response = await _mediator.Send(request);
@@ -144,10 +141,10 @@ namespace SocialBook.API.Controllers
         /// <returns>All authors allowed to have reviews published about them</returns>
         /// <response code="200">Returns all authors allowed to have reviews published about them</response>
         [HttpGet("AllowedReview")]
-        [ProducesResponseType(typeof(IEnumerable<GetAuthorsAllowedReviewQueryResponse>), StatusCodes.Status200OK, "application/json")]
-        public async Task<IActionResult> GetAuthorsAllowedReview()
+        [ProducesResponseType(typeof(PaginatedListDto<AuthorDto>), StatusCodes.Status200OK, "application/json")]
+        public async Task<IActionResult> GetAuthorsAllowedReview([FromRoute] GetAuthorsAllowedReviewQueryRequest request)
         {
-            var response = await _mediator.Send(new GetAuthorsAllowedReviewQueryRequest());
+            var response = await _mediator.Send(request);
             return Ok(response);
         }
 
@@ -165,10 +162,10 @@ namespace SocialBook.API.Controllers
         /// <returns>All authors not allowed to have reviews published about them</returns>
         /// <response code="200">Returns all authors not allowed to have reviews published about them</response>
         [HttpGet("NotAllowedReview")]
-        [ProducesResponseType(typeof(IEnumerable<GetAuthorsNotAllowedReviewQueryResponse>), StatusCodes.Status200OK, "application/json")]
-        public async Task<IActionResult> GetAuthorsNotAllowedReview()
+        [ProducesResponseType(typeof(PaginatedListDto<AuthorDto>), StatusCodes.Status200OK, "application/json")]
+        public async Task<IActionResult> GetAuthorsNotAllowedReview([FromRoute] GetAuthorsNotAllowedReviewQueryRequest request)
         {
-            var response = await _mediator.Send(new GetAuthorsNotAllowedReviewQueryRequest());
+            var response = await _mediator.Send(request);
             return Ok(response);
         }
 
@@ -186,10 +183,10 @@ namespace SocialBook.API.Controllers
         /// <returns>All authors allowed to be recommended by users to other users</returns>
         /// <response code="200">Returns all authors allowed to be recommended by users to other users</response>
         [HttpGet("AllowedRecommendation")]
-        [ProducesResponseType(typeof(IEnumerable<GetAuthorsAllowedRecommendationQueryResponse>), StatusCodes.Status200OK, "application/json")]
-        public async Task<IActionResult> GetAuthorsAllowedRecommendation()
+        [ProducesResponseType(typeof(PaginatedListDto<AuthorDto>), StatusCodes.Status200OK, "application/json")]
+        public async Task<IActionResult> GetAuthorsAllowedRecommendation([FromRoute] GetAuthorsAllowedRecommendationQueryRequest request)
         {
-            var response = await _mediator.Send(new GetAuthorsAllowedRecommendationQueryRequest());
+            var response = await _mediator.Send(request);
             return Ok(response);
         }
 
@@ -207,10 +204,10 @@ namespace SocialBook.API.Controllers
         /// <returns>All authors not allowed to be recommended by users to other users</returns>
         /// <response code="200">Returns all authors not allowed to be recommended by users to other users</response>
         [HttpGet("NotAllowedRecommendation")]
-        [ProducesResponseType(typeof(IEnumerable<GetAuthorsNotAllowedRecommendationQueryResponse>), StatusCodes.Status200OK, "application/json")]
-        public async Task<IActionResult> GetAuthorsNotAllowedRecommendation()
+        [ProducesResponseType(typeof(PaginatedListDto<AuthorDto>), StatusCodes.Status200OK, "application/json")]
+        public async Task<IActionResult> GetAuthorsNotAllowedRecommendation([FromRoute] GetAuthorsNotAllowedRecommendationQueryRequest request)
         {
-            var response = await _mediator.Send(new GetAuthorsNotAllowedRecommendationQueryRequest());
+            var response = await _mediator.Send(request);
             return Ok(response);
         }
 
@@ -228,10 +225,10 @@ namespace SocialBook.API.Controllers
         /// <returns>All authors who are allowed to be subscribed to by users</returns>
         /// <response code="200">Returns all authors who are allowed to be subscribed to by users</response>
         [HttpGet("AllowedSubscription")]
-        [ProducesResponseType(typeof(IEnumerable<GetAuthorsAllowedSubscriptionQueryResponse>), StatusCodes.Status200OK, "application/json")]
-        public async Task<IActionResult> GetAuthorsAllowedSubscription()
+        [ProducesResponseType(typeof(PaginatedListDto<AuthorDto>), StatusCodes.Status200OK, "application/json")]
+        public async Task<IActionResult> GetAuthorsAllowedSubscription([FromRoute] GetAuthorsAllowedSubscriptionQueryRequest request)
         {
-            var response = await _mediator.Send(new GetAuthorsAllowedSubscriptionQueryRequest());
+            var response = await _mediator.Send(request);
             return Ok(response);
         }
 
@@ -249,10 +246,10 @@ namespace SocialBook.API.Controllers
         /// <returns>All authors who are not allowed to be subscribed to by users</returns>
         /// <response code="200">Returns all authors who are not allowed to be subscribed to by users</response>
         [HttpGet("NotAllowedSubscription")]
-        [ProducesResponseType(typeof(IEnumerable<GetAuthorsNotAllowedSubscriptionQueryResponse>), StatusCodes.Status200OK, "application/json")]
-        public async Task<IActionResult> GetAuthorsNotAllowedSubscription()
+        [ProducesResponseType(typeof(PaginatedListDto<AuthorDto>), StatusCodes.Status200OK, "application/json")]
+        public async Task<IActionResult> GetAuthorsNotAllowedSubscription([FromRoute] GetAuthorsNotAllowedSubscriptionQueryRequest request)
         {
-            var response = await _mediator.Send(new GetAuthorsNotAllowedSubscriptionQueryRequest());
+            var response = await _mediator.Send(request);
             return Ok(response);
         }
 
@@ -270,7 +267,7 @@ namespace SocialBook.API.Controllers
         /// <returns>All authors belonging to the user whose ID is provided as a parameter</returns>
         /// <response code="200">Returns all authors belonging to the user whose ID is provided as a parameter</response>
         [HttpGet("CreatorUser/{CreatorUserId}")]
-        [ProducesResponseType(typeof(IEnumerable<GetAuthorsByCreatorUserQueryResponse>), StatusCodes.Status200OK, "application/json")]
+        [ProducesResponseType(typeof(PaginatedListDto<AuthorDto>), StatusCodes.Status200OK, "application/json")]
         public async Task<IActionResult> GetAuthorsByCreatorUser([FromRoute] GetAuthorsByCreatorUserQueryRequest request)
         {
             var response = await _mediator.Send(request);

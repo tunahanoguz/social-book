@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
 using MediatR;
+using SocialBook.Application.DTOs.Authors.Author;
 using SocialBook.Application.Services.Authors;
 
 namespace SocialBook.Application.Features.Queries
 {
-    public class GetAuthorByIdQueryHandler : IRequestHandler<GetAuthorByIdQueryRequest, GetAuthorByFirstNameQueryResponse>
+    public class GetAuthorByIdQueryHandler : IRequestHandler<GetAuthorByIdQueryRequest, AuthorDto>
     {
         private readonly IAuthorService _authorService;
         private readonly IMapper _mapper;
@@ -15,10 +16,10 @@ namespace SocialBook.Application.Features.Queries
             _mapper = mapper;
         }
 
-        public async Task<GetAuthorByFirstNameQueryResponse> Handle(GetAuthorByIdQueryRequest request, CancellationToken cancellationToken)
+        public async Task<AuthorDto> Handle(GetAuthorByIdQueryRequest request, CancellationToken cancellationToken)
         {
             var author = await _authorService.GetAuthorById(request.Id);
-            return _mapper.Map<GetAuthorByFirstNameQueryResponse>(author);
+            return _mapper.Map<AuthorDto>(author);
         }
     }
 }

@@ -1,8 +1,11 @@
 ﻿using MediatR;
+using SocialBook.Application.DTOs.Authors.Author;
+using SocialBook.Application.DTOs.Common;
+using SocialBook.Application.Filters;
 
 namespace SocialBook.Application.Features.Queries
 {
-    public class GetAuthorsNotAllowedReviewQueryRequest : IRequest<List<GetAuthorsNotAllowedReviewQueryResponse>>
+    public class GetAuthorsNotAllowedReviewQueryRequest : PaginationFilter, IRequest<PaginatedListDto<AuthorDto>>
     {
     }
 }

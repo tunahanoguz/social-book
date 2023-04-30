@@ -1,10 +1,13 @@
 ﻿using AutoMapper;
 using MediatR;
+using SocialBook.Application.DTOs.Authors.Author;
+using SocialBook.Application.DTOs.Common;
+using SocialBook.Application.Filters;
 using SocialBook.Application.Services.Authors;
 
 namespace SocialBook.Application.Features.Queries
 {
-    public class GetAuthorsAllowedRecommendationQueryHandler : IRequestHandler<GetAuthorsAllowedRecommendationQueryRequest, List<GetAuthorsAllowedRecommendationQueryResponse>>
+    public class GetAuthorsAllowedRecommendationQueryHandler : IRequestHandler<GetAuthorsAllowedRecommendationQueryRequest, PaginatedListDto<AuthorDto>>
     {
         private readonly IAuthorService _authorService;
         private readonly IMapper _mapper;
@@ -15,11 +18,9 @@ namespace SocialBook.Application.Features.Queries
             _mapper = mapper;
         }
 
-        public async Task<List<GetAuthorsAllowedRecommendationQueryResponse>> Handle(GetAuthorsAllowedRecommendationQueryRequest request, CancellationToken cancellationToken)
+        public async Task<PaginatedListDto<AuthorDto>> Handle(GetAuthorsAllowedRecommendationQueryRequest request, CancellationToken cancellationToken)
         {
-            var authors = await _authorService.GetAuthorsAllowedRecommendationAsync();
-
-            return _mapper.Map<List<GetAuthorsAllowedRecommendationQueryResponse>>(authors);
+            return _mapper.Map<PaginatedListDto<AuthorDto>>(_authorService.GetAuthorsAllowedRecommendationAsync(new PaginationFilter(request.PageNumber, request.PageSize)));
         }
     }
 }

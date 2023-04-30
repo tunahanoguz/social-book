@@ -1,4 +1,6 @@
-﻿using SocialBook.Application.Repositories.Common;
+﻿using SocialBook.Application.DTOs.Common;
+using SocialBook.Application.Filters;
+using SocialBook.Application.Repositories.Common;
 using SocialBook.Domain.Entities.Authors;
 
 namespace SocialBook.Application.Repositories.Authors
@@ -13,7 +15,7 @@ namespace SocialBook.Application.Repositories.Authors
         /// A task that represents the asynchronous operation
         /// The task result contains the author reviews matching the rating value provided as a parameter
         /// </returns>
-        Task<List<AuthorReview>> GetAuthorReviewsByRatingAsync(int rating);
+        Task<PaginatedListDto<AuthorReview>> GetAuthorReviewsByRatingAsync(int rating, PaginationFilter paginationFilter);
 
         /// <summary>
         /// Get author reviews belonging to the author whose ID is provided as a parameter
@@ -23,7 +25,7 @@ namespace SocialBook.Application.Repositories.Authors
         /// A task that represents the asynchronous operation
         /// The task result contains the author reviews belonging to the author whose ID is provided as a parameter
         /// </returns>
-        Task<List<AuthorReview>> GetAuthorReviewsByAuthorAsync(Guid authorId);
+        Task<PaginatedListDto<AuthorReview>> GetAuthorReviewsByAuthorAsync(Guid authorId, PaginationFilter paginationFilter);
 
         /// <summary>
         /// Get author reviews belonging to the user whose ID is provided as a parameter
@@ -33,6 +35,6 @@ namespace SocialBook.Application.Repositories.Authors
         /// A task that represents the asynchronous operation
         /// The task result contains the author reviews belonging to the user whose ID is provided as a parameter
         /// </returns>
-        Task<List<AuthorReview>> GetAuthorReviewsByUserAsync(string userId);
+        Task<PaginatedListDto<AuthorReview>> GetAuthorReviewsByUserAsync(string userId, PaginationFilter paginationFilter);
     }
 }

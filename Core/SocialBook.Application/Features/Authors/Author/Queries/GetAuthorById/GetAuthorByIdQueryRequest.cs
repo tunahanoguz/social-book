@@ -1,8 +1,9 @@
 ﻿using MediatR;
+using SocialBook.Application.DTOs.Authors.Author;
 
 namespace SocialBook.Application.Features.Queries
 {
-    public class GetAuthorByIdQueryRequest : IRequest<GetAuthorByFirstNameQueryResponse>
+    public class GetAuthorByIdQueryRequest : IRequest<AuthorDto>
     {
         /// <summary>
         /// The author identifier

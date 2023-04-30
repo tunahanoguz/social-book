@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using SocialBook.Application.DTOs.Common;
+using SocialBook.Application.Filters;
 using SocialBook.Application.Repositories.Authors;
 using SocialBook.Domain.Entities.Authors;
 using SocialBook.Persistence.Contexts;
@@ -13,15 +14,15 @@ namespace SocialBook.Persistence.Repositories.Authors
         }
 
         /// <inheritdoc />
-        public async Task<List<AuthorReviewLike>> GetAuthorReviewLikesByAuthorReviewAsync(Guid authorReviewId)
+        public async Task<PaginatedListDto<AuthorReviewLike>> GetAuthorReviewLikesByAuthorReviewAsync(Guid authorReviewId, PaginationFilter paginationFilter)
         {
-            return await GetWhere(a => a.AuthorReviewId == authorReviewId).ToListAsync();
+            return await GetWhere(a => a.AuthorReviewId == authorReviewId, paginationFilter, false);
         }
 
         /// <inheritdoc />
-        public async Task<List<AuthorReviewLike>> GetAuthorReviewLikesByUserAsync(string userId)
+        public async Task<PaginatedListDto<AuthorReviewLike>> GetAuthorReviewLikesByUserAsync(string userId, PaginationFilter paginationFilter)
         {
-            return await GetWhere(a => a.UserId == userId).ToListAsync();
+            return await GetWhere(a => a.UserId == userId, paginationFilter, false);
         }
     }
 }

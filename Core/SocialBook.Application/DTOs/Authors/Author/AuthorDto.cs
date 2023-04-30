@@ -1,6 +1,6 @@
-﻿namespace SocialBook.Application.Features.Queries
+﻿namespace SocialBook.Application.DTOs.Authors.Author
 {
-    public class GetAuthorsAllowedRecommendationQueryResponse
+    public class AuthorDto
     {
         /// <summary>
         /// Gets or sets the first name

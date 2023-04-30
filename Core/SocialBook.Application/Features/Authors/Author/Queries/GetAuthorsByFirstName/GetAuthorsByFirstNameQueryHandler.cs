@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
 using MediatR;
+using SocialBook.Application.DTOs.Authors.Author;
+using SocialBook.Application.DTOs.Common;
 using SocialBook.Application.Services.Authors;
 
 namespace SocialBook.Application.Features.Queries
 {
-    public class GetAuthorsByFirstNameQueryHandler : IRequestHandler<GetAuthorsByFirstNameQueryRequest, List<GetAuthorsByFirstNameQueryResponse>>
+    public class GetAuthorsByFirstNameQueryHandler : IRequestHandler<GetAuthorsByFirstNameQueryRequest, PaginatedListDto<AuthorDto>>
     {
         private readonly IAuthorService _authorService;
         private readonly IMapper _mapper;
@@ -15,11 +17,11 @@ namespace SocialBook.Application.Features.Queries
             _mapper = mapper;
         }
 
-        public async Task<List<GetAuthorsByFirstNameQueryResponse>> Handle(GetAuthorsByFirstNameQueryRequest request, CancellationToken cancellationToken)
+        public async Task<PaginatedListDto<AuthorDto>> Handle(GetAuthorsByFirstNameQueryRequest request, CancellationToken cancellationToken)
         {
-            var authors = await _authorService.GetAuthorsByFirstNameAsync(request.FirstName);
+            var authors = await _authorService.GetAuthorsByFirstNameAsync(request.FirstName, request.PaginationFilter);
 
-            return _mapper.Map<List<GetAuthorsByFirstNameQueryResponse>>(authors);
+            return _mapper.Map<PaginatedListDto<AuthorDto>>(authors);
         }
     }
 }

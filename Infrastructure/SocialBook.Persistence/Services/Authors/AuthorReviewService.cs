@@ -1,4 +1,6 @@
-﻿using SocialBook.Application.Repositories.Authors;
+﻿using SocialBook.Application.DTOs.Common;
+using SocialBook.Application.Filters;
+using SocialBook.Application.Repositories.Authors;
 using SocialBook.Application.Services.Authors;
 using SocialBook.Domain.Entities.Authors;
 
@@ -16,27 +18,27 @@ namespace SocialBook.Persistence.Services.Authors
         }
 
         /// <inheritdoc />
-        public async Task<List<AuthorReview>> GetAuthorReviewsByRatingAsync(int rating)
+        public async Task<PaginatedListDto<AuthorReview>> GetAuthorReviewsByRatingAsync(int rating, PaginationFilter paginationFilter)
         {
             if (rating < 0) { throw new ArgumentNullException(nameof(rating)); }
 
-            return await _authorReviewReadRepository.GetAuthorReviewsByRatingAsync(rating);
+            return await _authorReviewReadRepository.GetAuthorReviewsByRatingAsync(rating, paginationFilter);
         }
 
         /// <inheritdoc />
-        public async Task<List<AuthorReview>> GetAuthorReviewsByAuthorAsync(Guid authorId)
+        public async Task<PaginatedListDto<AuthorReview>> GetAuthorReviewsByAuthorAsync(Guid authorId, PaginationFilter paginationFilter)
         {
             if (authorId == Guid.Empty) { throw new ArgumentNullException(nameof(authorId)); }
 
-            return await _authorReviewReadRepository.GetAuthorReviewsByAuthorAsync(authorId);
+            return await _authorReviewReadRepository.GetAuthorReviewsByAuthorAsync(authorId, paginationFilter);
         }
 
         /// <inheritdoc />
-        public async Task<List<AuthorReview>> GetAuthorReviewsByUserAsync(string userId)
+        public async Task<PaginatedListDto<AuthorReview>> GetAuthorReviewsByUserAsync(string userId, PaginationFilter paginationFilter)
         {
             if (userId == null) { throw new ArgumentNullException(nameof(userId)); }
 
-            return await _authorReviewReadRepository.GetAuthorReviewsByUserAsync(userId);
+            return await _authorReviewReadRepository.GetAuthorReviewsByUserAsync(userId, paginationFilter);
         }
 
         /// <inheritdoc />

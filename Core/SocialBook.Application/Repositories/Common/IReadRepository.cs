@@ -1,4 +1,6 @@
-﻿using SocialBook.Domain.Entities.Common;
+﻿using SocialBook.Application.DTOs.Common;
+using SocialBook.Application.Filters;
+using SocialBook.Domain.Entities.Common;
 using System.Linq.Expressions;
 
 namespace SocialBook.Application.Repositories.Common
@@ -8,17 +10,19 @@ namespace SocialBook.Application.Repositories.Common
         /// <summary>
         /// Get all entity entries
         /// </summary>
+        /// <param name="paginationFilter">The pagination filter</param>
         /// <param name="isTrackingEnabled">Whether to track entity state for changes</param>
         /// <returns>Entity entries</returns>
-        IQueryable<T> GetAll(bool isTrackingEnabled = true);
+        Task<PaginatedListDto<T>> GetAll(PaginationFilter paginationFilter, bool isTrackingEnabled = true);
 
         /// <summary>
         /// Get all entity entries that meet the specified conditions
         /// </summary>
         /// <param name="expression">Conditions to filter entity entries</param>
+        /// <param name="paginationFilter">The pagination filter</param>
         /// <param name="isTrackingEnabled">Whether to track entity state for changes</param>
         /// <returns>Entity entries that meet the specified conditions</returns>
-        IQueryable<T> GetWhere(Expression<Func<T, bool>> expression, bool isTrackingEnabled = true);
+        Task<PaginatedListDto<T>> GetWhere(Expression<Func<T, bool>> expression, PaginationFilter paginationFilter, bool isTrackingEnabled = true);
 
         /// <summary>
         /// Get the first entity entry that meet the specified conditions

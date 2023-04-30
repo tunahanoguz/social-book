@@ -1,4 +1,6 @@
-﻿using SocialBook.Application.Repositories.Authors;
+﻿using SocialBook.Application.DTOs.Common;
+using SocialBook.Application.Filters;
+using SocialBook.Application.Repositories.Authors;
 using SocialBook.Application.Services.Authors;
 using SocialBook.Domain.Entities.Authors;
 
@@ -17,25 +19,25 @@ namespace SocialBook.Persistence.Services.Authors
         }
 
         /// <inheritdoc />
-        public async Task<List<AuthorSubscription>> GetAuthorSubscriptionsByAuthorAsync(Guid authorId)
+        public async Task<PaginatedListDto<AuthorSubscription>> GetAuthorSubscriptionsByAuthorAsync(Guid authorId, PaginationFilter paginationFilter)
         {
             if (authorId == Guid.Empty) { throw new ArgumentNullException(nameof(authorId)); }
 
-            return await _authorSubscriptionReadRepository.GetAuthorSubscriptionsByAuthorAsync(authorId);
+            return await _authorSubscriptionReadRepository.GetAuthorSubscriptionsByAuthorAsync(authorId, paginationFilter);
         }
 
         /// <inheritdoc />
-        public async Task<List<AuthorSubscription>> GetAuthorSubscriptionsByUserAsync(string userId)
+        public async Task<PaginatedListDto<AuthorSubscription>> GetAuthorSubscriptionsByUserAsync(string userId, PaginationFilter paginationFilter)
         {
             if (userId == null) { throw new ArgumentNullException(nameof(userId)); }
 
-            return await _authorSubscriptionReadRepository.GetAuthorSubscriptionsByUserAsync(userId);
+            return await _authorSubscriptionReadRepository.GetAuthorSubscriptionsByUserAsync(userId, paginationFilter);
         }
 
         /// <inheritdoc />
         public async Task<bool> CreateAuthorSubscriptionAsync(AuthorSubscription authorSubscription)
         {
-            if (authorSubscription == null) { throw new ArgumentNullException(nameof (authorSubscription)); }
+            if (authorSubscription == null) { throw new ArgumentNullException(nameof(authorSubscription)); }
 
             return await _authorSubscriptionWriteRepository.AddAsync(authorSubscription);
         }

@@ -1,4 +1,6 @@
-﻿using SocialBook.Domain.Entities.Authors;
+﻿using SocialBook.Application.DTOs.Common;
+using SocialBook.Application.Filters;
+using SocialBook.Domain.Entities.Authors;
 
 namespace SocialBook.Application.Services.Authors
 {
@@ -8,31 +10,34 @@ namespace SocialBook.Application.Services.Authors
         /// Get author recommendations belonging to the author whose ID is provided as a parameter
         /// </summary>
         /// <param name="authorId">The author identifier</param>
+        /// <param name="paginationFilter">The pagination filter</param>
         /// <returns>
         /// A task that represents the asynchronous operation
         /// The task result contains the author recommendations belonging to the author whose ID is provided as a parameter
         /// </returns>
-        Task<List<AuthorRecommendation>> GetAuthorRecommendationsByAuthorAsync(Guid authorId);
+        Task<PaginatedListDto<AuthorRecommendation>> GetAuthorRecommendationsByAuthorAsync(Guid authorId, PaginationFilter paginationFilter);
 
         /// <summary>
         /// Get author recommendations belonging to the recommender user whose ID is provided as a parameter
         /// </summary>
         /// <param name="recommenderUserId">The recommender user identifier</param>
+        /// <param name="paginationFilter">The pagination filter</param>
         /// <returns>
         /// A task that represents the asynchronous operation
         /// The task result contains the author recommendations belonging to the recommender user whose ID is provided as a parameter
         /// </returns>
-        Task<List<AuthorRecommendation>> GetAuthorRecommendationsByRecommenderUserAsync(string recommenderUserId);
+        Task<PaginatedListDto<AuthorRecommendation>> GetAuthorRecommendationsByRecommenderUserAsync(string recommenderUserId, PaginationFilter paginationFilter);
 
         /// <summary>
         /// Get author recommendations belonging to the recipient user whose ID is provided as a parameter
         /// </summary>
         /// <param name="recipientUserId">The recipient user identifier</param>
+        /// <param name="paginationFilter">The pagination filter</param>
         /// <returns>
         /// A task that represents the asynchronous operation
         /// The task result contains the author recommendations belonging to the recipient user whose ID is provided as a parameter
         /// </returns>
-        Task<List<AuthorRecommendation>> GetAuthorRecommendationsByRecipientUserAsync(string recipientUserId);
+        Task<PaginatedListDto<AuthorRecommendation>> GetAuthorRecommendationsByRecipientUserAsync(string recipientUserId, PaginationFilter paginationFilter);
 
         /// <summary>
         /// Create a new author recommendation

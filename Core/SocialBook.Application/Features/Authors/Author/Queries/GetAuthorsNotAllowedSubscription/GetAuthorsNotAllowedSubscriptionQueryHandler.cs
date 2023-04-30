@@ -1,10 +1,13 @@
 ﻿using AutoMapper;
 using MediatR;
+using SocialBook.Application.DTOs.Authors.Author;
+using SocialBook.Application.DTOs.Common;
+using SocialBook.Application.Filters;
 using SocialBook.Application.Services.Authors;
 
 namespace SocialBook.Application.Features.Queries
 {
-    public class GetAuthorsNotAllowedSubscriptionQueryHandler : IRequestHandler<GetAuthorsNotAllowedSubscriptionQueryRequest, List<GetAuthorsNotAllowedSubscriptionQueryResponse>>
+    public class GetAuthorsNotAllowedSubscriptionQueryHandler : IRequestHandler<GetAuthorsNotAllowedSubscriptionQueryRequest, PaginatedListDto<AuthorDto>>
     {
         private readonly IAuthorService _authorService;
         private readonly IMapper _mapper;
@@ -15,11 +18,12 @@ namespace SocialBook.Application.Features.Queries
             _mapper = mapper;
         }
 
-        public async Task<List<GetAuthorsNotAllowedSubscriptionQueryResponse>> Handle(GetAuthorsNotAllowedSubscriptionQueryRequest request, CancellationToken cancellationToken)
+        public async Task<PaginatedListDto<AuthorDto>> Handle(GetAuthorsNotAllowedSubscriptionQueryRequest request, CancellationToken cancellationToken)
         {
-            var authors = await _authorService.GetAuthorsNotAllowedSubscriptionAsync();
+            var paginationFilter = new PaginationFilter(request.PageNumber, request.PageSize);
+            var authors = await _authorService.GetAuthorsNotAllowedSubscriptionAsync(paginationFilter);
 
-            return _mapper.Map<List<GetAuthorsNotAllowedSubscriptionQueryResponse>>(authors);
+            return _mapper.Map<PaginatedListDto<AuthorDto>>(authors);
         }
     }
 }

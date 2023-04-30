@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using SocialBook.Application.DTOs.Common;
+using SocialBook.Application.Filters;
 using SocialBook.Application.Repositories.Authors;
 using SocialBook.Domain.Entities.Authors;
 using SocialBook.Persistence.Contexts;
@@ -13,21 +14,21 @@ namespace SocialBook.Persistence.Repositories.Authors
         }
 
         /// <inheritdoc />
-        public async Task<List<AuthorRecommendation>> GetAuthorRecommendationsByAuthorAsync(Guid authorId)
+        public async Task<PaginatedListDto<AuthorRecommendation>> GetAuthorRecommendationsByAuthorAsync(Guid authorId, PaginationFilter paginationFilter)
         {
-            return await GetWhere(a => a.AuthorId == authorId).ToListAsync();
+            return await GetWhere(a => a.AuthorId == authorId, paginationFilter, false);
         }
 
         /// <inheritdoc />
-        public async Task<List<AuthorRecommendation>> GetAuthorRecommendationsByRecommenderUserAsync(string recommenderUserId)
+        public async Task<PaginatedListDto<AuthorRecommendation>> GetAuthorRecommendationsByRecommenderUserAsync(string recommenderUserId, PaginationFilter paginationFilter)
         {
-            return await GetWhere(a => a.RecommenderUserId == recommenderUserId).ToListAsync();
+            return await GetWhere(a => a.RecommenderUserId == recommenderUserId, paginationFilter, false);
         }
 
         /// <inheritdoc />
-        public async Task<List<AuthorRecommendation>> GetAuthorRecommendationsByRecipientUserAsync(string recipientUserId)
+        public async Task<PaginatedListDto<AuthorRecommendation>> GetAuthorRecommendationsByRecipientUserAsync(string recipientUserId, PaginationFilter paginationFilter)
         {
-            return await GetWhere(a => a.RecipientUserId == recipientUserId).ToListAsync();
+            return await GetWhere(a => a.RecipientUserId == recipientUserId, paginationFilter, false);
         }
     }
 }
