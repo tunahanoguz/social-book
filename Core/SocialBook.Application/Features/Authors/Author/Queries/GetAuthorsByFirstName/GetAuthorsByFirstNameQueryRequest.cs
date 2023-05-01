@@ -6,7 +6,7 @@ using SocialBook.Application.Filters;
 
 namespace SocialBook.Application.Features.Queries
 {
-    public class GetAuthorsByFirstNameQueryRequest : IRequest<PaginatedListDto<AuthorDto>>
+    public class GetAuthorsByFirstNameQueryRequest : PaginationFilter, IRequest<PaginatedListDto<AuthorDto>>
     {
         /// <summary>
         /// The first name
@@ -14,11 +14,5 @@ namespace SocialBook.Application.Features.Queries
         /// <example>Charles</example>
         [FromRoute]
         public string FirstName { get; set; }
-
-        /// <summary>
-        /// The pagination filter
-        /// </summary>
-        [FromQuery]
-        public PaginationFilter PaginationFilter { get; set; }
     }
 }

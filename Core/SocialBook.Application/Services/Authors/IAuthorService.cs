@@ -137,21 +137,24 @@ namespace SocialBook.Application.Services.Authors
         /// <param name="author">The author entity</param>
         /// <returns>
         /// A task that represents the asynchronous operation
-        /// The task result contains a boolean value indicating whether the author was created successfully or not
+        /// The task result contains the created author
         /// </returns>
-        Task<bool> CreateAuthorAsync(Author author);
+        Task<Author> CreateAuthorAsync(Author author);
 
         /// <summary>
         /// Update the author provided as a parameter
         /// </summary>
         /// <param name="author">The author entity</param>
-        /// <returns>A boolean value indicating whether the author was updated successfully or not</returns>
-        Task<bool> UpdateAuthorAsync(Author author);
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains the updated author
+        /// </returns>
+        Task<Author> UpdateAuthorAsync(Author author);
 
         /// <summary>
         /// Delete the author provided as a parameter
         /// </summary>
-        /// <param name="author">The author entity</param>
+        /// <param name="authorId">The author identifier</param>
         /// <returns>A boolean value indicating whether the author was deleted successfully or not</returns>
         Task<bool> DeleteAuthorByIdAsync(string authorId);
     }

@@ -2,6 +2,7 @@
 using MediatR;
 using SocialBook.Application.DTOs.Authors.Author;
 using SocialBook.Application.DTOs.Common;
+using SocialBook.Application.Filters;
 using SocialBook.Application.Services.Authors;
 
 namespace SocialBook.Application.Features.Queries
@@ -19,7 +20,8 @@ namespace SocialBook.Application.Features.Queries
 
         public async Task<PaginatedListDto<AuthorDto>> Handle(GetAuthorsByFirstNameQueryRequest request, CancellationToken cancellationToken)
         {
-            var authors = await _authorService.GetAuthorsByFirstNameAsync(request.FirstName, request.PaginationFilter);
+            var paginationFilter = new PaginationFilter(request.PageNumber, request.PageSize);
+            var authors = await _authorService.GetAuthorsByFirstNameAsync(request.FirstName, paginationFilter);
 
             return _mapper.Map<PaginatedListDto<AuthorDto>>(authors);
         }

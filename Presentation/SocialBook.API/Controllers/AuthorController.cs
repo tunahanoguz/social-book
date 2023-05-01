@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using SocialBook.API.Extensions;
 using SocialBook.Application.DTOs.Authors.Author;
 using SocialBook.Application.DTOs.Common;
 using SocialBook.Application.Features.Commands;
@@ -40,7 +41,7 @@ namespace SocialBook.API.Controllers
         public async Task<IActionResult> GetAuthorById([FromRoute] GetAuthorByIdQueryRequest request)
         {
             var response = await _mediator.Send(request);
-            return Ok(response);
+            return this.GetResult(StatusCodes.Status200OK, response);
         }
 
         /// <summary>
@@ -61,7 +62,7 @@ namespace SocialBook.API.Controllers
         public async Task<IActionResult> GetAuthorsByFirstName([FromRoute] GetAuthorsByFirstNameQueryRequest request)
         {
             var response = await _mediator.Send(request);
-            return Ok(response);
+            return this.GetResult(StatusCodes.Status200OK, response);
         }
 
         /// <summary>
@@ -82,7 +83,7 @@ namespace SocialBook.API.Controllers
         public async Task<IActionResult> GetAuthorsByLastName([FromRoute] GetAuthorsByLastNameQueryRequest request)
         {
             var response = await _mediator.Send(request);
-            return Ok(response);
+            return this.GetResult(StatusCodes.Status200OK, response);
         }
 
         /// <summary>
@@ -103,7 +104,7 @@ namespace SocialBook.API.Controllers
         public async Task<IActionResult> GetAuthorsByCountryOfBirth([FromRoute] GetAuthorsByCountryOfBirthQueryRequest request)
         {
             var response = await _mediator.Send(request);
-            return Ok(response);
+            return this.GetResult(StatusCodes.Status200OK, response);
         }
 
         /// <summary>
@@ -124,7 +125,7 @@ namespace SocialBook.API.Controllers
         public async Task<IActionResult> GetAuthorsByYearOfBirth([FromRoute] GetAuthorsByYearOfBirthQueryRequest request)
         {
             var response = await _mediator.Send(request);
-            return Ok(response);
+            return this.GetResult(StatusCodes.Status200OK, response);
         }
 
         /// <summary>
@@ -145,7 +146,7 @@ namespace SocialBook.API.Controllers
         public async Task<IActionResult> GetAuthorsAllowedReview([FromRoute] GetAuthorsAllowedReviewQueryRequest request)
         {
             var response = await _mediator.Send(request);
-            return Ok(response);
+            return this.GetResult(StatusCodes.Status200OK, response);
         }
 
         /// <summary>
@@ -166,7 +167,7 @@ namespace SocialBook.API.Controllers
         public async Task<IActionResult> GetAuthorsNotAllowedReview([FromRoute] GetAuthorsNotAllowedReviewQueryRequest request)
         {
             var response = await _mediator.Send(request);
-            return Ok(response);
+            return this.GetResult(StatusCodes.Status200OK, response);
         }
 
         /// <summary>
@@ -187,7 +188,7 @@ namespace SocialBook.API.Controllers
         public async Task<IActionResult> GetAuthorsAllowedRecommendation([FromRoute] GetAuthorsAllowedRecommendationQueryRequest request)
         {
             var response = await _mediator.Send(request);
-            return Ok(response);
+            return this.GetResult(StatusCodes.Status200OK, response);
         }
 
         /// <summary>
@@ -208,7 +209,7 @@ namespace SocialBook.API.Controllers
         public async Task<IActionResult> GetAuthorsNotAllowedRecommendation([FromRoute] GetAuthorsNotAllowedRecommendationQueryRequest request)
         {
             var response = await _mediator.Send(request);
-            return Ok(response);
+            return this.GetResult(StatusCodes.Status200OK, response);
         }
 
         /// <summary>
@@ -229,7 +230,7 @@ namespace SocialBook.API.Controllers
         public async Task<IActionResult> GetAuthorsAllowedSubscription([FromRoute] GetAuthorsAllowedSubscriptionQueryRequest request)
         {
             var response = await _mediator.Send(request);
-            return Ok(response);
+            return this.GetResult(StatusCodes.Status200OK, response);
         }
 
         /// <summary>
@@ -250,7 +251,7 @@ namespace SocialBook.API.Controllers
         public async Task<IActionResult> GetAuthorsNotAllowedSubscription([FromRoute] GetAuthorsNotAllowedSubscriptionQueryRequest request)
         {
             var response = await _mediator.Send(request);
-            return Ok(response);
+            return this.GetResult(StatusCodes.Status200OK, response);
         }
 
         /// <summary>
@@ -271,7 +272,7 @@ namespace SocialBook.API.Controllers
         public async Task<IActionResult> GetAuthorsByCreatorUser([FromRoute] GetAuthorsByCreatorUserQueryRequest request)
         {
             var response = await _mediator.Send(request);
-            return Ok(response);
+            return this.GetResult(StatusCodes.Status200OK, response);
         }
 
         /// <summary>
@@ -303,11 +304,11 @@ namespace SocialBook.API.Controllers
         /// <response code="200">Returns the created author</response>
         [HttpPost]
         [Consumes("application/json")]
-        [ProducesResponseType(typeof(CreateAuthorQueryResponse), StatusCodes.Status200OK, "application/json")]
+        [ProducesResponseType(typeof(AuthorDto), StatusCodes.Status201Created, "application/json")]
         public async Task<IActionResult> CreateAuthor([FromBody] CreateAuthorQueryRequest request)
         {
             var response = await _mediator.Send(request);
-            return Ok(response);
+            return this.GetResult(StatusCodes.Status201Created, response);
         }
 
         /// <summary>
@@ -340,11 +341,11 @@ namespace SocialBook.API.Controllers
         /// <response code="200">Returns the updated author</response>
         [HttpPut]
         [Consumes("application/json")]
-        [ProducesResponseType(typeof(UpdateAuthorQueryResponse), StatusCodes.Status200OK, "application/json")]
+        [ProducesResponseType(typeof(AuthorDto), StatusCodes.Status200OK, "application/json")]
         public async Task<IActionResult> UpdateAuthor([FromBody] UpdateAuthorQueryRequest request)
         {
             var response = await _mediator.Send(request);
-            return Ok(response);
+            return this.GetResult(StatusCodes.Status200OK, response);
         }
 
         /// <summary>
@@ -359,10 +360,12 @@ namespace SocialBook.API.Controllers
         ///
         /// </remarks>
         [HttpDelete("{Id}")]
+        [ProducesResponseType(typeof(AuthorDto), StatusCodes.Status204NoContent, "application/json")]
         public async Task<IActionResult> DeleteAuthor([FromRoute] DeleteAuthorQueryRequest request)
         {
-            var response = await _mediator.Send(request);
-            return Ok(response);
+            await _mediator.Send(request);
+
+            return this.GetResult(StatusCodes.Status204NoContent);
         }
     }
 }
