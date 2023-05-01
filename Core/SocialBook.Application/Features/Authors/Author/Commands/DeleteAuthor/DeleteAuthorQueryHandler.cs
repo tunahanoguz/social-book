@@ -1,21 +1,19 @@
-﻿using AutoMapper;
-using MediatR;
+﻿using MediatR;
+using SocialBook.Application.DTOs.Authors.Author;
 using SocialBook.Application.Services.Authors;
 
 namespace SocialBook.Application.Features.Commands
 {
-    public class DeleteAuthorQueryHandler : IRequestHandler<DeleteAuthorQueryRequest, DeleteAuthorQueryResponse>
+    public class DeleteAuthorQueryHandler : IRequestHandler<DeleteAuthorQueryRequest, AuthorDto>
     {
         private readonly IAuthorService _authorService;
-        private readonly IMapper _mapper;
 
-        public DeleteAuthorQueryHandler(IAuthorService authorService, IMapper mapper)
+        public DeleteAuthorQueryHandler(IAuthorService authorService)
         {
             _authorService = authorService;
-            _mapper = mapper;
         }
 
-        public async Task<DeleteAuthorQueryResponse> Handle(DeleteAuthorQueryRequest request, CancellationToken cancellationToken)
+        public async Task<AuthorDto> Handle(DeleteAuthorQueryRequest request, CancellationToken cancellationToken)
         {
             await _authorService.DeleteAuthorByIdAsync(request.Id);
 

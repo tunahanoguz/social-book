@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
 using MediatR;
+using SocialBook.Application.DTOs.Authors.Author;
 using SocialBook.Application.Services.Authors;
 using SocialBook.Domain.Entities.Authors;
 
 namespace SocialBook.Application.Features.Commands
 {
-    public class UpdateAuthorQueryHandler : IRequestHandler<UpdateAuthorQueryRequest, UpdateAuthorQueryResponse>
+    public class UpdateAuthorQueryHandler : IRequestHandler<UpdateAuthorQueryRequest, AuthorDto>
     {
         private readonly IAuthorService _authorService;
         private readonly IMapper _mapper;
@@ -16,11 +17,11 @@ namespace SocialBook.Application.Features.Commands
             _mapper = mapper;
         }
 
-        public async Task<UpdateAuthorQueryResponse> Handle(UpdateAuthorQueryRequest request, CancellationToken cancellationToken)
+        public async Task<AuthorDto> Handle(UpdateAuthorQueryRequest request, CancellationToken cancellationToken)
         {
-            await _authorService.UpdateAuthorAsync(_mapper.Map<Author>(request));
+            var author = await _authorService.UpdateAuthorAsync(_mapper.Map<Author>(request));
 
-            return new();
+            return _mapper.Map<AuthorDto>(author);
         }
     }
 }

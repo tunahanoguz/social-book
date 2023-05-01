@@ -103,25 +103,25 @@ namespace SocialBook.Persistence.Services.Authors
         }
 
         /// <inheritdoc />
-        public async Task<bool> CreateAuthorAsync(Author author)
+        public async Task<Author> CreateAuthorAsync(Author author)
         {
             if (author == null) { throw new ArgumentNullException(nameof(author)); }
 
             await _authorWriteRepository.AddAsync(author);
-            int affectedCount = await _authorWriteRepository.SaveAsync();
+            await _authorWriteRepository.SaveAsync();
 
-            return affectedCount > 0;
+            return await _authorReadRepository.GetByIdAsync(author.Id.ToString(), false);
         }
 
         /// <inheritdoc />
-        public async Task<bool> UpdateAuthorAsync(Author author)
+        public async Task<Author> UpdateAuthorAsync(Author author)
         {
             if (author == null) { throw new ArgumentNullException(nameof(author)); }
 
             _authorWriteRepository.Update(author);
-            int affectedCount = await _authorWriteRepository.SaveAsync();
+            await _authorWriteRepository.SaveAsync();
 
-            return affectedCount > 0;
+            return await _authorReadRepository.GetByIdAsync(author.Id.ToString(), false);
         }
 
         /// <inheritdoc />

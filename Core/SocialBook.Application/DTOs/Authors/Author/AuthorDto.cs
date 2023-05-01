@@ -3,6 +3,11 @@
     public class AuthorDto
     {
         /// <summary>
+        /// Gets or sets the identifier
+        /// </summary>
+        public Guid Id { get; set; }
+
+        /// <summary>
         /// Gets or sets the first name
         /// </summary>
         public string FirstName { get; set; }

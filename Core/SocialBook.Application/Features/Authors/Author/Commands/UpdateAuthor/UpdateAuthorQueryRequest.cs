@@ -1,8 +1,9 @@
 ﻿using MediatR;
+using SocialBook.Application.DTOs.Authors.Author;
 
 namespace SocialBook.Application.Features.Commands
 {
-    public class UpdateAuthorQueryRequest : IRequest<UpdateAuthorQueryResponse>
+    public class UpdateAuthorQueryRequest : IRequest<AuthorDto>
     {
         /// <summary>
         /// The identifier

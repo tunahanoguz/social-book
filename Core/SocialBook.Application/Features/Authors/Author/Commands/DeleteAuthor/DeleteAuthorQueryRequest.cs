@@ -1,8 +1,9 @@
 ﻿using MediatR;
+using SocialBook.Application.DTOs.Authors.Author;
 
 namespace SocialBook.Application.Features.Commands
 {
-    public class DeleteAuthorQueryRequest : IRequest<DeleteAuthorQueryResponse>
+    public class DeleteAuthorQueryRequest : IRequest<AuthorDto>
     {
         /// <summary>
         /// The identifier
