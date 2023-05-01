@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using SocialBook.Application.Features.Queries;
+using SocialBook.Application.Validators.Common;
 
 namespace SocialBook.Application.Validators.Authors
 {
@@ -7,6 +8,8 @@ namespace SocialBook.Application.Validators.Authors
     {
         public GetAuthorsByFirstNameQueryRequestValidator()
         {
+            Include(new PaginationFilterValidator());
+
             RuleFor(a => a.FirstName)
                 .NotEmpty()
                 .NotNull()
