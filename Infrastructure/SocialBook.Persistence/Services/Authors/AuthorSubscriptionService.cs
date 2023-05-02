@@ -35,27 +35,36 @@ namespace SocialBook.Persistence.Services.Authors
         }
 
         /// <inheritdoc />
-        public async Task<bool> CreateAuthorSubscriptionAsync(AuthorSubscription authorSubscription)
+        public async Task<AuthorSubscription> CreateAuthorSubscriptionAsync(AuthorSubscription authorSubscription)
         {
             if (authorSubscription == null) { throw new ArgumentNullException(nameof(authorSubscription)); }
 
-            return await _authorSubscriptionWriteRepository.AddAsync(authorSubscription);
+            await _authorSubscriptionWriteRepository.AddAsync(authorSubscription);
+            await _authorSubscriptionWriteRepository.SaveAsync();
+
+            return await _authorSubscriptionReadRepository.GetByIdAsync(authorSubscription.Id.ToString(), false);
         }
 
         /// <inheritdoc />
-        public bool UpdateAuthorSubscription(AuthorSubscription authorSubscription)
+        public async Task<AuthorSubscription> UpdateAuthorSubscriptionAsync(AuthorSubscription authorSubscription)
         {
             if (authorSubscription == null) { throw new ArgumentNullException(nameof(authorSubscription)); }
 
-            return _authorSubscriptionWriteRepository.Update(authorSubscription);
+            _authorSubscriptionWriteRepository.Update(authorSubscription);
+            await _authorSubscriptionWriteRepository.SaveAsync();
+
+            return await _authorSubscriptionReadRepository.GetByIdAsync(authorSubscription.Id.ToString(), false);
         }
 
         /// <inheritdoc />
-        public bool DeleteAuthorSubscription(AuthorSubscription authorSubscription)
+        public async Task<bool> DeleteAuthorSubscriptionAsync(string id)
         {
-            if (authorSubscription == null) { throw new ArgumentNullException(nameof(authorSubscription)); }
+            if (id == null) { throw new ArgumentNullException(nameof(id)); }
 
-            return _authorSubscriptionWriteRepository.Remove(authorSubscription);
+            await _authorSubscriptionWriteRepository.RemoveAsync(id);
+            int affectedCount = await _authorSubscriptionWriteRepository.SaveAsync();
+
+            return affectedCount > 0;
         }
     }
 }
