@@ -43,27 +43,36 @@ namespace SocialBook.Persistence.Services.Authors
         }
 
         /// <inheritdoc />
-        public async Task<bool> CreateAuthorRecommendationAsync(AuthorRecommendation authorRecommendation)
+        public async Task<AuthorRecommendation> CreateAuthorRecommendationAsync(AuthorRecommendation authorRecommendation)
         {
             if (authorRecommendation == null) { throw new ArgumentNullException(nameof(authorRecommendation)); }
 
-            return await _authorRecommendationWriteRepository.AddAsync(authorRecommendation);
+            await _authorRecommendationWriteRepository.AddAsync(authorRecommendation);
+            await _authorRecommendationWriteRepository.SaveAsync();
+
+            return await _authorRecommendationReadRepository.GetByIdAsync(authorRecommendation.Id.ToString(), false);
         }
 
         /// <inheritdoc />
-        public bool UpdateRecommendationAuthor(AuthorRecommendation authorRecommendation)
+        public async Task<AuthorRecommendation> UpdateRecommendationAuthorAsync(AuthorRecommendation authorRecommendation)
         {
             if (authorRecommendation == null) { throw new ArgumentNullException(nameof(authorRecommendation)); }
 
-            return _authorRecommendationWriteRepository.Update(authorRecommendation);
+            _authorRecommendationWriteRepository.Update(authorRecommendation);
+            await _authorRecommendationWriteRepository.SaveAsync();
+
+            return await _authorRecommendationReadRepository.GetByIdAsync(authorRecommendation.Id.ToString(), false);
         }
 
         /// <inheritdoc />
-        public bool DeleteRecommendationAuthor(AuthorRecommendation authorRecommendation)
+        public async Task<bool> DeleteRecommendationAuthorAsync(string id)
         {
-            if (authorRecommendation == null) { throw new ArgumentNullException(nameof(authorRecommendation)); }
+            if (id == null) { throw new ArgumentNullException(nameof(id)); }
 
-            return _authorRecommendationWriteRepository.Remove(authorRecommendation);
+            await _authorRecommendationWriteRepository.RemoveAsync(id);
+            int affectedCount = await _authorRecommendationWriteRepository.SaveAsync();
+
+            return affectedCount > 0;
         }
     }
 }

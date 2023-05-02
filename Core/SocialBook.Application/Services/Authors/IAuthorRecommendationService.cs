@@ -47,20 +47,20 @@ namespace SocialBook.Application.Services.Authors
         /// A task that represents the asynchronous operation
         /// The task result contains a boolean value indicating whether the author recommendation was created successfully or not
         /// </returns>
-        Task<bool> CreateAuthorRecommendationAsync(AuthorRecommendation authorRecommendation);
+        Task<AuthorRecommendation> CreateAuthorRecommendationAsync(AuthorRecommendation authorRecommendation);
 
         /// <summary>
         /// Update the author recommendation provided as a parameter
         /// </summary>
         /// <param name="authorRecommendation">The author recommendation entity</param>
         /// <returns>A boolean value indicating whether the author recommendation was updated successfully or not</returns>
-        bool UpdateRecommendationAuthor(AuthorRecommendation authorRecommendation);
+        Task<AuthorRecommendation> UpdateRecommendationAuthorAsync(AuthorRecommendation authorRecommendation);
 
         /// <summary>
         /// Delete the author recommendation provided as a parameter
         /// </summary>
         /// <param name="authorRecommendation">The author recommendation entity</param>
         /// <returns>A boolean value indicating whether the author recommendation was deleted successfully or not</returns>
-        bool DeleteRecommendationAuthor(AuthorRecommendation authorRecommendation);
+        Task<bool> DeleteRecommendationAuthorAsync(string id);
     }
 }

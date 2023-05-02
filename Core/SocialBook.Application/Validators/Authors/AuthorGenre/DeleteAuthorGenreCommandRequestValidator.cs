@@ -1,11 +1,11 @@
 ﻿using FluentValidation;
 using SocialBook.Application.Features.Commands;
 
-namespace SocialBook.Application.Validators.Authors
+namespace SocialBook.Application.Validators.Authors.AuthorGenre
 {
-    public class DeleteAuthorQueryRequestValidator : AbstractValidator<DeleteAuthorQueryRequest>
+    public class DeleteAuthorGenreCommandRequestValidator : AbstractValidator<DeleteAuthorGenreCommandRequest>
     {
-        public DeleteAuthorQueryRequestValidator()
+        public DeleteAuthorGenreCommandRequestValidator()
         {
             RuleFor(x => x.Id)
                 .NotNull()

@@ -1,4 +1,6 @@
-﻿using SocialBook.Application.Repositories.Authors;
+﻿using SocialBook.Application.DTOs.Common;
+using SocialBook.Application.Filters;
+using SocialBook.Application.Repositories.Authors;
 using SocialBook.Application.Services.Authors;
 using SocialBook.Domain.Entities.Authors;
 
@@ -17,27 +19,33 @@ namespace SocialBook.Persistence.Services.Authors
         }
 
         /// <inheritdoc />
-        public async Task<bool> CreateAuthorGenreAsync(AuthorGenre authorGenre)
+        public Task<PaginatedListDto<AuthorGenre>> GetAuthorGenresByAuthorId(string authorId, PaginationFilter paginationFilter)
         {
-            if (authorGenre == null) { throw new ArgumentNullException(nameof(authorGenre)); }
+            if (authorId == null) { throw new ArgumentNullException(nameof(authorId)); };
 
-            return await _authorGenreWriteRepository.AddAsync(authorGenre);
+            return _authorGenreReadRepository.GetWhere(x => x.AuthorId == Guid.Parse(authorId), paginationFilter);
         }
 
         /// <inheritdoc />
-        public bool UpdateAuthorGenre(AuthorGenre authorGenre)
+        public async Task<AuthorGenre> CreateAuthorGenreAsync(AuthorGenre authorGenre)
         {
             if (authorGenre == null) { throw new ArgumentNullException(nameof(authorGenre)); }
 
-            return _authorGenreWriteRepository.Update(authorGenre);
+            await _authorGenreWriteRepository.AddAsync(authorGenre);
+            await _authorGenreWriteRepository.SaveAsync();
+
+            return await _authorGenreReadRepository.GetByIdAsync(authorGenre.Id.ToString(), false);
         }
 
         /// <inheritdoc />
-        public bool DeleteAuthorGenre(AuthorGenre authorGenre)
+        public async Task<bool> DeleteAuthorGenreAsync(string authorGenreId)
         {
-            if (authorGenre == null) { throw new ArgumentNullException(nameof(authorGenre)); }
+            if (authorGenreId == null) { throw new ArgumentNullException(nameof(authorGenreId)); }
 
-            return _authorGenreWriteRepository.Remove(authorGenre);
+            await _authorGenreWriteRepository.RemoveAsync(authorGenreId);
+            int affectedCount = await _authorGenreWriteRepository.SaveAsync();
+
+            return affectedCount > 0;
         }
     }
 }
