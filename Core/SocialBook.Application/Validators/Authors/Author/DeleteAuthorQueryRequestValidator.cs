@@ -1,18 +1,18 @@
 ﻿using FluentValidation;
-using SocialBook.Application.Features.Queries;
+using SocialBook.Application.Features.Commands;
 
-namespace SocialBook.Application.Validators.Authors
+namespace SocialBook.Application.Validators.Authors.Author
 {
-    public class GetAuthorByIdQueryRequestValidator : AbstractValidator<GetAuthorByIdQueryRequest>
+    public class DeleteAuthorQueryRequestValidator : AbstractValidator<DeleteAuthorQueryRequest>
     {
-        public GetAuthorByIdQueryRequestValidator()
+        public DeleteAuthorQueryRequestValidator()
         {
-            RuleFor(a => a.Id)
+            RuleFor(x => x.Id)
                 .NotNull()
                 .NotEmpty()
                 .WithMessage("The identifier cannot be null or empty!");
 
-            RuleFor(a => a.Id)
+            RuleFor(x => x.Id)
                 .Must(IsValidGuid)
                 .WithMessage("The identifier must be a valid GUID!");
         }
