@@ -36,20 +36,20 @@ namespace SocialBook.Application.Services.Authors
         /// A task that represents the asynchronous operation
         /// The task result contains a boolean value indicating whether the author subscription was created successfully or not
         /// </returns>
-        Task<bool> CreateAuthorSubscriptionAsync(AuthorSubscription authorSubscription);
+        Task<AuthorSubscription> CreateAuthorSubscriptionAsync(AuthorSubscription authorSubscription);
 
         /// <summary>
         /// Update the author subscription provided as a parameter
         /// </summary>
         /// <param name="authorSubscription">The author subscription entity</param>
         /// <returns>A boolean value indicating whether the author subscription was updated successfully or not</returns>
-        bool UpdateAuthorSubscription(AuthorSubscription authorSubscription);
+        Task<AuthorSubscription> UpdateAuthorSubscriptionAsync(AuthorSubscription authorSubscription);
 
         /// <summary>
         /// Delete the author subscription provided as a parameter
         /// </summary>
-        /// <param name="authorSubscription">The author subscription entity</param>
+        /// <param name="authorSubscriptionId">The author subscription identifier</param>
         /// <returns>A boolean value indicating whether the author subscription was deleted successfully or not</returns>
-        bool DeleteAuthorSubscription(AuthorSubscription authorSubscription);
+        Task<bool> DeleteAuthorSubscriptionAsync(string authorSubscriptionId);
     }
 }
