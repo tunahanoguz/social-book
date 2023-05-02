@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using MediatR;
-using SocialBook.Application.DTOs.Authors.AuthorGenre;
 using SocialBook.Application.DTOs.Authors.AuthorRecommendation;
 using SocialBook.Application.Services.Authors;
 using SocialBook.Domain.Entities.Authors;

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using SocialBook.Application.DTOs.Authors.AuthorRecommendation;
+using SocialBook.Application.Features.Commands;
 using SocialBook.Domain.Entities.Authors;
 
 namespace SocialBook.Application.Mappings.Authors
@@ -8,7 +9,8 @@ namespace SocialBook.Application.Mappings.Authors
     {
         public AuthorRecommendationMapping()
         {
-            CreateMap<AuthorRecommendation, AuthorRecommendationDto>();
+            CreateMap<AuthorRecommendation, AuthorRecommendationDto>().ReverseMap();
+            CreateMap<AuthorRecommendation, CreateAuthorRecommendationCommandRequest>().ReverseMap();
         }
     }
 }
