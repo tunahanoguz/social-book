@@ -10,6 +10,7 @@ namespace SocialBook.Application.Features.Queries
         /// <summary>
         /// The subscribed author identifier
         /// </summary>
+        /// <example>2823add5-60f3-4272-9ec1-087d69cca72c</example>
         public Guid AuthorId { get; set; }
     }
 }
