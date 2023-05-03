@@ -42,27 +42,36 @@ namespace SocialBook.Persistence.Services.Authors
         }
 
         /// <inheritdoc />
-        public async Task<bool> CreateAuthorReviewAsync(AuthorReview authorReview)
+        public async Task<AuthorReview> CreateAuthorReviewAsync(AuthorReview authorReview)
         {
             if (authorReview == null) { throw new ArgumentNullException(nameof(authorReview)); }
 
-            return await _authorReviewWriteRepository.AddAsync(authorReview);
+            await _authorReviewWriteRepository.AddAsync(authorReview);
+            await _authorReviewWriteRepository.SaveAsync();
+
+            return await _authorReviewReadRepository.GetByIdAsync(authorReview.Id.ToString(), false);
         }
 
         /// <inheritdoc />
-        public bool UpdateAuthorReview(AuthorReview authorReview)
+        public async Task<AuthorReview> UpdateAuthorReviewAsync(AuthorReview authorReview)
         {
             if (authorReview == null) { throw new ArgumentNullException(nameof(authorReview)); }
 
-            return _authorReviewWriteRepository.Update(authorReview);
+            _authorReviewWriteRepository.Update(authorReview);
+            await _authorReviewWriteRepository.SaveAsync();
+
+            return await _authorReviewReadRepository.GetByIdAsync(authorReview.Id.ToString(), false);
         }
 
         /// <inheritdoc />
-        public bool DeleteAuthorReview(AuthorReview authorReview)
+        public async Task<bool> DeleteAuthorReviewAsync(string id)
         {
-            if (authorReview == null) { throw new ArgumentNullException(nameof(authorReview)); }
+            if (id == null) { throw new ArgumentNullException(nameof(id)); }
 
-            return _authorReviewWriteRepository.Remove(authorReview);
+            await _authorReviewWriteRepository.RemoveAsync(id);
+            int affectedCount = await _authorReviewWriteRepository.SaveAsync();
+
+            return affectedCount > 0;
         }
     }
 }
