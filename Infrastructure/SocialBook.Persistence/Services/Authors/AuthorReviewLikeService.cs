@@ -3,6 +3,7 @@ using SocialBook.Application.Filters;
 using SocialBook.Application.Repositories.Authors;
 using SocialBook.Application.Services.Authors;
 using SocialBook.Domain.Entities.Authors;
+using SocialBook.Persistence.Repositories.Authors;
 
 namespace SocialBook.Persistence.Services.Authors
 {
@@ -34,27 +35,36 @@ namespace SocialBook.Persistence.Services.Authors
         }
 
         /// <inheritdoc />
-        public async Task<bool> CreateAuthorReviewLikeAsync(AuthorReviewLike authorReviewLike)
+        public async Task<AuthorReviewLike> CreateAuthorReviewLikeAsync(AuthorReviewLike authorReviewLike)
         {
             if (authorReviewLike == null) { throw new ArgumentNullException(nameof(authorReviewLike)); }
 
-            return await _authorReviewLikeWriteRepository.AddAsync(authorReviewLike);
+            await _authorReviewLikeWriteRepository.AddAsync(authorReviewLike);
+            await _authorReviewLikeWriteRepository.SaveAsync();
+
+            return await _authorReviewLikeReadRepository.GetByIdAsync(authorReviewLike.Id.ToString(), false);
         }
 
         /// <inheritdoc />
-        public bool UpdateAuthorReviewLike(AuthorReviewLike authorReviewLike)
+        public async Task<AuthorReviewLike> UpdateAuthorReviewLikeAsync(AuthorReviewLike authorReviewLike)
         {
             if (authorReviewLike == null) { throw new ArgumentNullException(nameof(authorReviewLike)); }
 
-            return _authorReviewLikeWriteRepository.Update(authorReviewLike);
+            _authorReviewLikeWriteRepository.Update(authorReviewLike);
+            await _authorReviewLikeWriteRepository.SaveAsync();
+
+            return await _authorReviewLikeReadRepository.GetByIdAsync(authorReviewLike.Id.ToString(), false);
         }
 
         /// <inheritdoc />
-        public bool DeleteAuthorReviewLike(AuthorReviewLike authorReviewLike)
+        public async Task<bool> DeleteAuthorReviewLikeAsync(string id)
         {
-            if (authorReviewLike == null) { throw new ArgumentNullException(nameof(authorReviewLike)); }
+            if (id == null) { throw new ArgumentNullException(nameof(id)); }
 
-            return _authorReviewLikeWriteRepository.Remove(authorReviewLike);
+            await _authorReviewLikeWriteRepository.RemoveAsync(id);
+            int affectedCount = await _authorReviewLikeWriteRepository.SaveAsync();
+
+            return affectedCount > 0;
         }
     }
 }
