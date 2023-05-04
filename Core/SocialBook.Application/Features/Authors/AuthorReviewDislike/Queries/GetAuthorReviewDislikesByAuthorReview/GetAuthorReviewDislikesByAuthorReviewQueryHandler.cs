@@ -21,7 +21,7 @@ namespace SocialBook.Application.Features.Queries
         public async Task<PaginatedListDto<AuthorReviewDislikeDto>> Handle(GetAuthorReviewDislikesByAuthorReviewQueryRequest request, CancellationToken cancellationToken)
         {
             var paginationFilter = new PaginationFilter(request.PageNumber, request.PageSize);
-            var data = await _authorReviewDislikeService.GetAuthorReviewDislikesByAuthorReviewAsync(request.AuthorId, paginationFilter);
+            var data = await _authorReviewDislikeService.GetAuthorReviewDislikesByAuthorReviewAsync(request.AuthorReviewId, paginationFilter);
 
             return _mapper.Map<PaginatedListDto<AuthorReviewDislikeDto>>(data);
         }
