@@ -36,20 +36,20 @@ namespace SocialBook.Application.Services.Authors
         /// A task that represents the asynchronous operation
         /// The task result contains a boolean value indicating whether the author review dislike was created successfully or not
         /// </returns>
-        Task<bool> CreateAuthorReviewDislikeAsync(AuthorReviewDislike authorReviewDislike);
+        Task<AuthorReviewDislike> CreateAuthorReviewDislikeAsync(AuthorReviewDislike authorReviewDislike);
 
         /// <summary>
         /// Update the author review dislike provided as a parameter
         /// </summary>
         /// <param name="authorReviewDislike">The author review dislike entity</param>
         /// <returns>A boolean value indicating whether the author review dislike was updated successfully or not</returns>
-        bool UpdateAuthorReviewDislike(AuthorReviewDislike authorReviewDislike);
+        Task<AuthorReviewDislike> UpdateAuthorReviewDislikeAsync(AuthorReviewDislike authorReviewDislike);
 
         /// <summary>
         /// Delete the author review dislike provided as a parameter
         /// </summary>
-        /// <param name="authorReviewDislike">The author review dislike entity</param>
+        /// <param name="id">The identifier</param>
         /// <returns>A boolean value indicating whether the author review dislike was deleted successfully or not</returns>
-        bool DeleteAuthorReviewDislike(AuthorReviewDislike authorReviewDislike);
+        Task<bool> DeleteAuthorReviewDislikeAsync(string id);
     }
 }

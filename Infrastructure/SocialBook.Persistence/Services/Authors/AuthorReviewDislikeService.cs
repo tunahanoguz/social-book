@@ -3,6 +3,7 @@ using SocialBook.Application.Filters;
 using SocialBook.Application.Repositories.Authors;
 using SocialBook.Application.Services.Authors;
 using SocialBook.Domain.Entities.Authors;
+using SocialBook.Persistence.Repositories.Authors;
 
 namespace SocialBook.Persistence.Services.Authors
 {
@@ -35,27 +36,36 @@ namespace SocialBook.Persistence.Services.Authors
         }
 
         /// <inheritdoc />
-        public async Task<bool> CreateAuthorReviewDislikeAsync(AuthorReviewDislike authorReviewDislike)
+        public async Task<AuthorReviewDislike> CreateAuthorReviewDislikeAsync(AuthorReviewDislike authorReviewDislike)
         {
             if (authorReviewDislike == null) { throw new ArgumentNullException(nameof(authorReviewDislike)); }
 
-            return await _authorReviewDislikeWriteRepository.AddAsync(authorReviewDislike);
+            await _authorReviewDislikeWriteRepository.AddAsync(authorReviewDislike);
+            await _authorReviewDislikeWriteRepository.SaveAsync();
+
+            return await _authorReviewDislikeReadRepository.GetByIdAsync(authorReviewDislike.Id.ToString(), false);
         }
 
         /// <inheritdoc />
-        public bool UpdateAuthorReviewDislike(AuthorReviewDislike authorReviewDislike)
+        public async Task<AuthorReviewDislike> UpdateAuthorReviewDislikeAsync(AuthorReviewDislike authorReviewDislike)
         {
             if (authorReviewDislike == null) { throw new ArgumentNullException(nameof(authorReviewDislike)); }
 
-            return _authorReviewDislikeWriteRepository.Update(authorReviewDislike);
+            _authorReviewDislikeWriteRepository.Update(authorReviewDislike);
+            await _authorReviewDislikeWriteRepository.SaveAsync();
+
+            return await _authorReviewDislikeReadRepository.GetByIdAsync(authorReviewDislike.Id.ToString(), false);
         }
 
         /// <inheritdoc />
-        public bool DeleteAuthorReviewDislike(AuthorReviewDislike authorReviewDislike)
+        public async Task<bool> DeleteAuthorReviewDislikeAsync(string id)
         {
-            if (authorReviewDislike == null) { throw new ArgumentNullException(nameof(authorReviewDislike)); }
+            if (id == null) { throw new ArgumentNullException(nameof(id)); }
 
-            return _authorReviewDislikeWriteRepository.Remove(authorReviewDislike);
+            await _authorReviewDislikeWriteRepository.RemoveAsync(id);
+            int affectedCount = await _authorReviewDislikeWriteRepository.SaveAsync();
+
+            return affectedCount > 0;
         }
     }
 }
