@@ -1,10 +1,11 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SocialBook.Application.DTOs.Authors.AuthorImage;
 
 namespace SocialBook.Application.Features.Commands
 {
-    public class CreateAuthorImageCommandRequest : IRequest<bool>
+    public class CreateAuthorImageCommandRequest : IRequest<AuthorImageDto>
     {
         /// <summary>
         /// The author identifier

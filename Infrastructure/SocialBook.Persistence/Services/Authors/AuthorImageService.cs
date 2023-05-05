@@ -41,7 +41,7 @@ namespace SocialBook.Persistence.Services.Authors
         }
 
         /// <inheritdoc />
-        public async Task<bool> CreateAuthorImageAsync(Guid authorId, IFormFile image)
+        public async Task<AuthorImage> CreateAuthorImageAsync(Guid authorId, IFormFile image)
         {
             if (authorId == Guid.Empty) { throw new ArgumentException(nameof(authorId)); }
 
@@ -66,9 +66,9 @@ namespace SocialBook.Persistence.Services.Authors
             }
 
             await _authorImageWriteRepository.AddAsync(authorImage);
-            int recordCount = await _authorImageWriteRepository.SaveAsync();
+            await _authorImageWriteRepository.SaveAsync();
 
-            return recordCount > 0;
+            return await _authorImageReadRepository.GetByIdAsync(authorImage.Id.ToString(), false);
         }
 
         /// <inheritdoc />

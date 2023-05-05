@@ -38,7 +38,7 @@ namespace SocialBook.Application.Services.Authors
         /// A task that represents the asynchronous operation
         /// The task result contains a boolean value indicating whether the author image was created successfully or not
         /// </returns>
-        Task<bool> CreateAuthorImageAsync(Guid authorId, IFormFile image);
+        Task<AuthorImage> CreateAuthorImageAsync(Guid authorId, IFormFile image);
 
         /// <summary>
         /// Update the author image provided as a parameter

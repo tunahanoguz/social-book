@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
 using MediatR;
+using SocialBook.Application.DTOs.Authors.AuthorImage;
 using SocialBook.Application.Services.Authors;
 
 namespace SocialBook.Application.Features.Commands
 {
-    public class CreateAuthorImageCommandHandler : IRequestHandler<CreateAuthorImageCommandRequest, bool>
+    public class CreateAuthorImageCommandHandler : IRequestHandler<CreateAuthorImageCommandRequest, AuthorImageDto>
     {
         private readonly IAuthorImageService _authorImageService;
         private readonly IMapper _mapper;
@@ -15,11 +16,11 @@ namespace SocialBook.Application.Features.Commands
             _mapper = mapper;
         }
 
-        public async Task<bool> Handle(CreateAuthorImageCommandRequest request, CancellationToken cancellationToken)
+        public async Task<AuthorImageDto> Handle(CreateAuthorImageCommandRequest request, CancellationToken cancellationToken)
         {
-            var author = await _authorImageService.CreateAuthorImageAsync(request.AuthorId, request.Image);
+            var data = await _authorImageService.CreateAuthorImageAsync(request.AuthorId, request.Image);
 
-            return true;
+            return _mapper.Map<AuthorImageDto>(data);
         }
     }
 }
