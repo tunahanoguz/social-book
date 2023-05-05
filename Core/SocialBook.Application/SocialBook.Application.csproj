@@ -17,4 +17,9 @@
     <ProjectReference Include="..\SocialBook.Domain\SocialBook.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Authors\AuthorImage\Commands\DeleteAuthorImage\" />
+    <Folder Include="Features\Authors\AuthorImage\Queries\" />
+  </ItemGroup>
+
 </Project>

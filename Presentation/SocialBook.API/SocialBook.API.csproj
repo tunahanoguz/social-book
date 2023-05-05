@@ -21,4 +21,8 @@
     <ProjectReference Include="..\..\Infrastructure\SocialBook.Persistence\SocialBook.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Uploads\" />
+  </ItemGroup>
+
 </Project>

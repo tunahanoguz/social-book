@@ -1,4 +1,5 @@
-﻿using SocialBook.Application.DTOs.Common;
+﻿using Microsoft.AspNetCore.Http;
+using SocialBook.Application.DTOs.Common;
 using SocialBook.Application.Filters;
 using SocialBook.Domain.Entities.Authors;
 
@@ -31,12 +32,13 @@ namespace SocialBook.Application.Services.Authors
         /// <summary>
         /// Create a new author image
         /// </summary>
-        /// <param name="authorImage">The author image entity</param>
+        /// <param name="authorId">The author identifier</param>
+        /// <param name="image">The author image</param>
         /// <returns>
         /// A task that represents the asynchronous operation
         /// The task result contains a boolean value indicating whether the author image was created successfully or not
         /// </returns>
-        Task<bool> CreateAuthorImageAsync(AuthorImage authorImage);
+        Task<bool> CreateAuthorImageAsync(Guid authorId, IFormFile image);
 
         /// <summary>
         /// Update the author image provided as a parameter
