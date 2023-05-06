@@ -1,4 +1,5 @@
-﻿using SocialBook.Application.DTOs.Common;
+﻿using Microsoft.AspNetCore.Http;
+using SocialBook.Application.DTOs.Common;
 using SocialBook.Application.Filters;
 using SocialBook.Domain.Entities.Authors;
 
@@ -36,20 +37,13 @@ namespace SocialBook.Application.Services.Authors
         /// A task that represents the asynchronous operation
         /// The task result contains a boolean value indicating whether the author review image was created successfully or not
         /// </returns>
-        Task<bool> CreateAuthorReviewImageAsync(AuthorReviewImage authorReviewImage);
-
-        /// <summary>
-        /// Update the author review image provided as a parameter
-        /// </summary>
-        /// <param name="authorReviewImage">The author review image entity</param>
-        /// <returns>A boolean value indicating whether the author review image was updated successfully or not</returns>
-        bool UpdateAuthorReviewImage(AuthorReviewImage authorReviewImage);
+        Task<AuthorReviewImage> CreateAuthorReviewImageAsync(Guid authorReviewId, IFormFile image);
 
         /// <summary>
         /// Delete the author review image provided as a parameter
         /// </summary>
         /// <param name="authorReviewImage">The author review image entity</param>
         /// <returns>A boolean value indicating whether the author review image was deleted successfully or not</returns>
-        bool DeleteAuthorReviewImage(AuthorReviewImage authorReviewImage);
+        Task<bool> DeleteAuthorReviewImageAsync(string id);
     }
 }

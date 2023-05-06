@@ -362,5 +362,6 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
-# Image Uploading Folder
-Presentation/SocialBook.API/wwwroot/Uploads/*
+# Image Uploading Folders
+Presentation/SocialBook.API/wwwroot/Uploads/AuthorImages/*
+Presentation/SocialBook.API/wwwroot/Uploads/AuthorReviewImages/*
