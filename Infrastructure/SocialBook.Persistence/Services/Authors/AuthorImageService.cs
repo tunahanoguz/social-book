@@ -1,5 +1,4 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using SocialBook.Application.DTOs.Common;
 using SocialBook.Application.Filters;
