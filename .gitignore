@@ -363,4 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 
 # Image Uploading Folder
-Presentation/SocialBook.API/Uploads/
+Presentation/SocialBook.API/wwwroot/Uploads/*

@@ -50,7 +50,7 @@ namespace SocialBook.Persistence.Services.Authors
             var fileName = Guid.NewGuid().ToString() + Path.GetExtension(image.FileName);
             var fileExtension = Path.GetExtension(image.FileName);
             var fileSize = image.Length;
-            var filePath = Path.Combine(_environment.ContentRootPath, "Uploads", fileName);
+            var filePath = Path.Combine(_environment.WebRootPath, "Uploads", fileName);
 
             AuthorImage authorImage = new AuthorImage
             {
