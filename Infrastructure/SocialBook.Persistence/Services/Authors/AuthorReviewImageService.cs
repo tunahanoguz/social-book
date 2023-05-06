@@ -71,7 +71,7 @@ namespace SocialBook.Persistence.Services.Authors
         }
 
         /// <inheritdoc />
-        public async Task<bool> DeleteAuthorReviewImage(string id)
+        public async Task<bool> DeleteAuthorReviewImageAsync(string id)
         {
             if (id == null) { throw new ArgumentNullException(nameof(id)); };
 

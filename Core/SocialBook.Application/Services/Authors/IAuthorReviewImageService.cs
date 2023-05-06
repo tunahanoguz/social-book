@@ -44,6 +44,6 @@ namespace SocialBook.Application.Services.Authors
         /// </summary>
         /// <param name="authorReviewImage">The author review image entity</param>
         /// <returns>A boolean value indicating whether the author review image was deleted successfully or not</returns>
-        Task<bool> DeleteAuthorReviewImage(string id);
+        Task<bool> DeleteAuthorReviewImageAsync(string id);
     }
 }
