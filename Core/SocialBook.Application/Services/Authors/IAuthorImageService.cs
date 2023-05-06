@@ -8,17 +8,6 @@ namespace SocialBook.Application.Services.Authors
     public interface IAuthorImageService
     {
         /// <summary>
-        /// Get all author images with the file extension provided as a parameter
-        /// </summary>
-        /// <param name="fileExtension">The file extension</param>
-        /// <param name="paginationFilter">The pagination filter</param>
-        /// <returns>
-        /// A task that represents the asynchronous operation
-        /// The task result contains the author images with the file extension provided as a parameter
-        /// </returns>
-        Task<PaginatedListDto<AuthorImage>> GetAuthorImagesByFileExtensionAsync(string fileExtension, PaginationFilter paginationFilter);
-
-        /// <summary>
         /// Get all author images belonging to the author whose ID is provided as a parameter
         /// </summary>
         /// <param name="authorId">The author identifier</param>

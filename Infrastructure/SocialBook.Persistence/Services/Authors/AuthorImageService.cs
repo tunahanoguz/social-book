@@ -24,14 +24,6 @@ namespace SocialBook.Persistence.Services.Authors
         }
 
         /// <inheritdoc />
-        public async Task<PaginatedListDto<AuthorImage>> GetAuthorImagesByFileExtensionAsync(string extension, PaginationFilter paginationFilter)
-        {
-            if (extension == null) { throw new ArgumentNullException(nameof(extension)); }
-
-            return await _authorImageReadRepository.GetAuthorImagesByFileExtensionAsync(extension, paginationFilter);
-        }
-
-        /// <inheritdoc />
         public async Task<PaginatedListDto<AuthorImage>> GetAuthorImagesByAuthorAsync(Guid authorId, PaginationFilter paginationFilter)
         {
             if (authorId == Guid.Empty) { throw new ArgumentNullException(nameof(authorId)); }
