@@ -71,19 +71,25 @@ namespace SocialBook.Persistence.Services.Authors
         }
 
         /// <inheritdoc />
-        public bool UpdateAuthorImage(AuthorImage authorImage)
+        public async Task<AuthorImage> UpdateAuthorImageAsync(AuthorImage authorImage)
         {
             if (authorImage == null) { throw new ArgumentNullException(nameof(authorImage)); }
 
-            return _authorImageWriteRepository.Update(authorImage);
+            _authorImageWriteRepository.Update(authorImage);
+            await _authorImageWriteRepository.SaveAsync();
+
+            return await _authorImageReadRepository.GetByIdAsync(authorImage.AuthorId.ToString(), false);
         }
 
         /// <inheritdoc />
-        public bool DeleteAuthorImage(AuthorImage authorImage)
+        public async Task<bool> DeleteAuthorImageAsync(string id)
         {
-            if (authorImage == null) { throw new ArgumentNullException(nameof(authorImage)); }
+            if (id == null) { throw new ArgumentNullException(nameof(id)); }
 
-            return _authorImageWriteRepository.Remove(authorImage);
+            await _authorImageWriteRepository.RemoveAsync(id);
+            int affectedCount = await _authorImageWriteRepository.SaveAsync();
+
+            return affectedCount > 0;
         }
     }
 }

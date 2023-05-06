@@ -45,13 +45,13 @@ namespace SocialBook.Application.Services.Authors
         /// </summary>
         /// <param name="authorImage">The author image entity</param>
         /// <returns>A boolean value indicating whether the author image was updated successfully or not</returns>
-        bool UpdateAuthorImage(AuthorImage authorImage);
+        Task<AuthorImage> UpdateAuthorImageAsync(AuthorImage authorImage);
 
         /// <summary>
         /// Delete the author image provided as a parameter
         /// </summary>
         /// <param name="authorImage">The author image entity</param>
         /// <returns>A boolean value indicating whether the author image was deleted successfully or not</returns>
-        bool DeleteAuthorImage(AuthorImage authorImage);
+        Task<bool> DeleteAuthorImageAsync(string id);
     }
 }
