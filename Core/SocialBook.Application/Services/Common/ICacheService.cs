@@ -22,7 +22,7 @@
         /// <param name="absoluteExpiration">The maximum time the data can be stored in cache</param>
         /// <param name="slidingExpiration">The minimum time the data can be stored in cache unless re-queried</param>
         /// <returns>A task that represents the asynchronous operation</returns>
-        Task SetAsync<T>(string key, T value, DateTimeOffset? absoluteExpiration, TimeSpan? slidingExpiration);
+        Task SetAsync<T>(string key, T value, DateTimeOffset? absoluteExpiration = null, TimeSpan? slidingExpiration = null);
 
         /// <summary>
         /// Remove the value for the given key

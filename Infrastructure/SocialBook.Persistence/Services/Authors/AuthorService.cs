@@ -2,18 +2,22 @@
 using SocialBook.Application.Filters;
 using SocialBook.Application.Repositories.Authors;
 using SocialBook.Application.Services.Authors;
+using SocialBook.Application.Services.Common;
 using SocialBook.Domain.Entities.Authors;
 
 namespace SocialBook.Persistence.Services.Authors
 {
     public class AuthorService : IAuthorService
     {
+        private readonly ICacheService _cacheService;
         private readonly IAuthorReadRepository _authorReadRepository;
         private readonly IAuthorWriteRepository _authorWriteRepository;
 
-        public AuthorService(IAuthorReadRepository authorReadRepository,
+        public AuthorService(ICacheService cacheService,
+            IAuthorReadRepository authorReadRepository,
             IAuthorWriteRepository authorWriteRepository)
         {
+            _cacheService = cacheService;
             _authorReadRepository = authorReadRepository;
             _authorWriteRepository = authorWriteRepository;
         }
@@ -23,7 +27,15 @@ namespace SocialBook.Persistence.Services.Authors
         {
             if (authorId == null) { throw new ArgumentNullException(nameof(authorId)); };
 
-            return await _authorReadRepository.GetByIdAsync(authorId, false);
+            var data = await _cacheService.GetAsync<Author>(authorId);
+
+            if (data == null)
+            {
+                data = await _authorReadRepository.GetByIdAsync(authorId, false);
+                await _cacheService.SetAsync(authorId, data);
+            }
+
+            return data;
         }
 
         /// <inheritdoc />

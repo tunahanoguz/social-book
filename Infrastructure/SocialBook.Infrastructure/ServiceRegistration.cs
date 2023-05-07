@@ -8,6 +8,7 @@ namespace SocialBook.Infrastructure
     {
         public static void AddInfrastructureServices(this IServiceCollection services)
         {
+            services.AddStackExchangeRedisCache(options => { options.Configuration = Configuration.RedisConnectionString; });
             services.AddScoped<ICacheService, CacheService>();
         }
     }

@@ -28,7 +28,7 @@ namespace SocialBook.Infrastructure.Services
         }
 
         /// <inheritdoc />
-        public async Task SetAsync<T>(string key, T value, DateTimeOffset? absoluteExpiration, TimeSpan? slidingExpiration)
+        public async Task SetAsync<T>(string key, T value, DateTimeOffset? absoluteExpiration = null, TimeSpan? slidingExpiration = null)
         {
             if (string.IsNullOrEmpty(key)) { throw new ArgumentNullException(nameof(key)); }
 
