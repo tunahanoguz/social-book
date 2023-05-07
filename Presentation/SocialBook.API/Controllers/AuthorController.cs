@@ -305,7 +305,7 @@ namespace SocialBook.API.Controllers
         [HttpPost]
         [Consumes("application/json")]
         [ProducesResponseType(typeof(AuthorDto), StatusCodes.Status201Created, "application/json")]
-        public async Task<IActionResult> CreateAuthor([FromBody] CreateAuthorQueryRequest request)
+        public async Task<IActionResult> CreateAuthor([FromBody] CreateAuthorCommandRequest request)
         {
             var response = await _mediator.Send(request);
             return this.GetResult(StatusCodes.Status201Created, response);
@@ -342,7 +342,7 @@ namespace SocialBook.API.Controllers
         [HttpPut]
         [Consumes("application/json")]
         [ProducesResponseType(typeof(AuthorDto), StatusCodes.Status200OK, "application/json")]
-        public async Task<IActionResult> UpdateAuthor([FromBody] UpdateAuthorQueryRequest request)
+        public async Task<IActionResult> UpdateAuthor([FromBody] UpdateAuthorCommandRequest request)
         {
             var response = await _mediator.Send(request);
             return this.GetResult(StatusCodes.Status200OK, response);
@@ -361,7 +361,7 @@ namespace SocialBook.API.Controllers
         /// </remarks>
         [HttpDelete("{Id}")]
         [ProducesResponseType(typeof(AuthorDto), StatusCodes.Status204NoContent, "application/json")]
-        public async Task<IActionResult> DeleteAuthor([FromRoute] DeleteAuthorQueryRequest request)
+        public async Task<IActionResult> DeleteAuthor([FromRoute] DeleteAuthorCommandRequest request)
         {
             await _mediator.Send(request);
 

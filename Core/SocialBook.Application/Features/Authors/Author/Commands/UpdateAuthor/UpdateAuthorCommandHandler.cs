@@ -6,18 +6,18 @@ using SocialBook.Domain.Entities.Authors;
 
 namespace SocialBook.Application.Features.Commands
 {
-    public class UpdateAuthorQueryHandler : IRequestHandler<UpdateAuthorQueryRequest, AuthorDto>
+    public class UpdateAuthorCommandHandler : IRequestHandler<UpdateAuthorCommandRequest, AuthorDto>
     {
         private readonly IAuthorService _authorService;
         private readonly IMapper _mapper;
 
-        public UpdateAuthorQueryHandler(IAuthorService authorService, IMapper mapper)
+        public UpdateAuthorCommandHandler(IAuthorService authorService, IMapper mapper)
         {
             _authorService = authorService;
             _mapper = mapper;
         }
 
-        public async Task<AuthorDto> Handle(UpdateAuthorQueryRequest request, CancellationToken cancellationToken)
+        public async Task<AuthorDto> Handle(UpdateAuthorCommandRequest request, CancellationToken cancellationToken)
         {
             var author = await _authorService.UpdateAuthorAsync(_mapper.Map<Author>(request));
 

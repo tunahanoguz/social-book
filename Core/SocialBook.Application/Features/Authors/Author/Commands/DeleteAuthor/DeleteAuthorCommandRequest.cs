@@ -3,7 +3,7 @@ using SocialBook.Application.DTOs.Authors.Author;
 
 namespace SocialBook.Application.Features.Commands
 {
-    public class DeleteAuthorQueryRequest : IRequest<AuthorDto>
+    public class DeleteAuthorCommandRequest : IRequest<AuthorDto>
     {
         /// <summary>
         /// The identifier

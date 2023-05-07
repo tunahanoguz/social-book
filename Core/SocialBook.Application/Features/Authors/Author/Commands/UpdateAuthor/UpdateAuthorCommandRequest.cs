@@ -3,24 +3,30 @@ using SocialBook.Application.DTOs.Authors.Author;
 
 namespace SocialBook.Application.Features.Commands
 {
-    public class CreateAuthorQueryRequest : IRequest<AuthorDto>
+    public class UpdateAuthorCommandRequest : IRequest<AuthorDto>
     {
+        /// <summary>
+        /// The identifier
+        /// </summary>
+        /// <example>2823add5-60f3-4272-9ec1-087d69cca72c</example>
+        public string Id { get; set; }
+
         /// <summary>
         /// The first name
         /// </summary>
-        /// <example>Ernest</example>
+        /// <example>Updated Ernest</example>
         public string FirstName { get; set; }
 
         /// <summary>
         /// The last name
         /// </summary>
-        /// <example>Hemingway</example>
+        /// <example>Updated Hemingway</example>
         public string LastName { get; set; }
 
         /// <summary>
         /// The description about the author
         /// </summary>
-        /// <example>The description about Ernest Hemingway.</example>
+        /// <example>The description about updated Ernest Hemingway.</example>
         public string Description { get; set; }
 
         /// <summary>
@@ -44,7 +50,7 @@ namespace SocialBook.Application.Features.Commands
         /// <summary>
         /// The meta description for SEO
         /// </summary>
-        /// <example>The meta description about Ernest Hemingway.</example>
+        /// <example>The meta description about updated Ernest Hemingway.</example>
         public string MetaDescription { get; set; }
 
         /// <summary>

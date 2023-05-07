@@ -4,16 +4,16 @@ using SocialBook.Application.Services.Authors;
 
 namespace SocialBook.Application.Features.Commands
 {
-    public class DeleteAuthorQueryHandler : IRequestHandler<DeleteAuthorQueryRequest, AuthorDto>
+    public class DeleteAuthorCommandHandler : IRequestHandler<DeleteAuthorCommandRequest, AuthorDto>
     {
         private readonly IAuthorService _authorService;
 
-        public DeleteAuthorQueryHandler(IAuthorService authorService)
+        public DeleteAuthorCommandHandler(IAuthorService authorService)
         {
             _authorService = authorService;
         }
 
-        public async Task<AuthorDto> Handle(DeleteAuthorQueryRequest request, CancellationToken cancellationToken)
+        public async Task<AuthorDto> Handle(DeleteAuthorCommandRequest request, CancellationToken cancellationToken)
         {
             await _authorService.DeleteAuthorByIdAsync(request.Id);
 

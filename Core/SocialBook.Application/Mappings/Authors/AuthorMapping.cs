@@ -9,8 +9,8 @@ namespace SocialBook.Application.Mappings.Authors
     {
         public AuthorMapping()
         {
-            CreateMap<Author, CreateAuthorQueryRequest>().ReverseMap();
-            CreateMap<Author, UpdateAuthorQueryRequest>().ReverseMap();
+            CreateMap<Author, CreateAuthorCommandRequest>().ReverseMap();
+            CreateMap<Author, UpdateAuthorCommandRequest>().ReverseMap();
             CreateMap<Author, AuthorDto>().ReverseMap();
         }
     }
