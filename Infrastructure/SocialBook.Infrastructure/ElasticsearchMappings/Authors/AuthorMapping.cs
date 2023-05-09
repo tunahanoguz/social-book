@@ -1,7 +1,7 @@
 ﻿using Nest;
 using SocialBook.Domain.Entities.Authors;
 
-namespace SocialBook.Infrastructure.ElasticsearchMappings.Authors
+namespace SocialBook.Infrastructure.ElasticsearchMappings
 {
     public static partial class ElasticsearchMapping
     {
