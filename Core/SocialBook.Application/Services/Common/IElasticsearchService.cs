@@ -20,7 +20,7 @@
         /// <param name="indexName">The index name</param>
         /// <param name="entity">The entity</param>
         /// <returns>A task that represents the asynchronous operation</returns>
-        Task InsertDocument<T>(string indexName, T entity);
+        Task InsertDocument(string indexName, T entity);
 
         /// <summary>
         /// Insert multiple documents
@@ -29,7 +29,7 @@
         /// <param name="indexName">The index name</param>
         /// <param name="entities">The entity</param>
         /// <returns>A task that represents the asynchronous operation</returns>
-        Task InsertDocuments<T>(string indexName, IEnumerable<T> entities);
+        Task InsertDocuments(string indexName, IEnumerable<T> entities);
 
         /// <summary>
         /// Get a single entity
