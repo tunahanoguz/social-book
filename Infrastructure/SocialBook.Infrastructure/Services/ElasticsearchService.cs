@@ -12,14 +12,14 @@ namespace SocialBook.Infrastructure.Services
             _elasticClient = elasticClient;
         }
 
-        public async Task<bool> CheckIndex(string indexName)
+        public async Task<bool> CheckIndexAsync(string indexName)
         {
             var response = await _elasticClient.Indices.ExistsAsync(indexName);
 
             return response.Exists;
         }
 
-        public async Task InsertDocument(string indexName, T entity)
+        public async Task InsertDocumentAsync(string indexName, T entity)
         {
             var response = await _elasticClient.CreateAsync(entity, q => q.Index(indexName));
 
@@ -29,23 +29,35 @@ namespace SocialBook.Infrastructure.Services
             }
         }
 
-        public async Task InsertDocuments(string indexName, IEnumerable<T> entities)
+        public async Task InsertDocumentsAsync(string indexName, IEnumerable<T> entities)
         {
             await _elasticClient.IndexManyAsync(entities, indexName);
         }
 
-        public async Task<T> GetDocument(string indexName, string id)
+        public async Task<T> GetDocumentByIdAsync(string indexName, string id)
         {
             var response = await _elasticClient.GetAsync<T>(id, q => q.Index(indexName));
 
             return response.Source;
         }
 
-        public async Task<IEnumerable<T>> GetDocuments(string indexName)
+        public async Task<IEnumerable<T>> GetDocumentsAsync(string indexName)
         {
             var response = await _elasticClient.SearchAsync<T>(q => q.Index(indexName).Scroll("5m"));
 
             return response.Documents;
+        }
+
+        public async Task<IEnumerable<T>> SearchDocumentsAsync(Func<SearchDescriptor<T>, ISearchRequest> searchDescriptor)
+        {
+            var response = await _elasticClient.SearchAsync<T>(searchDescriptor);
+
+            return response.Documents;
+        }
+
+        public async Task RemoveDocumentByIdAsync(string id)
+        {
+            await _elasticClient.DeleteAsync<T>(id);
         }
     }
 }
