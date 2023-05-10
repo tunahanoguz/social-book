@@ -1,35 +1,15 @@
-﻿using Microsoft.Extensions.Configuration;
-using Nest;
+﻿using Nest;
 using SocialBook.Application.Services.Common;
 
 namespace SocialBook.Infrastructure.Services
 {
     public class ElasticsearchService<T> : IElasticsearchService<T> where T : class
     {
-        private readonly IConfiguration _configuration;
         private readonly IElasticClient _elasticClient;
 
-        public ElasticsearchService(IConfiguration configuration)
+        public ElasticsearchService(IElasticClient elasticClient)
         {
-            _configuration = configuration;
-            _elasticClient = CreateInstance();
-        }
-
-        private ElasticClient CreateInstance()
-        {
-            string host = _configuration.GetSection("ElasticsearchServer:Host").Value;
-            string port = _configuration.GetSection("ElasticsearchServer:Port").Value;
-            string username = _configuration.GetSection("ElasticsearchServer:Username").Value;
-            string password = _configuration.GetSection("ElasticsearchServer:Password").Value;
-
-            var settings = new ConnectionSettings(new Uri($"{host}:{port}"));
-
-            if (!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password))
-            {
-                settings.BasicAuthentication(username, password);
-            }
-
-            return new ElasticClient(settings);
+            _elasticClient = elasticClient;
         }
 
         public async Task<bool> CheckIndex(string indexName)
