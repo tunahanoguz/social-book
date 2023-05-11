@@ -1,4 +1,4 @@
-﻿using SocialBook.Application.Repositories.Common;
+﻿using SocialBook.Application.Interfaces.Repositories.Common;
 using SocialBook.Domain.Entities.Common;
 using SocialBook.Persistence.Contexts;
 

@@ -1,6 +1,6 @@
 ﻿using SocialBook.Application.DTOs.Common;
 using SocialBook.Application.Filters;
-using SocialBook.Application.Repositories.Authors;
+using SocialBook.Application.Interfaces.Repositories.Authors;
 using SocialBook.Application.Services.Authors;
 using SocialBook.Application.Services.Common;
 using SocialBook.Domain.Entities.Authors;

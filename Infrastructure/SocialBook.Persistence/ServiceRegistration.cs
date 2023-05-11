@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using SocialBook.Application.Repositories.Authors;
-using SocialBook.Application.Repositories.Books;
-using SocialBook.Application.Repositories.Common;
-using SocialBook.Application.Repositories.Communities;
-using SocialBook.Application.Repositories.Users;
+using SocialBook.Application.Interfaces.Repositories.Authors;
+using SocialBook.Application.Interfaces.Repositories.Books;
+using SocialBook.Application.Interfaces.Repositories.Common;
+using SocialBook.Application.Interfaces.Repositories.Communities;
+using SocialBook.Application.Interfaces.Repositories.Users;
 using SocialBook.Application.Services.Authors;
 using SocialBook.Application.Services.Common;
 using SocialBook.Domain.Entities.Identity;
