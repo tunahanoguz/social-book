@@ -1,8 +1,8 @@
 ﻿using SocialBook.Application.DTOs.Common;
 using SocialBook.Application.Filters;
 using SocialBook.Application.Interfaces.Repositories.Authors;
-using SocialBook.Application.Services.Authors;
-using SocialBook.Application.Services.Common;
+using SocialBook.Application.Interfaces.Services.Authors;
+using SocialBook.Application.Interfaces.Services.Common;
 using SocialBook.Domain.Entities.Authors;
 
 namespace SocialBook.Persistence.Services.Authors

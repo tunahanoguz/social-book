@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Nest;
-using SocialBook.Application.Services.Common;
+using SocialBook.Application.Interfaces.Services.Common;
 using SocialBook.Infrastructure.Services;
 
 namespace SocialBook.Infrastructure

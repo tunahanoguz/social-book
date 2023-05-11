@@ -2,7 +2,7 @@
 using SocialBook.Application.Filters;
 using SocialBook.Domain.Entities.Authors;
 
-namespace SocialBook.Application.Services.Authors
+namespace SocialBook.Application.Interfaces.Services.Authors
 {
     public interface IAuthorReviewDislikeService
     {

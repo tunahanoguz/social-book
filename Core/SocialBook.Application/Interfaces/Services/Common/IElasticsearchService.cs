@@ -1,6 +1,6 @@
 ﻿using Nest;
 
-namespace SocialBook.Application.Services.Common
+namespace SocialBook.Application.Interfaces.Services.Common
 {
     /// <summary>
     /// Represents the service that contains methods for Elasticsearch usage

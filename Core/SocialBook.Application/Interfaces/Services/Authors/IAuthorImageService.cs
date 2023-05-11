@@ -3,7 +3,7 @@ using SocialBook.Application.DTOs.Common;
 using SocialBook.Application.Filters;
 using SocialBook.Domain.Entities.Authors;
 
-namespace SocialBook.Application.Services.Authors
+namespace SocialBook.Application.Interfaces.Services.Authors
 {
     public interface IAuthorImageService
     {

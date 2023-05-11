@@ -3,7 +3,7 @@ using MediatR;
 using SocialBook.Application.DTOs.Authors.AuthorGenre;
 using SocialBook.Application.DTOs.Common;
 using SocialBook.Application.Filters;
-using SocialBook.Application.Services.Authors;
+using SocialBook.Application.Interfaces.Services.Authors;
 
 namespace SocialBook.Application.Features.Queries
 {
