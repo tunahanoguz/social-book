@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using SocialBook.Application.Features.Commands;
-using SocialBook.Application.Services.Authors;
+using SocialBook.Application.Interfaces.Services.Authors;
 
 namespace SocialBook.Application.Features.Authors.AuthorImage.Commands.DeleteAuthorImage
 {

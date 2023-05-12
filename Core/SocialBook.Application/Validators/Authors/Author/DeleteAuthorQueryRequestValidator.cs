@@ -3,7 +3,7 @@ using SocialBook.Application.Features.Commands;
 
 namespace SocialBook.Application.Validators.Authors.Author
 {
-    public class DeleteAuthorQueryRequestValidator : AbstractValidator<DeleteAuthorQueryRequest>
+    public class DeleteAuthorQueryRequestValidator : AbstractValidator<DeleteAuthorCommandRequest>
     {
         public DeleteAuthorQueryRequestValidator()
         {

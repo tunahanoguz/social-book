@@ -3,7 +3,7 @@ using SocialBook.Application.Features.Commands;
 
 namespace SocialBook.Application.Validators.Authors.Author
 {
-    public class CreateAuthorQueryRequestValidator : AbstractValidator<CreateAuthorQueryRequest>
+    public class CreateAuthorQueryRequestValidator : AbstractValidator<CreateAuthorCommandRequest>
     {
         public CreateAuthorQueryRequestValidator()
         {
