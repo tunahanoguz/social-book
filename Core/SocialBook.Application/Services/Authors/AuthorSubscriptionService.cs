@@ -4,7 +4,7 @@ using SocialBook.Application.Interfaces.Repositories.Authors;
 using SocialBook.Application.Interfaces.Services.Authors;
 using SocialBook.Domain.Entities.Authors;
 
-namespace SocialBook.Persistence.Services.Authors
+namespace SocialBook.Application.Services.Authors
 {
     public class AuthorSubscriptionService : IAuthorSubscriptionService
     {

@@ -5,8 +5,6 @@ using SocialBook.Application.Interfaces.Repositories.Books;
 using SocialBook.Application.Interfaces.Repositories.Common;
 using SocialBook.Application.Interfaces.Repositories.Communities;
 using SocialBook.Application.Interfaces.Repositories.Users;
-using SocialBook.Application.Interfaces.Services.Authors;
-using SocialBook.Application.Interfaces.Services.Common;
 using SocialBook.Domain.Entities.Identity;
 using SocialBook.Persistence.Contexts;
 using SocialBook.Persistence.EntityConfigurations;
@@ -15,8 +13,6 @@ using SocialBook.Persistence.Repositories.Books;
 using SocialBook.Persistence.Repositories.Common;
 using SocialBook.Persistence.Repositories.Communities;
 using SocialBook.Persistence.Repositories.Users;
-using SocialBook.Persistence.Services.Authors;
-using SocialBook.Persistence.Services.Common;
 
 namespace SocialBook.Persistence
 {
@@ -94,17 +90,6 @@ namespace SocialBook.Persistence
             services.AddScoped<IUserSocialMediaPlatformWriteRepository, UserSocialMediaPlatformWriteRepository>();
             services.AddScoped<IUserWantToReadBookReadRepository, UserWantToReadBookReadRepository>();
             services.AddScoped<IUserWantToReadBookWriteRepository, UserWantToReadBookWriteRepository>();
-
-            services.AddScoped<IAuthorService, AuthorService>();
-            services.AddScoped<IAuthorGenreService, AuthorGenreService>();
-            services.AddScoped<IAuthorImageService, AuthorImageService>();
-            services.AddScoped<IAuthorReviewService, AuthorReviewService>();
-            services.AddScoped<IAuthorReviewImageService, AuthorReviewImageService>();
-            services.AddScoped<IAuthorReviewLikeService, AuthorReviewLikeService>();
-            services.AddScoped<IAuthorReviewDislikeService, AuthorReviewDislikeService>();
-            services.AddScoped<IAuthorRecommendationService, AuthorRecommendationService>();
-            services.AddScoped<IAuthorSubscriptionService, AuthorSubscriptionService>();
-            services.AddScoped<IPaginationUriService, PaginationUriService>();
         }
     }
 }

@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.WebUtilities;
+using SocialBook.Application.Extensions;
 using SocialBook.Application.Filters;
 using SocialBook.Application.Interfaces.Services.Common;
-using SocialBook.Persistence.Extensions;
 
-namespace SocialBook.Persistence.Services.Common
+namespace SocialBook.Application.Services.Common
 {
     /// <inheritdoc />
     public class PaginationUriService : IPaginationUriService
