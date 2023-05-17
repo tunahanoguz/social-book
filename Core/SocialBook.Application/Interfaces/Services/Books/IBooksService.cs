@@ -1,4 +1,5 @@
-﻿using SocialBook.Application.DTOs.Common;
+﻿using Microsoft.AspNetCore.Http;
+using SocialBook.Application.DTOs.Common;
 using SocialBook.Domain.Entities.Books;
 
 namespace SocialBook.Application.Interfaces.Services.Books
@@ -126,7 +127,7 @@ namespace SocialBook.Application.Interfaces.Services.Books
         /// <param name="id">The book identifier</param>
         /// <returns>
         /// A task that represents the asynchronous operation
-        /// The task result contains a boolean value indicating whether the author was deleted successfully or not
+        /// The task result contains a boolean value indicating whether the book was deleted successfully or not
         /// </returns>
         Task<bool> DeleteBookByIdAsync(string id);
 
@@ -160,10 +161,55 @@ namespace SocialBook.Application.Interfaces.Services.Books
         /// <param name="bookGenreId">The book genre identifier</param>
         /// <returns>
         /// A task that represents the asynchronous operation
-        /// The task result contains the created book genre
+        /// The task result contains a boolean value indicating whether the book genre was deleted successfully or not
         /// </returns>
         Task<bool> DeleteBookGenreByIdAsync(string bookGenreId);
 
         #endregion Book Genre
+
+        #region Book Image
+
+        /// <summary>
+        /// Get a single book image with the identifier provided as a parameter
+        /// </summary>
+        /// <param name="bookId">The book identifier</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains a single book image with the identifier provided as a parameter
+        /// </returns>
+        Task<BookImage> GetBookImageById(string id);
+
+        /// <summary>
+        /// Get all book images of a book
+        /// </summary>
+        /// <param name="bookId">The book identifier</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains all book images of a book
+        /// </returns>
+        Task<PaginatedListDto<BookImage>> GetBookImagesByBookId(string bookId);
+
+        /// <summary>
+        /// Upload a new book image
+        /// </summary>
+        /// <param name="bookId">The book identifier</param>
+        /// <param name="image">The form file represents the image</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains the uploaded book image
+        /// </returns>
+        Task<BookImage> UploadBookImageAsync(string bookId, IFormFile image);
+
+        /// <summary>
+        /// Delete a book image
+        /// </summary>
+        /// <param name="id">The book image identifier</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains a boolean value indicating whether the book image was deleted successfully or not
+        /// </returns>
+        Task<bool> DeleteBookImageByIdAsync(string id);
+
+        #endregion Book Image
     }
 }
