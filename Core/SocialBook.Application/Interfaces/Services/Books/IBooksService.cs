@@ -128,8 +128,42 @@ namespace SocialBook.Application.Interfaces.Services.Books
         /// A task that represents the asynchronous operation
         /// The task result contains a boolean value indicating whether the author was deleted successfully or not
         /// </returns>
-        Task<bool> DeleteBookAsync(string id);
+        Task<bool> DeleteBookByIdAsync(string id);
 
         #endregion Book
+
+        #region Book Genre
+
+        /// <summary>
+        /// Get all book genres of a book
+        /// </summary>
+        /// <param name="bookId">The book identifier</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains all book genres of a book
+        /// </returns>
+        Task<PaginatedListDto<BookGenre>> GetBookGenresByBookIdAsync(string bookId);
+
+        /// <summary>
+        /// Add a new genre to a book
+        /// </summary>
+        /// <param name="bookGenre">The book genre entity</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains the created book genre
+        /// </returns>
+        Task<BookGenre> CreateBookGenreAsync(BookGenre bookGenre);
+
+        /// <summary>
+        /// Delete a new genre to a book
+        /// </summary>
+        /// <param name="bookGenreId">The book genre identifier</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains the created book genre
+        /// </returns>
+        Task<bool> DeleteBookGenreByIdAsync(string bookGenreId);
+
+        #endregion Book Genre
     }
 }
