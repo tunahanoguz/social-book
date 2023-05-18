@@ -172,7 +172,7 @@ namespace SocialBook.Application.Interfaces.Services.Books
         /// <summary>
         /// Get a single book image with the identifier provided as a parameter
         /// </summary>
-        /// <param name="bookId">The book identifier</param>
+        /// <param name="id">The identifier</param>
         /// <returns>
         /// A task that represents the asynchronous operation
         /// The task result contains a single book image with the identifier provided as a parameter
@@ -294,5 +294,50 @@ namespace SocialBook.Application.Interfaces.Services.Books
         Task<bool> DeleteBookReviewByIdAsync(string id);
 
         #endregion Book Review
+
+        #region Book Review Image
+
+        /// <summary>
+        /// Get a single book review image with the identifier provided as a parameter
+        /// </summary>
+        /// <param name="id">The identifier</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains a single book review image with the identifier provided as a parameter
+        /// </returns>
+        Task<BookImage> GetBookReviewImageById(string id);
+
+        /// <summary>
+        /// Get all book review images of a book
+        /// </summary>
+        /// <param name="bookId">The book identifier</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains all book review images of a book
+        /// </returns>
+        Task<PaginatedListDto<BookImage>> GetBookReviewImagesByBookReviewId(string bookId);
+
+        /// <summary>
+        /// Upload a new book review image
+        /// </summary>
+        /// <param name="bookReviewId">The book review identifier</param>
+        /// <param name="image">The form file represents the image</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains the uploaded book review image
+        /// </returns>
+        Task<BookImage> UploadBookReviewImageAsync(string bookReviewId, IFormFile image);
+
+        /// <summary>
+        /// Delete a book review image
+        /// </summary>
+        /// <param name="id">The book review image identifier</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains a boolean value indicating whether the book review image was deleted successfully or not
+        /// </returns>
+        Task<bool> DeleteBookReviewImageByIdAsync(string id);
+
+        #endregion Book Review Image
     }
 }
