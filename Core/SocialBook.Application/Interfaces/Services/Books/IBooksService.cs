@@ -339,5 +339,49 @@ namespace SocialBook.Application.Interfaces.Services.Books
         Task<bool> DeleteBookReviewImageByIdAsync(string id);
 
         #endregion Book Review Image
+
+        #region Book Review Like
+
+        /// <summary>
+        /// Get all book review likes by book identifier
+        /// </summary>
+        /// <param name="bookId">The book identifier</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains all book review likes by book identifier
+        /// </returns>
+        Task<PaginatedListDto<BookReviewLike>> GetAllBookReviewLikesByBookIdAsync(string bookId);
+
+        /// <summary>
+        /// Get all book review likes by user identifier
+        /// </summary>
+        /// <param name="userId">The user identifier</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains all book review likes by user identifier
+        /// </returns>
+        Task<PaginatedListDto<BookReviewLike>> GetAllBookReviewLikesByUserIdAsync(string userId);
+
+        /// <summary>
+        /// Create a new book review like
+        /// </summary>
+        /// <param name="bookReviewLike">The book review like entity</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains the created book review like
+        /// </returns>
+        Task<BookReviewLike> CreateBookReviewLikeAsync(BookReviewLike bookReviewLike);
+
+        /// <summary>
+        /// Delete a book review like
+        /// </summary>
+        /// <param name="id">The book review like identifier</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains a boolean value indicating whether the book review like was deleted successfully or not
+        /// </returns>
+        Task<bool> DeleteBookReviewLikeAsync(string id);
+
+        #endregion Book Review Like
     }
 }
