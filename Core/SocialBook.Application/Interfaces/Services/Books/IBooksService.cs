@@ -427,5 +427,49 @@ namespace SocialBook.Application.Interfaces.Services.Books
         Task<bool> DeleteBookReviewDislikeAsync(string id);
 
         #endregion Book Review Dislike
+
+        #region Book Recommendation
+
+        /// <summary>
+        /// Get all book recommendations by book identifier
+        /// </summary>
+        /// <param name="bookId">The book identifier</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains all book recommendations by book identifier
+        /// </returns>
+        Task<PaginatedListDto<BookRecommendation>> GetAllBookRecommendationsByBookIdAsync(string bookId);
+
+        /// <summary>
+        /// Get all book recommendations by book identifier
+        /// </summary>
+        /// <param name="userId">The user identifier</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains all book recommendations by book identifier
+        /// </returns>
+        Task<PaginatedListDto<BookRecommendation>> GetAllBookRecommendationByUserIdAsync(string userId);
+
+        /// <summary>
+        /// Create a new book recommendation
+        /// </summary>
+        /// <param name="bookRecommendation">The book recommendation entity</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains the created book recommendation
+        /// </returns>
+        Task<BookRecommendation> CreateBookRecommendationAsync(BookRecommendation bookRecommendation);
+
+        /// <summary>
+        /// Delete a book recommendation by identifier
+        /// </summary>
+        /// <param name="id">The identifier</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains a boolean value indicating whether the book recommendation was deleted successfully or not
+        /// </returns>
+        Task<bool> DeleteBookRecommendationByIdAsync(string id);
+
+        #endregion Book Recommendation
     }
 }
