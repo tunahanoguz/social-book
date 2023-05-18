@@ -2,7 +2,7 @@
 using SocialBook.Application.DTOs.Common;
 using SocialBook.Domain.Entities.Books;
 
-namespace SocialBook.Application.Interfaces.Services.Books
+namespace SocialBook.Application.Interfaces.Services
 {
     /// <summary>
     /// Represents service interface for books
