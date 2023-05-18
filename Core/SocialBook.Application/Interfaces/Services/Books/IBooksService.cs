@@ -383,5 +383,49 @@ namespace SocialBook.Application.Interfaces.Services.Books
         Task<bool> DeleteBookReviewLikeAsync(string id);
 
         #endregion Book Review Like
+
+        #region Book Review Dislike
+
+        /// <summary>
+        /// Get all book review dislikes by book identifier
+        /// </summary>
+        /// <param name="bookId">The book identifier</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains all book review dislikes by book identifier
+        /// </returns>
+        Task<PaginatedListDto<BookReviewDislike>> GetAllBookReviewDislikesByBookIdAsync(string bookId);
+
+        /// <summary>
+        /// Get all book review dislikes by user identifier
+        /// </summary>
+        /// <param name="userId">The user identifier</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains all book review dislikes by user identifier
+        /// </returns>
+        Task<PaginatedListDto<BookReviewDislike>> GetAllBookReviewDislikesByUserIdAsync(string userId);
+
+        /// <summary>
+        /// Create a new book review dislike
+        /// </summary>
+        /// <param name="bookReviewLike">The book review dislike entity</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains the created book review dislike
+        /// </returns>
+        Task<BookReviewDislike> CreateBookReviewDislikeAsync(BookReviewDislike bookReviewLike);
+
+        /// <summary>
+        /// Delete a book review dislike
+        /// </summary>
+        /// <param name="id">The book review dislike identifier</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains a boolean value indicating whether the book review dislike was deleted successfully or not
+        /// </returns>
+        Task<bool> DeleteBookReviewDislikeAsync(string id);
+
+        #endregion Book Review Dislike
     }
 }
