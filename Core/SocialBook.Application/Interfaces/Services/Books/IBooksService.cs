@@ -409,12 +409,12 @@ namespace SocialBook.Application.Interfaces.Services.Books
         /// <summary>
         /// Create a new book review dislike
         /// </summary>
-        /// <param name="bookReviewLike">The book review dislike entity</param>
+        /// <param name="bookReviewDislike">The book review dislike entity</param>
         /// <returns>
         /// A task that represents the asynchronous operation
         /// The task result contains the created book review dislike
         /// </returns>
-        Task<BookReviewDislike> CreateBookReviewDislikeAsync(BookReviewDislike bookReviewLike);
+        Task<BookReviewDislike> CreateBookReviewDislikeAsync(BookReviewDislike bookReviewDislike);
 
         /// <summary>
         /// Delete a book review dislike
@@ -448,7 +448,7 @@ namespace SocialBook.Application.Interfaces.Services.Books
         /// A task that represents the asynchronous operation
         /// The task result contains all book recommendations by book identifier
         /// </returns>
-        Task<PaginatedListDto<BookRecommendation>> GetAllBookRecommendationByUserIdAsync(string userId);
+        Task<PaginatedListDto<BookRecommendation>> GetAllBookRecommendationsByUserIdAsync(string userId);
 
         /// <summary>
         /// Create a new book recommendation
@@ -471,5 +471,49 @@ namespace SocialBook.Application.Interfaces.Services.Books
         Task<bool> DeleteBookRecommendationByIdAsync(string id);
 
         #endregion Book Recommendation
+
+        #region Book Subscription
+
+        /// <summary>
+        /// Get all book subscriptions by book identifier
+        /// </summary>
+        /// <param name="bookId">The book identifier</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains all book subscriptions by book identifier
+        /// </returns>
+        Task<PaginatedListDto<BookSubscription>> GetAllBookSubscriptionsByBookIdAsync(string bookId);
+
+        /// <summary>
+        /// Get all book subscriptions by book identifier
+        /// </summary>
+        /// <param name="userId">The user identifier</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains all book subscriptions by book identifier
+        /// </returns>
+        Task<PaginatedListDto<BookSubscription>> GetAllBookSubscriptionsByUserIdAsync(string userId);
+
+        /// <summary>
+        /// Create a new book subscription
+        /// </summary>
+        /// <param name="bookSubscription">The book subscription entity</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains the created book subscription
+        /// </returns>
+        Task<BookSubscription> CreateBookSubscriptionAsync(BookSubscription bookSubscription);
+
+        /// <summary>
+        /// Delete a book subscription by identifier
+        /// </summary>
+        /// <param name="id">The identifier</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains a boolean value indicating whether the book subscription was deleted successfully or not
+        /// </returns>
+        Task<bool> DeleteBookSubscriptionByIdAsync(string id);
+
+        #endregion Book Subscription
     }
 }
