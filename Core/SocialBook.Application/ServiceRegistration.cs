@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.Extensions.DependencyInjection;
+using SocialBook.Application.Interfaces.Services;
 using SocialBook.Application.Interfaces.Services.Authors;
-using SocialBook.Application.Interfaces.Services.Common;
 using SocialBook.Application.Services.Authors;
 using SocialBook.Application.Services.Common;
 using System.Reflection;

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.WebUtilities;
 using SocialBook.Application.Extensions;
 using SocialBook.Application.Filters;
-using SocialBook.Application.Interfaces.Services.Common;
+using SocialBook.Application.Interfaces.Services;
 
 namespace SocialBook.Application.Services.Common
 {

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Caching.Distributed;
 using Newtonsoft.Json;
-using SocialBook.Application.Interfaces.Services.Common;
+using SocialBook.Application.Interfaces.Services;
 
 namespace SocialBook.Infrastructure.Services
 {

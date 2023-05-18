@@ -1,6 +1,6 @@
 ﻿using SocialBook.Application.Filters;
 
-namespace SocialBook.Application.Interfaces.Services.Common
+namespace SocialBook.Application.Interfaces.Services
 {
     /// <summary>
     /// Represents the service that contains methods for generating URLs and calculating record counts for paging structure
