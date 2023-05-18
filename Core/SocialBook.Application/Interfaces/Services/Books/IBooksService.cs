@@ -211,5 +211,88 @@ namespace SocialBook.Application.Interfaces.Services.Books
         Task<bool> DeleteBookImageByIdAsync(string id);
 
         #endregion Book Image
+
+        #region Book Review
+
+        /// <summary>
+        /// Get a single book review with the identifier provided as a parameter
+        /// </summary>
+        /// <param name="id">The identifier</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains a single book review with the identifier provided as a parameter
+        /// </returns>
+        Task<BookReview> GetBookReviewByIdAsync(string id);
+
+        /// <summary>
+        /// Get all book reviews
+        /// </summary>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains all book reviews with the identifier provided as a parameter
+        /// </returns>
+        Task<PaginatedListDto<BookReview>> GetAllBookReviewsAsync();
+
+        /// <summary>
+        /// Get all book reviews of a book
+        /// </summary>
+        /// <param name="bookId">The book identifier</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains all book reviews of a book
+        /// </returns>
+        Task<PaginatedListDto<BookReview>> GetAllBookReviewsByBookIdAsync(string bookId);
+
+        /// <summary>
+        /// Get all book reviews belongs to a user
+        /// </summary>
+        /// <param name="userId">The user identifier</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains all book reviews belongs to a user
+        /// </returns>
+        Task<PaginatedListDto<BookReview>> GetAllBookReviewsByUserIdAsync(string userId);
+
+        /// <summary>
+        /// Get all book reviews by rating
+        /// </summary>
+        /// <param name="rating">The review rating</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains all book reviews by rating
+        /// </returns>
+        Task<PaginatedListDto<BookReview>> GetAllBookReviewsByRatingAsync(int rating);
+
+        /// <summary>
+        /// Create a new book review
+        /// </summary>
+        /// <param name="bookReview">The book review entity</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains the created book review
+        /// </returns>
+        Task<BookReview> CreateBookReviewAsync(BookReview bookReview);
+
+        /// <summary>
+        /// Update a book review
+        /// </summary>
+        /// <param name="bookReview">The book review entity</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains the updated book review
+        /// </returns>
+        Task<BookReview> UpdateBookReviewAsync(BookReview bookReview);
+
+        /// <summary>
+        /// Delete a book review
+        /// </summary>
+        /// <param name="id">The identifier</param>
+        /// <returns>
+        /// A task that represents the asynchronous operation
+        /// The task result contains a boolean value indicating whether the book review was deleted successfully or not
+        /// </returns>
+        Task<bool> DeleteBookReviewByIdAsync(string id);
+
+        #endregion Book Review
     }
 }
