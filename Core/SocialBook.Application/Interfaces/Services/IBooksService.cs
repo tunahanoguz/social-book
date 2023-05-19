@@ -49,7 +49,7 @@ namespace SocialBook.Application.Interfaces.Services
         /// A task that represents the asynchronous operation
         /// The task result contains all books with the language provided as a parameter
         /// </returns>
-        Task<PaginatedListDto<Book>> GetBooksByLanguageAsync(string language);
+        Task<PaginatedListDto<Book>> GetAllBooksByLanguageAsync(string language);
 
         /// <summary>
         /// Get all books with the genre provided as a parameter
@@ -59,7 +59,7 @@ namespace SocialBook.Application.Interfaces.Services
         /// A task that represents the asynchronous operation
         /// The task result contains all books with the genre provided as a parameter
         /// </returns>
-        Task<PaginatedListDto<Book>> GetBooksByGenre(string genre);
+        Task<PaginatedListDto<Book>> GetAllBooksByGenre(string genre);
 
         /// <summary>
         /// Get all books based on whether they are allowed for review or not
@@ -69,7 +69,7 @@ namespace SocialBook.Application.Interfaces.Services
         /// A task that represents the asynchronous operation
         /// The task result contains all books based on whether they are allowed for review or not
         /// </returns>
-        Task<PaginatedListDto<Book>> GetBooksByReviewPermissionStatusAsync(bool isAllowed);
+        Task<PaginatedListDto<Book>> GetAllBooksByReviewPermissionStatusAsync(bool isAllowed);
 
         /// <summary>
         /// Get all books based on whether they are allowed for review or not
@@ -79,7 +79,7 @@ namespace SocialBook.Application.Interfaces.Services
         /// A task that represents the asynchronous operation
         /// The task result contains all books based on whether they are allowed for review or not
         /// </returns>
-        Task<PaginatedListDto<Book>> GetBooksByRecommendationPermissionStatusAsync(bool isAllowed);
+        Task<PaginatedListDto<Book>> GetAllBooksByRecommendationPermissionStatusAsync(bool isAllowed);
 
         /// <summary>
         /// Get all books based on whether they are allowed for subscription or not
@@ -89,7 +89,7 @@ namespace SocialBook.Application.Interfaces.Services
         /// A task that represents the asynchronous operation
         /// The task result contains all books based on whether they are allowed for subscription or not
         /// </returns>
-        Task<PaginatedListDto<Book>> GetBooksBySubscriptionPermissionStatusAsync(bool isAllowed);
+        Task<PaginatedListDto<Book>> GetAllBooksBySubscriptionPermissionStatusAsync(bool isAllowed);
 
         /// <summary>
         /// Get all books with the identifier provided as a parameter
@@ -99,7 +99,7 @@ namespace SocialBook.Application.Interfaces.Services
         /// A task that represents the asynchronous operation
         /// The task result contains all books with the identifier provided as a parameter
         /// </returns>
-        Task<PaginatedListDto<Book>> GetBooksByCreatorUserIdAsync(string creatorUserId);
+        Task<PaginatedListDto<Book>> GetAllBooksByCreatorUserIdAsync(string creatorUserId);
 
         /// <summary>
         /// Create a new book
@@ -143,7 +143,7 @@ namespace SocialBook.Application.Interfaces.Services
         /// A task that represents the asynchronous operation
         /// The task result contains all book genres of a book
         /// </returns>
-        Task<PaginatedListDto<BookGenre>> GetBookGenresByBookIdAsync(string bookId);
+        Task<PaginatedListDto<BookGenre>> GetAllBookGenresByBookIdAsync(string bookId);
 
         /// <summary>
         /// Add a new genre to a book
@@ -187,7 +187,7 @@ namespace SocialBook.Application.Interfaces.Services
         /// A task that represents the asynchronous operation
         /// The task result contains all book images of a book
         /// </returns>
-        Task<PaginatedListDto<BookImage>> GetBookImagesByBookId(string bookId);
+        Task<PaginatedListDto<BookImage>> GetAllBookImagesByBookId(string bookId);
 
         /// <summary>
         /// Upload a new book image
