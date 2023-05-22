@@ -49,7 +49,7 @@ namespace SocialAuthor.Application.Interfaces.Services
         /// A task that represents the asynchronous operation
         /// The task result contains all authors with the language provided as a parameter
         /// </returns>
-        Task<PaginatedListDto<Author>> GetAuthorsByLanguageAsync(string language);
+        Task<PaginatedListDto<Author>> GetAllAuthorsByLanguageAsync(string language);
 
         /// <summary>
         /// Get all authors with the genre provided as a parameter
@@ -59,7 +59,7 @@ namespace SocialAuthor.Application.Interfaces.Services
         /// A task that represents the asynchronous operation
         /// The task result contains all authors with the genre provided as a parameter
         /// </returns>
-        Task<PaginatedListDto<Author>> GetAuthorsByGenre(string genre);
+        Task<PaginatedListDto<Author>> GetAllAuthorsByGenre(string genre);
 
         /// <summary>
         /// Get all authors based on whether they are allowed for review or not
@@ -69,7 +69,7 @@ namespace SocialAuthor.Application.Interfaces.Services
         /// A task that represents the asynchronous operation
         /// The task result contains all authors based on whether they are allowed for review or not
         /// </returns>
-        Task<PaginatedListDto<Author>> GetAuthorsByReviewPermissionStatusAsync(bool isAllowed);
+        Task<PaginatedListDto<Author>> GetAllAuthorsByReviewPermissionStatusAsync(bool isAllowed);
 
         /// <summary>
         /// Get all authors based on whether they are allowed for review or not
@@ -79,7 +79,7 @@ namespace SocialAuthor.Application.Interfaces.Services
         /// A task that represents the asynchronous operation
         /// The task result contains all authors based on whether they are allowed for review or not
         /// </returns>
-        Task<PaginatedListDto<Author>> GetAuthorsByRecommendationPermissionStatusAsync(bool isAllowed);
+        Task<PaginatedListDto<Author>> GetAllAuthorsByRecommendationPermissionStatusAsync(bool isAllowed);
 
         /// <summary>
         /// Get all authors based on whether they are allowed for subscription or not
@@ -89,7 +89,7 @@ namespace SocialAuthor.Application.Interfaces.Services
         /// A task that represents the asynchronous operation
         /// The task result contains all authors based on whether they are allowed for subscription or not
         /// </returns>
-        Task<PaginatedListDto<Author>> GetAuthorsBySubscriptionPermissionStatusAsync(bool isAllowed);
+        Task<PaginatedListDto<Author>> GetAllAuthorsBySubscriptionPermissionStatusAsync(bool isAllowed);
 
         /// <summary>
         /// Get all authors with the identifier provided as a parameter
@@ -99,7 +99,7 @@ namespace SocialAuthor.Application.Interfaces.Services
         /// A task that represents the asynchronous operation
         /// The task result contains all authors with the identifier provided as a parameter
         /// </returns>
-        Task<PaginatedListDto<Author>> GetAuthorsByCreatorUserIdAsync(string creatorUserId);
+        Task<PaginatedListDto<Author>> GetAllAuthorsByCreatorUserIdAsync(string creatorUserId);
 
         /// <summary>
         /// Create a new author
@@ -143,7 +143,7 @@ namespace SocialAuthor.Application.Interfaces.Services
         /// A task that represents the asynchronous operation
         /// The task result contains all author genres of a author
         /// </returns>
-        Task<PaginatedListDto<AuthorGenre>> GetAuthorGenresByAuthorIdAsync(string authorId);
+        Task<PaginatedListDto<AuthorGenre>> GetAllAuthorGenresByAuthorIdAsync(string authorId);
 
         /// <summary>
         /// Add a new genre to a author
@@ -187,7 +187,7 @@ namespace SocialAuthor.Application.Interfaces.Services
         /// A task that represents the asynchronous operation
         /// The task result contains all author images of a author
         /// </returns>
-        Task<PaginatedListDto<AuthorImage>> GetAuthorImagesByAuthorId(string authorId);
+        Task<PaginatedListDto<AuthorImage>> GetAllAuthorImagesByAuthorId(string authorId);
 
         /// <summary>
         /// Upload a new author image
@@ -315,7 +315,7 @@ namespace SocialAuthor.Application.Interfaces.Services
         /// A task that represents the asynchronous operation
         /// The task result contains all author review images of a author
         /// </returns>
-        Task<PaginatedListDto<AuthorImage>> GetAuthorReviewImagesByAuthorReviewId(string authorId);
+        Task<PaginatedListDto<AuthorImage>> GetAllAuthorReviewImagesByAuthorReviewId(string authorId);
 
         /// <summary>
         /// Upload a new author review image
