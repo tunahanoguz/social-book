@@ -1,5 +1,5 @@
 ﻿using Nest;
-using SocialBook.Application.Interfaces.Services.Common;
+using SocialBook.Application.Interfaces.Services;
 
 namespace SocialBook.Infrastructure.Services
 {

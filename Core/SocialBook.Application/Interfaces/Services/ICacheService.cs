@@ -1,4 +1,4 @@
-﻿namespace SocialBook.Application.Interfaces.Services.Common
+﻿namespace SocialBook.Application.Interfaces.Services
 {
     /// <summary>
     /// The interface for cache service
